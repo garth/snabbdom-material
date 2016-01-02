@@ -1,6 +1,6 @@
 import controller from '../controller';
-import { setScreen } from '../actions/screen';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('screenChanged', [
-  setScreen
+  inputToState(['screen'], ['screen'])
 ]);

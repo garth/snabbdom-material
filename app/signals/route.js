@@ -1,5 +1,5 @@
 import controller from '../controller';
-import { setRoute } from '../actions/route';
+import setRoute from '../actions/setRoute';
 
 controller.signal('introductionPageOpened', [
   setRoute('introduction', 'Introduction')

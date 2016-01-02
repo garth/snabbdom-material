@@ -1,6 +1,6 @@
 import controller from '../controller';
 import set from 'cerebral-addons/set';
-import { setLocale } from '../actions/locale';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('localeMenuOpened', [
   set('showLocaleMenu', true)
@@ -11,5 +11,5 @@ controller.signal('localeMenuClosed', [
 ]);
 
 controller.signal('localeSelected', [
-  setLocale
+  inputToState(['locale'], ['locale'])
 ]);
