@@ -128,7 +128,7 @@ export default function Calendar({
         <path d="M0 0h24v24H0z" fill="none"/>
       </svg>
     </div>
-  )] : null;
+  )] : [];
 
   const padding = date.weekday() ? (
     <div
@@ -138,7 +138,7 @@ export default function Calendar({
         height: '9px'
       }}
     />
-  ) : null;
+  ) : <span/>;
 
   return (
     <div

@@ -3,7 +3,7 @@ import defaultSettings from './defaultSettings';
 
 export default function Typography({
   className,
-  children,
+  children = '',
   display3,
   display2,
   display1,

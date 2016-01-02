@@ -4,7 +4,7 @@ import Waves from './helpers/waves';
 
 export default function Checkbox({
   className,
-  label,
+  label = '',
   onChange,
   readOnly,
   style = {},

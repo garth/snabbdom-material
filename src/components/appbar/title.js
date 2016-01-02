@@ -1,7 +1,7 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Calendar({
-  children,
+  children = '',
   className,
   style = {}
 }) {

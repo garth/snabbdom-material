@@ -5,7 +5,7 @@ import Title from './title';
 import Separator from '../menu/separator';
 
 const Sidenav = function Sidenav({
-  children,
+  children = '',
   className,
   isOpen,
   mini,

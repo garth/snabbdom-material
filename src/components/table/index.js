@@ -1,11 +1,10 @@
 import { html } from 'snabbdom-jsx';
-
 import Toolbar from './toolbar';
 import Row from './row';
 
 const Table = function Table({
-  children = null,
-  className = '',
+  children = '',
+  className,
   style = {}
 }) {
 

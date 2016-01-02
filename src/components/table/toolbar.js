@@ -1,8 +1,8 @@
 import { html } from 'snabbdom-jsx';
 
 export default function TableToolbar({
-  children = null,
-  className = '',
+  children = '',
+  className,
   colSpan = 1,
   style = {}
 }) {

@@ -2,7 +2,7 @@ import { html } from 'snabbdom-jsx';
 import Waves from '../helpers/waves';
 
 export default function Appbar({
-  children,
+  children = '',
   className,
   lightWaves,
   onClick,

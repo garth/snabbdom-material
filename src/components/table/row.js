@@ -1,9 +1,9 @@
 import { html } from 'snabbdom-jsx';
 
 export default function TableRow({
-  children = null,
-  className = '',
-  onClick = null,
+  children = '',
+  className,
+  onClick,
   style = {}
 }) {
 

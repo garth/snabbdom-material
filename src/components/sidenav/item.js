@@ -3,7 +3,7 @@ import MenuItem from '../menu/item';
 import defaultSettings from '../defaultSettings';
 
 export default function SidenavItem({
-  children,
+  children = '',
   className,
   icon,
   onClick,

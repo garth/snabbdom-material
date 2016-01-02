@@ -3,7 +3,7 @@ import Button from '../appbar/button';
 import defaultSettings from '../defaultSettings';
 
 export default function SidenavTitle({
-  children,
+  children = '',
   className,
   closeMenuHandler,
   showCloseButton,
@@ -47,7 +47,7 @@ export default function SidenavTitle({
             <path d="M0 0h24v24H0z" fill="none"/>
           </svg>
         </Button>
-      ) : null}
+      ) : <span/>}
       {children}
     </div>
   );

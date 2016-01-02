@@ -44,7 +44,7 @@ function componentWillUnmount(vnode) {
 }
 
 const Menu = function Menu({
-  children,
+  children = '',
   className,
   isOpen,
   onClose,

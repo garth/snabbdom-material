@@ -3,7 +3,7 @@ import Waves from './helpers/waves';
 import defaultSettings from './defaultSettings';
 
 export default function Button({
-  children,
+  children = '',
   className,
   flat,
   onClick,

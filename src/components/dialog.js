@@ -22,7 +22,7 @@ function button(label, onClick) {
 
 export default function Dialog({
   cancelLabel,
-  children,
+  children = '',
   className,
   height = 130,
   hideDivider,
@@ -72,6 +72,8 @@ export default function Dialog({
       </div>
     );
     maxContentHeight -= 56;
+  } else {
+    footer = <span/>;
   }
 
   let titleElement = null;
@@ -84,6 +86,8 @@ export default function Dialog({
       }}>{title}</div>
     );
     maxContentHeight -= 49;
+  } else {
+    titleElement = <span/>;
   }
 
   return (

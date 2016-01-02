@@ -1,7 +1,7 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Row({
-  children,
+  children = '',
   className,
   style = {}
 }) {

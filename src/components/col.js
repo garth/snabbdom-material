@@ -1,7 +1,7 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Col({
-  children,
+  children = '',
   className,
   style = {},
   type = ''

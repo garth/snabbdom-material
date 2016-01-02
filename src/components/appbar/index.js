@@ -4,7 +4,7 @@ import Title from './title';
 import defaultSettings from '../defaultSettings';
 
 const Appbar = function Appbar({
-  children,
+  children = '',
   className,
   fixed,
   style = {},
