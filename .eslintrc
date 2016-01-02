@@ -1,6 +1,7 @@
 {
   "parser": "babel-eslint", // https://github.com/babel/babel-eslint
   "env": {
+    "browser": true,
     "node": true
   },
   "globals": {},
@@ -35,7 +36,7 @@
     "no-unused-vars": [2, {          // http://eslint.org/docs/rules/no-unused-vars
       "vars": "local",
       "args": "after-used",
-      "varsIgnorePattern": "Component"
+      "varsIgnorePattern": "(Component|html)"
     }],
     "no-use-before-define": 2,       // http://eslint.org/docs/rules/no-use-before-define
 

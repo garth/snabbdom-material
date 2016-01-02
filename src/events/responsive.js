@@ -1,5 +1,5 @@
 let screenInfo;
-let subscribers = {};
+const subscribers = {};
 
 function resize() {
   const width = window.innerWidth || document.body.clientWidth || 1024;
@@ -49,4 +49,4 @@ export default {
   removeListener(eventHandler) {
     delete subscribers[eventHandler];
   }
-}
+};

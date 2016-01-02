@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "babel-node app/server",
-    "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "start": "parallelshell 'watch \"eslint --cache .\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
+    "dev": "parallelshell 'watch \"eslint --cache .\" src test' 'babel --watch src --out-dir lib'",
+    "build": "babel src --out-dir lib",
     "lint": "eslint ."
   },
   "repository": {
@@ -74,6 +75,7 @@
     "postcss-loader": "^0.8.0",
     "rimraf": "^2.4.4",
     "snabbdom": "^0.2.8",
+    "snabbdom-jsx": "^0.3.0",
     "stats-webpack-plugin": "^0.2.1",
     "style-loader": "^0.13.0",
     "watch": "^0.17.1",
