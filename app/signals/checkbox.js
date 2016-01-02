@@ -1,6 +1,6 @@
 import controller from '../controller';
-import { setInputValue } from '../actions/basic';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('checkboxChanged', [
-  setInputValue(['demos', 'checkbox', 'checked'])
+  inputToState(['value'], ['demos', 'checkbox', 'checked'])
 ]);

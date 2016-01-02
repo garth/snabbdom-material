@@ -1,6 +1,6 @@
 import controller from '../controller';
-import { setInputValue } from '../actions/basic';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('isLoadingChanged', [
-  setInputValue(['demos', 'spinner', 'isLoading'])
+  inputToState(['value'], ['demos', 'spinner', 'isLoading'])
 ]);

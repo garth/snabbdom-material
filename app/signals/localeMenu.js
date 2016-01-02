@@ -1,5 +1,5 @@
 import controller from '../controller';
-import { set } from '../actions/basic';
+import set from 'cerebral-addons/set';
 import { setLocale } from '../actions/locale';
 
 controller.signal('localeMenuOpened', [

@@ -1,10 +1,10 @@
 import controller from '../controller';
-import { setInputValue } from '../actions/basic';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('emailChanged', [
-  setInputValue(['demos', 'input', 'email'])
+  inputToState(['value'], ['demos', 'input', 'email'])
 ]);
 
 controller.signal('passwordChanged', [
-  setInputValue(['demos', 'input', 'password'])
+  inputToState(['value'], ['demos', 'input', 'password'])
 ]);

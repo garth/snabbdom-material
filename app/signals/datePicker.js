@@ -1,21 +1,22 @@
 import controller from '../controller';
-import { set, setInputValue } from '../actions/basic';
+import set from 'cerebral-addons/set';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('datePickerOpened', [
-  setInputValue(['demos', 'datePicker', 'pickingDate']),
+  inputToState(['value'], ['demos', 'datePicker', 'pickingDate']),
   set(['demos', 'datePicker', 'showDatePicker'], true)
 ]);
 
 controller.signal('datePickerChanged', [
-  setInputValue(['demos', 'datePicker', 'pickingDate'])
+  inputToState(['value'], ['demos', 'datePicker', 'pickingDate'])
 ]);
 
 controller.signal('datePickerNavigate', [
-  setInputValue(['demos', 'datePicker', 'pickedCalendar'])
+  inputToState(['value'], ['demos', 'datePicker', 'pickedCalendar'])
 ]);
 
 controller.signal('datePickerSelected', [
-  setInputValue(['demos', 'datePicker', 'pickedDate']),
+  inputToState(['value'], ['demos', 'datePicker', 'pickedDate']),
   set(['demos', 'datePicker', 'showDatePicker'], false)
 ]);
 

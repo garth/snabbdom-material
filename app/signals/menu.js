@@ -1,5 +1,6 @@
 import controller from '../controller';
-import { set, setInputValue } from '../actions/basic';
+import set from 'cerebral-addons/set';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('menuOpened', [
   set(['demos', 'menu', 'showMenu'], true)
@@ -18,5 +19,5 @@ controller.signal('simpleMenuClosed', [
 ]);
 
 controller.signal('selectMenuOption', [
-  setInputValue(['demos', 'menu', 'selectedOption'])
+  inputToState(['value'], ['demos', 'menu', 'selectedOption'])
 ]);

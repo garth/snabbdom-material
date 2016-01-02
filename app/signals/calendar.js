@@ -1,10 +1,10 @@
 import controller from '../controller';
-import { setInputValue } from '../actions/basic';
+import inputToState from 'cerebral-addons/inputToState';
 
 controller.signal('calendarChanged', [
-  setInputValue(['demos', 'calendar', 'selectedDate'])
+  inputToState(['value'], ['demos', 'calendar', 'selectedDate'])
 ]);
 
 controller.signal('calendarNavigate', [
-  setInputValue(['demos', 'calendar', 'calendar'])
+  inputToState(['value'], ['demos', 'calendar', 'calendar'])
 ]);

@@ -1,5 +1,5 @@
 import controller from '../controller';
-import { set } from '../actions/basic';
+import set from 'cerebral-addons/set';
 
 controller.signal('dialogOpened', [
   set(['demos', 'dialog', 'showDialog'], true)
