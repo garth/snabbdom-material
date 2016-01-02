@@ -1,17 +1,20 @@
-import React from 'react';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 
-export default function TableRow({
+export default function TableRow({ props: {
   children = null,
   className = '',
-  onTouchTap = null,
+  onClick = null,
   style = {}
-}) {
+}}) {
+
   return (
     <tr
-      className={classNames(className, { clickable: onTouchTap })}
+      class={{
+        [className]: className,
+        clickable: onClick
+      }}
       style={style}
-      onTouchTap={onTouchTap}>
+      on-click={onClick}>
       {children}
     </tr>
   );

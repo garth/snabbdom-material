@@ -1,17 +1,19 @@
-import React from 'react';
+import { html } from 'snabbdom-jsx';
 
-export default function Form({
+export default function Form({ props: {
   children,
-  className = '',
-  onSubmit = null,
+  className,
+  onSubmit,
   style = {}
-}) {
+}}) {
 
   return (
     <form
       style={style}
-      className={className}
-      onSubmit={e => {
+      class={{
+        [className]: className
+      }}
+      on-submit={e => {
         e.preventDefault();
         if (typeof onSubmit === 'function') {
           onSubmit(e);

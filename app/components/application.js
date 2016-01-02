@@ -95,26 +95,26 @@ export default class Application extends Component {
                 showIcon
                 icon={<Icon name={menu.icon}/>}
                 selected={menu.page === currentPage}
-                onTouchTap={() => menu.signal()}>{menu.title}</Sidenav.Item>
+                onClick={() => menu.signal()}>{menu.title}</Sidenav.Item>
             );
           })}
         </Sidenav>
         <Appbar fixed>
-          <Appbar.Button style={{ float: 'left' }} onTouchTap={() => signals.sidenavOpened()}>
+          <Appbar.Button style={{ float: 'left' }} onClick={() => signals.sidenavOpened()}>
             <Icon name="menu"/>
           </Appbar.Button>
           <Appbar.Title>{title}</Appbar.Title>
           <div style={{ float: 'right' }}>
             <Appbar.Button
-              onTouchTap={() => location.href='https://github.com/garth/material-components'}>
+              onClick={() => location.href='https://github.com/garth/material-components'}>
               <Icon name="github"/>
             </Appbar.Button>
-            <Appbar.Button onTouchTap={() => signals.localeMenuOpened()}>
+            <Appbar.Button onClick={() => signals.localeMenuOpened()}>
               <Icon name="globe"/>
             </Appbar.Button>
             <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()}>
-              <Menu.Item showIcon onTouchTap={() => signals.localeSelected({ locale: 'de' })} selected={locale === 'de'}>Deutsch</Menu.Item>
-              <Menu.Item showIcon onTouchTap={() => signals.localeSelected({ locale: 'en' })} selected={locale === 'en'}>English</Menu.Item>
+              <Menu.Item showIcon onClick={() => signals.localeSelected({ locale: 'de' })} selected={locale === 'de'}>Deutsch</Menu.Item>
+              <Menu.Item showIcon onClick={() => signals.localeSelected({ locale: 'en' })} selected={locale === 'en'}>English</Menu.Item>
             </Menu>
           </div>
         </Appbar>

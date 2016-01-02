@@ -1,20 +1,23 @@
-import React from 'react';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
+
 import Toolbar from './toolbar';
 import Row from './row';
 
-let Table = function Table({
+const Table = function Table({ props: {
   children = null,
   className = '',
   style = {}
-}) {
+}}) {
 
   return (
     <table
       style={Object.assign({
         width: '100%'
       }, style)}
-      className={classNames('m-c', className)}>
+      class={{
+        'm-c': true,
+        [className]: className
+      }}>
       {children}
     </table>
   );

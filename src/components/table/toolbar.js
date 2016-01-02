@@ -1,15 +1,17 @@
-import React from 'react';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 
-export default function TableToolbar({
+export default function TableToolbar({ props: {
   children = null,
   className = '',
   colSpan = 1,
   style = {}
-}) {
+}}) {
 
   return (
-    <tr className={classNames('toolbar', classNames)}>
+    <tr class={{
+      'toolbar': true,
+      [className]: className
+    }}>
       <th
         colSpan={colSpan}
         style={Object.assign({

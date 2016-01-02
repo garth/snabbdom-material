@@ -21,7 +21,7 @@ export default {
 
   check() {
     if (this.currentTest.state === 'failed' || expected === null || expected === actual) { return; }
-    let err = new Error(`expected ${expected} assertions, got ${actual}`);
+    const err = new Error(`expected ${expected} assertions, got ${actual}`);
     this.currentTest.emit('error', err);
   }
-}
+};

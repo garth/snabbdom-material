@@ -1,15 +1,17 @@
-import React from 'react';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 
-export default function Row({
+export default function Row({ props: {
   children,
-  className = '',
+  className,
   style = {}
-}) {
+}}) {
 
   return (
     <div
-      className={classNames('row', className)}
+      class={{
+        row: true,
+        [className]: className
+      }}
       style={style}>
       {children}
     </div>

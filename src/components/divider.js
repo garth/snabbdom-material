@@ -1,14 +1,16 @@
-import React from 'react';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 
-export default function Divider({
-  className = '',
+export default function Form({ props: {
+  className,
   style = {}
-}) {
+}}) {
 
   return (
     <hr
-      className={classNames('paper-divider', className)}
+      class={{
+        'paper-divider': true,
+        [className]: className
+      }}
       style={Object.assign({
         border: 0,
         height: '1px',

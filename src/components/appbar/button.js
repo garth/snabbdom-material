@@ -1,67 +1,44 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 import Waves from '../helpers/waves';
 
-class Button extends Component {
+export default function Appbar({ props: {
+  children,
+  className,
+  lightWaves,
+  onClick,
+  style = {}
+}}) {
 
-  static displayName = 'AppbarButton';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    lightWaves: PropTypes.bool,
-    onTouchTap: PropTypes.func,
-    style: PropTypes.object
-  };
-
-  static defaultProps = {
-    className: '',
-    lightWaves: false,
-    style: {}
-  };
-
-  componentDidMount() {
-    Waves.attach(ReactDOM.findDOMNode(this.refs.button));
-  }
-
-  render() {
-    const {
-      children,
-      className,
-      lightWaves,
-      onTouchTap,
-      style
-    } = this.props;
-
-    return (
-      <div
-        className={className}
-        style={Object.assign({
+  return (
+    <div
+      class={{
+        [className]: className
+      }}
+      style={Object.assign({
+        height: '48px',
+        width: '48px',
+        display: 'inline-block',
+        margin: '-8px 0',
+        backgroundColor: 'transparent'
+      }, style)}>
+      <a
+        hook-insert={vnode => Waves.attach(vnode.elm)}
+        on-click={onClick}
+        style={{
+          fontSize: '24px',
           height: '48px',
           width: '48px',
+          lineHeight: '48px',
           display: 'inline-block',
-          margin: '-8px 0',
-          backgroundColor: 'transparent'
-        }, style)}>
-        <a
-          ref='button'
-          onTouchTap={onTouchTap}
-          style={{
-            fontSize: '24px',
-            height: '48px',
-            width: '48px',
-            lineHeight: '48px',
-            display: 'inline-block',
-            margin: '0',
-            cursor: 'pointer'
-          }}
-          className={classNames('waves-circle', { 'waves-light': lightWaves })}>
-          {children}
-        </a>
-      </div>
-    );
-  }
+          margin: '0',
+          cursor: 'pointer'
+        }}
+        class={{
+          'waves-circle': true,
+          'waves-light': lightWaves
+        }}>
+        {children}
+      </a>
+    </div>
+  );
 }
-
-export default Button;

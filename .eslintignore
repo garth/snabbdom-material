@@ -1,6 +1,5 @@
+app/vendor
 dist
+lib
 node_modules
 webpack.*.js
-*Server.js
-vendor
-app/vendor

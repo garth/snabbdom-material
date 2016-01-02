@@ -14,16 +14,16 @@ import { Button } from 'material-components';
         `}/>
         <Example code={`
 // enabled buttons
-<Button onTouchTap={onClick}>Normal</Button>
-<Button onTouchTap={onClick} primary>Primary</Button>
-<Button onTouchTap={onClick} flat>Flat</Button>
-<Button onTouchTap={onClick} primary flat>Primary Flat</Button>
+<Button onClick={onClick}>Normal</Button>
+<Button onClick={onClick} primary>Primary</Button>
+<Button onClick={onClick} flat>Flat</Button>
+<Button onClick={onClick} primary flat>Primary Flat</Button>
         `}/>
         <p>
-          <Button onTouchTap={e => {}}>Normal</Button>
-          <Button onTouchTap={e => {}} primary>Primary</Button>
-          <Button onTouchTap={e => {}} flat>Flat</Button>
-          <Button onTouchTap={e => {}} primary flat>Primary Flat</Button>
+          <Button onClick={e => {}}>Normal</Button>
+          <Button onClick={e => {}} primary>Primary</Button>
+          <Button onClick={e => {}} flat>Flat</Button>
+          <Button onClick={e => {}} primary flat>Primary Flat</Button>
         </p>
         <Example code={`
 // disabled buttons

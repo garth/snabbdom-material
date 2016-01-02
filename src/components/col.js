@@ -1,16 +1,22 @@
-import React from 'react';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 
-export default function Col({
+export default function Col({ props: {
   children,
-  className = '',
+  className,
   style = {},
   type = ''
-}) {
+}}) {
+
+  const colClasses = type.split(' ').reduce((classes, col) => {
+    classes[`col-${col}`] = true;
+    return classes;
+  }, {});
 
   return (
     <div
-      className={classNames(className, ...type.split(' ').map(col => `col-${col}`))}
+      class={Object.assign({
+        [className]: className
+      }, colClasses)}
       style={style}>
       {children}
     </div>

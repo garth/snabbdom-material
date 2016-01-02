@@ -1,14 +1,16 @@
-import React from 'react';
+import { html } from 'snabbdom-jsx';
 
-export default function AppbarTitle({
-  children = null,
-  className = '',
+export default function Calendar({ props: {
+  children,
+  className,
   style = {}
-}) {
+}}) {
 
   return (
     <div
-      className={className}
+      class={{
+        [className]: className
+      }}
       style={Object.assign({
         fontSize: '31.5px',
         fontWeight: 'normal',

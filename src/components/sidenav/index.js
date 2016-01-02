@@ -1,95 +1,62 @@
-import React, { Component, PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx';
 import Mask from '../mask';
 import Item from './item';
 import Title from './title';
 import Separator from '../menu/separator';
 
-class Sidenav extends Component {
+const Sidenav = function Sidenav({ props: {
+  children,
+  className,
+  isOpen,
+  mini,
+  onClose,
+  style = {}
+}}) {
 
-  static displayName = 'Sidenav';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    isOpen: PropTypes.bool,
-    mini: PropTypes.bool,
-    onClose: PropTypes.func,
-    style: PropTypes.object
-  };
-
-  static defaultProps = {
-    className: '',
-    isOpen: false,
-    style: {}
-  };
-
-  static childContextTypes = {
-    closeMenuHandler: PropTypes.func
-  };
-
-  getChildContext() {
-    return {
-      closeMenuHandler: () => this.onClose()
-    };
-  }
-
-  onClose() {
-    if (typeof this.props.onClose === 'function') {
-      this.props.onClose();
-    }
-  }
-
-  render() {
-    const {
-      children,
-      className,
-      isOpen,
-      mini,
-      style
-    } = this.props;
-
-    return mini ? (
+  return mini ? (
+    <div
+      class={{
+        paper: true,
+        [className]: className
+      }}
+      style={Object.assign({
+        position: 'absolute',
+        top: '64px',
+        left: 0,
+        bottom: 0,
+        width: '62px',
+        marginLeft: '-2px',
+        overflow: 'hidden'
+      }, style)}>
+      {children}
+    </div>
+  ) : (
+    <div>
+      <Mask on-click={onClose} isOpen={isOpen}/>
       <div
-        className={classNames('paper', className)}
+        class={{
+          sidenav: true,
+          paper2: true,
+          [className]: className
+        }}
         style={Object.assign({
-          position: 'absolute',
-          top: '64px',
-          left: 0,
+          position: 'fixed',
+          top: 0,
           bottom: 0,
-          width: '62px',
-          marginLeft: '-2px',
-          overflow: 'hidden'
+          overflow: 'auto',
+          width: '280px',
+          zIndex: 1001,
+          left: isOpen ? '-280px' : '0',
+          transition: 'left .3s ease-out',
+          delayed: {
+            left: isOpen ? '0' : '-280px'
+          }
         }, style)}>
         {children}
       </div>
-    ) : (
-      <ReactCSSTransitionGroup
-        transitionEnterTimeout={400}
-        transitionLeaveTimeout={400}
-        transitionName="sidenav">
-        {isOpen ? (
-          <div key="sidenav">
-            <Mask onTouchTap={() => this.onClose()}/>
-            <div
-              className={classNames('sidenav', 'paper2', className)}
-              style={Object.assign({
-                position: 'fixed',
-                top: 0,
-                bottom: 0,
-                overflow: 'auto',
-                width: '280px',
-                zIndex: 1001
-              }, style)}>
-              {children}
-            </div>
-          </div>
-        ) : null}
-      </ReactCSSTransitionGroup>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Sidenav.Item = Item;
 Sidenav.Separator = Separator;

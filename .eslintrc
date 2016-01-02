@@ -57,6 +57,7 @@
     "no-func-assign": 2,             // http://eslint.org/docs/rules/no-func-assign
     "no-inner-declarations": 2,      // http://eslint.org/docs/rules/no-inner-declarations
     "no-invalid-regexp": 2,          // http://eslint.org/docs/rules/no-invalid-regexp
+    "no-invalid-this": 2,            // http://eslint.org/docs/rules/no-invalid-this
     "no-irregular-whitespace": 2,    // http://eslint.org/docs/rules/no-irregular-whitespace
     "no-obj-calls": 2,               // http://eslint.org/docs/rules/no-obj-calls
     "no-sparse-arrays": 2,           // http://eslint.org/docs/rules/no-sparse-arrays
@@ -85,7 +86,7 @@
     "no-floating-decimal": 2,        // http://eslint.org/docs/rules/no-floating-decimal
     "no-implied-eval": 2,            // http://eslint.org/docs/rules/no-implied-eval
     "no-lone-blocks": 2,             // http://eslint.org/docs/rules/no-lone-blocks
-    "no-loop-func": 2,               // http://eslint.org/docs/rules/no-loop-func
+    "no-loop-func": 0,               // http://eslint.org/docs/rules/no-loop-func
     "no-multi-str": 2,               // http://eslint.org/docs/rules/no-multi-str
     "no-native-reassign": 2,         // http://eslint.org/docs/rules/no-native-reassign
     "no-new": 2,                     // http://eslint.org/docs/rules/no-new
@@ -140,7 +141,7 @@
     "no-multiple-empty-lines": [2, { // http://eslint.org/docs/rules/no-multiple-empty-lines
       "max": 2
     }],
-    "no-nested-ternary": 2,          // http://eslint.org/docs/rules/no-nested-ternary
+    "no-nested-ternary": 0,          // http://eslint.org/docs/rules/no-nested-ternary
     "no-new-object": 2,              // http://eslint.org/docs/rules/no-new-object
     "no-spaced-func": 2,             // http://eslint.org/docs/rules/no-spaced-func
     "no-trailing-spaces": 2,         // http://eslint.org/docs/rules/no-trailing-spaces
@@ -178,7 +179,7 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0,
     "react/self-closing-comp": 2,
-    "react/sort-comp": 2,
+    "react/sort-comp": 0,
     "react/wrap-multilines": 2
   },
   "plugins": [
