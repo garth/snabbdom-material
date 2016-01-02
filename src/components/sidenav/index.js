@@ -4,14 +4,14 @@ import Item from './item';
 import Title from './title';
 import Separator from '../menu/separator';
 
-const Sidenav = function Sidenav({ props: {
+const Sidenav = function Sidenav({
   children,
   className,
   isOpen,
   mini,
   onClose,
   style = {}
-}}) {
+}) {
 
   return mini ? (
     <div

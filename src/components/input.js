@@ -1,6 +1,7 @@
 import { html } from 'snabbdom-jsx';
+import defaultSettings from './defaultSettings';
 
-export default function Input({ props: {
+export default function Input({
   className,
   inputStyle = {},
   isError,
@@ -13,12 +14,13 @@ export default function Input({ props: {
   readOnly,
   style = {},
   type = 'text',
-  value = ''
-}, materialSettings: {
-  secondaryColor,
-  errorColor,
-  successColor
-}}) {
+  value = '',
+  materialSettings: {
+    secondaryColor,
+    errorColor,
+    successColor
+  } = defaultSettings
+}) {
 
   let labelElement;
 

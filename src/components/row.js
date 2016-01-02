@@ -1,10 +1,10 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Row({ props: {
+export default function Row({
   children,
   className,
   style = {}
-}}) {
+}) {
 
   return (
     <div

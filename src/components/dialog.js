@@ -20,7 +20,7 @@ function button(label, onClick) {
   );
 }
 
-export default function Dialog({ props: {
+export default function Dialog({
   cancelLabel,
   children,
   className,
@@ -34,7 +34,7 @@ export default function Dialog({ props: {
   style = {},
   title,
   width = 280
-}}) {
+}) {
 
   // componentDidMount() {
   //   if (!this.props.ignoreResizeEvents) {

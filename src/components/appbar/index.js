@@ -1,16 +1,18 @@
 import { html } from 'snabbdom-jsx';
 import Button from './button';
 import Title from './title';
+import defaultSettings from '../defaultSettings';
 
-const Appbar = function Appbar({ props: {
+const Appbar = function Appbar({
   children,
   className,
   fixed,
-  style = {}
-}, materialSettings: {
-  primaryColor,
-  primaryFontColor
-}}) {
+  style = {},
+  materialSettings: {
+    primaryColor,
+    primaryFontColor
+  } = defaultSettings
+}) {
 
   return (
     <div style={{ height: '64px' }}>

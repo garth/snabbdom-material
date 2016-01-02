@@ -2,7 +2,7 @@ import { html } from 'snabbdom-jsx';
 import Input from './input';
 import Menu from './menu';
 
-export default function Spinner({ props: {
+export default function Spinner({
   className,
   isError,
   isOpen,
@@ -17,7 +17,7 @@ export default function Spinner({ props: {
   selected,
   style = {},
   value
-}}) {
+}) {
 
   let selectedIndex = 0;
   let displayValue = '';

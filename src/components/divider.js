@@ -1,9 +1,9 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Form({ props: {
+export default function Form({
   className,
   style = {}
-}}) {
+}) {
 
   return (
     <hr

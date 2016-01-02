@@ -1,10 +1,11 @@
 import { html } from 'snabbdom-jsx';
+import defaultSettings from './defaultSettings';
 import moment from 'moment';
 import Dialog from './dialog';
 import Calendar from './calendar';
 import screen from './helpers/screen';
 
-export default function DatePicker({ props: {
+export default function DatePicker({
   className,
   isOpen,
   locale = 'en',
@@ -16,11 +17,12 @@ export default function DatePicker({ props: {
   pickingValue,
   style = {},
   validDays,
-  year = (new Date()).getFullYear()
-}, materialSettings: {
-  secondaryColor,
-  secondaryFontColor
-}}) {
+  year = (new Date()).getFullYear(),
+  materialSettings: {
+    secondaryColor,
+    secondaryFontColor
+  } = defaultSettings
+}) {
 
   // componentDidMount() {
   //   window.addEventListener('resize', this._resize = () => this.forceUpdate());

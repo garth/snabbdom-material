@@ -43,14 +43,14 @@ function componentWillUnmount(vnode) {
   window.removeEventListener('resize', vnode._resize);
 }
 
-const Menu = function Menu({ props: {
+const Menu = function Menu({
   children,
   className,
   isOpen,
   onClose,
   rightAlign,
   style = {}
-}}) {
+}) {
 
   const menuStyle = {
     zIndex: 1001,

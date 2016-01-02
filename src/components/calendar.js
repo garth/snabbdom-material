@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import defaultSettings from './defaultSettings';
 import Waves from './helpers/waves';
 import moment from 'moment';
 
@@ -8,7 +9,7 @@ function getMoment(date, locale) {
   return value;
 }
 
-export default function Calendar({ props: {
+export default function Calendar({
   className,
   locale = 'en',
   month = (new Date()).getMonth(),
@@ -18,12 +19,13 @@ export default function Calendar({ props: {
   style = {},
   titleFormat = 'MMMM YYYY',
   validDays,
-  year = (new Date()).getFullYear()
-}, materialSettings: {
-  secondaryColor,
-  secondaryFontColor,
-  typographyColor
-}}) {
+  year = (new Date()).getFullYear(),
+  materialSettings: {
+    secondaryColor,
+    secondaryFontColor,
+    typographyColor
+  } = defaultSettings
+}) {
 
   const _onChange = function (day, validDay) {
     if (onChange && validDay) {

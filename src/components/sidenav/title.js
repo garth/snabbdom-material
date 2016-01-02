@@ -1,15 +1,17 @@
 import { html } from 'snabbdom-jsx';
 import Button from '../appbar/button';
+import defaultSettings from '../defaultSettings';
 
-export default function SidenavTitle({ props: {
+export default function SidenavTitle({
   children,
   className,
   closeMenuHandler,
   showCloseButton,
-  style = {}
-}, materialSettings: {
-  typographyColor
-}}) {
+  style = {},
+  materialSettings: {
+    typographyColor
+  } = defaultSettings
+}) {
 
   return (
     <div

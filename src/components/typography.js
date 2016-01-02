@@ -1,6 +1,7 @@
 import { html } from 'snabbdom-jsx';
+import defaultSettings from './defaultSettings';
 
-export default function Typography({ props: {
+export default function Typography({
   className,
   children,
   display3,
@@ -12,12 +13,13 @@ export default function Typography({ props: {
   caption,
   primary,
   secondary,
-  style
-}, materialSettings: {
-  primaryColor,
-  secondaryColor,
-  typographyColor
-}}) {
+  style,
+  materialSettings: {
+    primaryColor,
+    secondaryColor,
+    typographyColor
+  } = defaultSettings
+}) {
 
   return (
     <div

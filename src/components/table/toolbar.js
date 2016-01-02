@@ -1,11 +1,11 @@
 import { html } from 'snabbdom-jsx';
 
-export default function TableToolbar({ props: {
+export default function TableToolbar({
   children = null,
   className = '',
   colSpan = 1,
   style = {}
-}}) {
+}) {
 
   return (
     <tr class={{

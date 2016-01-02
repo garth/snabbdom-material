@@ -1,12 +1,12 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Mask({ props: {
+export default function Mask({
   className,
   isOpen,
   dark = true,
   onClick,
   style: styleOverrides = {}
-}}) {
+}) {
 
   let style = {
     position: 'fixed',

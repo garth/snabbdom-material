@@ -1,10 +1,10 @@
 import { html } from 'snabbdom-jsx';
 import Divider from '../divider';
 
-export default function MenuSeparator({ props: {
+export default function MenuSeparator({
   className,
   style = {}
-}}) {
+}) {
 
   return (
     <Divider

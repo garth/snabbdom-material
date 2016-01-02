@@ -1,10 +1,10 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Calendar({ props: {
+export default function Calendar({
   children,
   className,
   style = {}
-}}) {
+}) {
 
   return (
     <div

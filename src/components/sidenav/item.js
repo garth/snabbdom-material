@@ -1,18 +1,20 @@
 import { html } from 'snabbdom-jsx';
 import MenuItem from '../menu/item';
+import defaultSettings from '../defaultSettings';
 
-export default function SidenavItem({ props: {
+export default function SidenavItem({
   children,
   className,
   icon,
   onClick,
   selected,
   showIcon,
-  style = {}
-}, materialSettings: {
-  primaryColor,
-  typographyColor
-}}) {
+  style = {},
+  materialSettings: {
+    primaryColor,
+    typographyColor
+  } = defaultSettings
+}) {
 
   return (
     <MenuItem

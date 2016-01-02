@@ -1,11 +1,11 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Form({ props: {
+export default function Form({
   children,
   className,
   onSubmit,
   style = {}
-}}) {
+}) {
 
   return (
     <form

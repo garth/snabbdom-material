@@ -1,16 +1,18 @@
 import { html } from 'snabbdom-jsx';
+import defaultSettings from './defaultSettings';
 import Waves from './helpers/waves';
 
-export default function Checkbox({ props: {
+export default function Checkbox({
   className,
   label,
   onChange,
   readOnly,
   style = {},
-  value = false
-}, materialSettings: {
-  secondaryColor
-}}) {
+  value = false,
+  materialSettings: {
+    secondaryColor
+  } = defaultSettings
+}) {
 
   const icon = value ? (
     <svg fill={secondaryColor} height="24" viewBox="0 0 24 24" width="24">

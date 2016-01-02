@@ -1,11 +1,11 @@
 import { html } from 'snabbdom-jsx';
 
-export default function TableRow({ props: {
+export default function TableRow({
   children = null,
   className = '',
   onClick = null,
   style = {}
-}}) {
+}) {
 
   return (
     <tr

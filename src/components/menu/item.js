@@ -1,7 +1,7 @@
 import { html } from 'snabbdom-jsx';
 import Waves from '../helpers/waves';
 
-export default function MenuItem({ props: {
+export default function MenuItem({
   children,
   className,
   closeMenuHandler,
@@ -10,7 +10,7 @@ export default function MenuItem({ props: {
   selected,
   showIcon,
   style = {}
-}}) {
+}) {
 
   let iconContainer = null;
   if (showIcon) {

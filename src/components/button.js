@@ -1,18 +1,20 @@
 import { html } from 'snabbdom-jsx';
 import Waves from './helpers/waves';
+import defaultSettings from './defaultSettings';
 
-export default function Button({ props: {
+export default function Button({
   children,
   className,
   flat,
   onClick,
   primary,
   style: styleOverrides = {},
-  type = 'button'
-}, materialSettings: {
-  secondaryColor,
-  secondaryFontColor
-}}) {
+  type = 'button',
+  materialSettings: {
+    secondaryColor,
+    secondaryFontColor
+  } = defaultSettings
+}) {
 
   const disabled = !onClick && type !== 'submit';
 

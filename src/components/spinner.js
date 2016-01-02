@@ -1,17 +1,19 @@
 import { html } from 'snabbdom-jsx';
+import defaultSettings from './defaultSettings';
 
-export default function ({ props: {
+export default function ({
   className,
   inline,
   isOpen,
   primary,
   secondary,
   size = 30,
-  style = {}
-}, materialSettings: {
-  primaryColor,
-  secondaryColor
-}}) {
+  style = {},
+  materialSettings: {
+    primaryColor,
+    secondaryColor
+  } = defaultSettings
+}) {
 
   const spinner = (
     <div
