@@ -1,6 +1,6 @@
 export default {
 
-  setScreen(input, state) {
+  setScreen({ input, state }) {
     state.set(['screen'], input.screen);
   }
 

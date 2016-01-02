@@ -1,6 +1,6 @@
 export default {
 
-  setLocale(input, state, output, { moment }) {
+  setLocale({ input, state }) {
     state.set('locale', input.locale);
   }
 
