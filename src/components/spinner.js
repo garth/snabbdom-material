@@ -1,7 +1,7 @@
 import { html } from 'snabbdom-jsx';
 import defaultSettings from './defaultSettings';
 
-export default function ({
+export default function Spinner({
   className,
   inline,
   isOpen,

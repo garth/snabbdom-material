@@ -22,7 +22,6 @@ function button(label, onClick) {
 
 export default function Dialog({
   cancelLabel,
-  children = '',
   className,
   height = 130,
   hideDivider,
@@ -34,7 +33,7 @@ export default function Dialog({
   style = {},
   title,
   width = 280
-}) {
+}, children = '') {
 
   // componentDidMount() {
   //   if (!this.props.ignoreResizeEvents) {

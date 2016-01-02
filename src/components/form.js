@@ -1,11 +1,10 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Form({
-  children = '',
   className,
   onSubmit,
   style = {}
-}) {
+}, children = '') {
 
   return (
     <form

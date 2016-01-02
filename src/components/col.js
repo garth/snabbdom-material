@@ -1,11 +1,10 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Col({
-  children = '',
   className,
   style = {},
   type = ''
-}) {
+}, children = '') {
 
   const colClasses = type.split(' ').reduce((classes, col) => {
     classes[`col-${col}`] = true;

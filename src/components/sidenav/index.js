@@ -5,13 +5,12 @@ import Title from './title';
 import Separator from '../menu/separator';
 
 const Sidenav = function Sidenav({
-  children = '',
   className,
   isOpen,
   mini,
   onClose,
   style = {}
-}) {
+}, children = '') {
 
   return mini ? (
     <div
@@ -32,7 +31,7 @@ const Sidenav = function Sidenav({
     </div>
   ) : (
     <div>
-      <Mask on-click={onClose} isOpen={isOpen}/>
+      <Mask onClick={onClose} isOpen={isOpen}/>
       <div
         class={{
           sidenav: true,

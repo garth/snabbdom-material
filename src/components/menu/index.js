@@ -44,13 +44,12 @@ function componentWillUnmount(vnode) {
 }
 
 const Menu = function Menu({
-  children = '',
   className,
   isOpen,
   onClose,
   rightAlign,
   style = {}
-}) {
+}, children = '') {
 
   const menuStyle = {
     zIndex: 1001,

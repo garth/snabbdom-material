@@ -1,13 +1,12 @@
 import { html } from 'snabbdom-jsx';
 import Waves from '../helpers/waves';
 
-export default function Appbar({
-  children = '',
+export default function AppbarButton({
   className,
   lightWaves,
   onClick,
   style = {}
-}) {
+}, children = '') {
 
   return (
     <div

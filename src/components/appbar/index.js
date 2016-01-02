@@ -4,7 +4,6 @@ import Title from './title';
 import defaultSettings from '../defaultSettings';
 
 const Appbar = function Appbar({
-  children = '',
   className,
   fixed,
   style = {},
@@ -12,7 +11,7 @@ const Appbar = function Appbar({
     primaryColor,
     primaryFontColor
   } = defaultSettings
-}) {
+}, children = '') {
 
   return (
     <div style={{ height: '64px' }}>

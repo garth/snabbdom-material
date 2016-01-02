@@ -3,7 +3,6 @@ import Waves from './helpers/waves';
 import defaultSettings from './defaultSettings';
 
 export default function Button({
-  children = '',
   className,
   flat,
   onClick,
@@ -14,7 +13,7 @@ export default function Button({
     secondaryColor,
     secondaryFontColor
   } = defaultSettings
-}) {
+}, children = '') {
 
   const disabled = !onClick && type !== 'submit';
 

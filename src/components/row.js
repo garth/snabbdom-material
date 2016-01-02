@@ -1,10 +1,9 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Row({
-  children = '',
   className,
   style = {}
-}) {
+}, children = '') {
 
   return (
     <div

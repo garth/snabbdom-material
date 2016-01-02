@@ -2,7 +2,7 @@ import { html } from 'snabbdom-jsx';
 import Input from './input';
 import Menu from './menu';
 
-export default function Spinner({
+export default function Select({
   className,
   isError,
   isOpen,

@@ -1,24 +1,24 @@
 module.exports = {
-  Appbar: require('./components/appbar'),
-  Button: require('./components/button'),
-  Calendar: require('./components/calendar'),
-  Checkbox: require('./components/checkbox'),
-  Col: require('./components/col'),
-  DatePicker: require('./components/datepicker'),
-  Dialog: require('./components/dialog'),
-  Divider: require('./components/divider'),
-  Form: require('./components/form'),
-  Input: require('./components/input'),
-  Mask: require('./components/mask'),
-  Menu: require('./components/menu'),
-  Row: require('./components/row'),
-  Select: require('./components/select'),
-  Sidenav: require('./components/sidenav'),
-  Spinner: require('./components/spinner'),
-  Table: require('./components/table'),
-  Typ: require('./components/typography'),
+  Appbar: require('./components/appbar').default,
+  Button: require('./components/button').default,
+  Calendar: require('./components/calendar').default,
+  Checkbox: require('./components/checkbox').default,
+  Col: require('./components/col').default,
+  DatePicker: require('./components/datepicker').default,
+  Dialog: require('./components/dialog').default,
+  Divider: require('./components/divider').default,
+  Form: require('./components/form').default,
+  Input: require('./components/input').default,
+  Mask: require('./components/mask').default,
+  Menu: require('./components/menu').default,
+  Row: require('./components/row').default,
+  Select: require('./components/select').default,
+  Sidenav: require('./components/sidenav').default,
+  Spinner: require('./components/spinner').default,
+  Table: require('./components/table').default,
+  Typ: require('./components/typography').default,
 
   events: {
-    responsive: require('./events/responsive')
+    responsive: require('./events/responsive').default
   }
 };

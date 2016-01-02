@@ -1,11 +1,10 @@
 import { html } from 'snabbdom-jsx';
 
 export default function TableRow({
-  children = '',
   className,
   onClick,
   style = {}
-}) {
+}, children = '') {
 
   return (
     <tr

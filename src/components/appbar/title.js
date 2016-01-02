@@ -1,10 +1,9 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Calendar({
-  children = '',
+export default function AppbarTitle({
   className,
   style = {}
-}) {
+}, children = '') {
 
   return (
     <div

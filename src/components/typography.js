@@ -3,7 +3,6 @@ import defaultSettings from './defaultSettings';
 
 export default function Typography({
   className,
-  children = '',
   display3,
   display2,
   display1,
@@ -19,7 +18,7 @@ export default function Typography({
     secondaryColor,
     typographyColor
   } = defaultSettings
-}) {
+}, children = '') {
 
   return (
     <div

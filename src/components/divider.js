@@ -1,6 +1,6 @@
 import { html } from 'snabbdom-jsx';
 
-export default function Form({
+export default function Divider({
   className,
   style = {}
 }) {

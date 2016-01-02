@@ -3,10 +3,9 @@ import Toolbar from './toolbar';
 import Row from './row';
 
 const Table = function Table({
-  children = '',
   className,
   style = {}
-}) {
+}, children = '') {
 
   return (
     <table

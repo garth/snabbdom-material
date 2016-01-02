@@ -3,7 +3,6 @@ import MenuItem from '../menu/item';
 import defaultSettings from '../defaultSettings';
 
 export default function SidenavItem({
-  children = '',
   className,
   icon,
   onClick,
@@ -14,7 +13,7 @@ export default function SidenavItem({
     primaryColor,
     typographyColor
   } = defaultSettings
-}) {
+}, children = '') {
 
   return (
     <MenuItem

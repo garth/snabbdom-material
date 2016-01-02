@@ -3,7 +3,6 @@ import Button from '../appbar/button';
 import defaultSettings from '../defaultSettings';
 
 export default function SidenavTitle({
-  children = '',
   className,
   closeMenuHandler,
   showCloseButton,
@@ -11,7 +10,7 @@ export default function SidenavTitle({
   materialSettings: {
     typographyColor
   } = defaultSettings
-}) {
+}, children = '') {
 
   return (
     <div
