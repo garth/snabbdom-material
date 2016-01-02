@@ -1,0 +1,13 @@
+.menu-item:hover:not(.selected) {
+  background-color: #eee;
+}
+.menu-item.selected {
+  background-color: #dcdcdc;
+}
+
+// ::-webkit-scrollbar {
+//   width: 3px;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background-color: #777;
+// }
