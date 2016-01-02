@@ -60,6 +60,7 @@
     "cerebral-addons": "^0.2.0",
     "cerebral-baobab": "^0.4.4",
     "cerebral-router": "^0.8.0",
+    "cerebral-snabbdom": "^0.1.0",
     "chai": "^3.4.1",
     "css-loader": "^0.23.0",
     "eslint": "^1.10.1",

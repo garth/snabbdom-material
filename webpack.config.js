@@ -6,7 +6,7 @@ var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'app/main.js')
