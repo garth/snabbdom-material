@@ -1,7 +1,7 @@
 {
-  "name": "material-components",
+  "name": "snabbdom-material",
   "version": "0.2.5",
-  "description": "Stateless UI components for react that follow material design",
+  "description": "Stateless UI components for snabbdom that follow material design",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint src app test",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/garth/material-components.git"
+    "url": "git+https://github.com/garth/snabbdom-material.git"
   },
   "keywords": [
     "appbar",
@@ -40,9 +40,9 @@
   "author": "Garth Williams",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/garth/material-components/issues"
+    "url": "https://github.com/garth/snabbdom-material/issues"
   },
-  "homepage": "https://github.com/garth/material-components#readme",
+  "homepage": "https://github.com/garth/snabbdom-material#readme",
   "dependencies": {
     "exenv": "^1.2.0",
     "node-waves": "^0.7.4"

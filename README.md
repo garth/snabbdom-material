@@ -1,29 +1,29 @@
-Material Components
-===================
+Snabbdom Material
+=================
 
-Stateless UI components for react that follow material design.
+Stateless UI components for snabbdom that follow material design.
 
 Introduction
 ------------
 
-material-components is a library of [React](https://facebook.github.io/react/) (0.14.0) user interface components based on [material design](https://www.google.com/design/spec/).
+snabbdom-material is a library of [snabbdom](https://github.com/paldepind/snabbdom) user interface components based on [material design](https://www.google.com/design/spec/).
 
-material-components are completely stateless making them an ideal companion to libraries such as [Cerebral](http://christianalfoni.com/cerebral/) or [Redux](http://rackt.github.io/redux/). But they can also be used with other flux based frameworks or even without a framework at all.
+snabbdom-material are completely stateless making them an ideal companion to libraries such as [Cerebral](http://christianalfoni.com/cerebral/).
 
-The development of material-components has been sponsored by [Elastic Time](http://www.elastictime.com/).
+The development of snabbdom-material has been sponsored by [Elastic Time](http://www.elastictime.com/).
 
 Documentation, Demos & Code Examples
 ------------------------------------
 
-Take a look at the [documentation app](http://garth.github.io/material-components) for demos and code examples.
+Take a look at the [documentation app](http://garth.github.io/snabbdom-material) for demos and code examples.
 
-![Demo](https://github.com/garth/material-components/blob/master/demo.png)
+![Demo](https://github.com/garth/snabbdom-material/blob/master/demo.png)
 
 Installation
 ------------
 
 ```
-npm install --save-dev material-components
+npm install --save-dev snabbdom-material
 ```
 
 Contribute
