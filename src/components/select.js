@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Input from './input';
 import Menu from './menu';
 import defaultMaterial from './defaultMaterial';
@@ -63,16 +64,24 @@ export default function Select({
         material={material}>
         {menuItems}
       </Menu>
-      <svg
-        style={{
-          position: 'absolute',
-          right: '0px',
-          top: '28px'
-        }}
-        fill="#aaa" height="24" viewBox="0 0 24 24" width="24">
-        <path d="M7 10l5 5 5-5z"/>
-        <path d="M0 0h24v24H0z" fill="none"/>
-      </svg>
+      {
+        h('svg', {
+          attrs: {
+            fill: '#aaa',
+            height: 24,
+            viewBox: '0 0 24 24',
+            width: 24
+          },
+          style: {
+            position: 'absolute',
+            right: '0px',
+            top: '28px'
+          }
+        }, [
+          h('path', { attrs: { d: 'M7 10l5 5 5-5z' } }),
+          h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
+        ])
+      }
       <Input
         inputStyle={{ cursor: 'pointer' }}
         isError={isError}

@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Waves from '../helpers/waves';
 
 export default function MenuItem({
@@ -14,13 +15,21 @@ export default function MenuItem({
   let iconContainer = null;
   if (showIcon) {
     const iconElement = selected ? (
-      <svg fill="#000000" width="24" height="24" viewBox="0 0 24 24" style={{
-        position: 'relative',
-        top: '4px'
-      }}>
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-      </svg>
+      h('svg', {
+        attrs: {
+          fill: '#000000',
+          height: 24,
+          viewBox: '0 0 24 24',
+          width: 24
+        },
+        style: {
+          position: 'relative',
+          top: '4px'
+        }
+      }, [
+        h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } }),
+        h('path', { attrs: { d: 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' } })
+      ])
     ) : icon;
     iconContainer = (
       <div style={{

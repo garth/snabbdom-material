@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import defaultMaterial from './defaultMaterial';
 import Waves from './helpers/waves';
 import moment from 'moment';
@@ -101,10 +102,22 @@ export default function Calendar({
         year: previousMonth.get('year'),
         month: previousMonth.get('month')
       }}})}>
-      <svg fill={typographyColor} height="24" viewBox="0 0 24 24" width="24" style={{margin: '12px 9px 6px 9px'}}>
-        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-        <path d="M0 0h24v24H0z" fill="none"/>
-      </svg>
+      {
+        h('svg', {
+          attrs: {
+            fill: typographyColor,
+            height: 24,
+            viewBox: '0 0 24 24',
+            width: 24
+          },
+          style: {
+            margin: '12px 9px 6px 9px'
+          }
+        }, [
+          h('path', { attrs: { d: 'M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z' } }),
+          h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
+        ])
+      }
     </div>
   ), (
     <div
@@ -123,10 +136,22 @@ export default function Calendar({
         year: nextMonth.get('year'),
         month: nextMonth.get('month')
       }}})}>
-      <svg fill={typographyColor} height="24" viewBox="0 0 24 24" width="24" style={{margin: '12px 9px 6px 9px'}}>
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        <path d="M0 0h24v24H0z" fill="none"/>
-      </svg>
+      {
+        h('svg', {
+          attrs: {
+            fill: typographyColor,
+            height: 24,
+            viewBox: '0 0 24 24',
+            width: 24
+          },
+          style: {
+            margin: '12px 9px 6px 9px'
+          }
+        }, [
+          h('path', { attrs: { d: 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z' } }),
+          h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
+        ])
+      }
     </div>
   )] : [];
 

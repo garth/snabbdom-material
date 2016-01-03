@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import defaultMaterial from './defaultMaterial';
 
 export default function Spinner({
@@ -23,34 +24,40 @@ export default function Spinner({
         width: `${size}px`,
         height: `${size}px`
       }, style)}>
-      <svg
-        style={{
-          animation: 'spinner-rotate 2s linear infinite',
-          position: 'relative',
-          zoom: size / 100,
-          width: '100px',
-          height: '100px'
-        }}>
-        <circle
-          style={{
-            strokeDasharray: '1,400',
-            strokeDashoffset: 0,
-            animation: 'spinner-dash 1.5s ease-in-out infinite' +
-              (!primary && !secondary ? ', spinner-color 6s ease-in-out infinite' : ''),
-            strokeLinecap: 'round'
-          }}
-          fill="none"
-          stroke={primary
-            ? material.primaryColor || defaultMaterial.primaryColor
-            : secondary
-              ? material.secondaryColor || defaultMaterial.secondaryColor
-              : null}
-          cx="50"
-          cy="50"
-          r="48"
-          strokeWidth="4"
-          strokeMiterlimit="10"/>
-      </svg>
+      {
+        h('svg', {
+          style: {
+            animation: 'spinner-rotate 2s linear infinite',
+            position: 'relative',
+            zoom: size / 100,
+            width: '100px',
+            height: '100px'
+          }
+        }, [
+          h('circle', {
+            attrs: {
+              fill: 'none',
+              stroke: primary
+                ? material.primaryColor || defaultMaterial.primaryColor
+                : secondary
+                  ? material.secondaryColor || defaultMaterial.secondaryColor
+                  : null,
+              cx: 50,
+              cy: 50,
+              r: 48,
+              strokeWidth: 4,
+              strokeMiterlimit: 10
+            },
+            style: {
+              strokeDasharray: '1,400',
+              strokeDashoffset: 0,
+              animation: 'spinner-dash 1.5s ease-in-out infinite' +
+                (!primary && !secondary ? ', spinner-color 6s ease-in-out infinite' : ''),
+              strokeLinecap: 'round'
+            }
+          })
+        ])
+      }
     </div>
   );
 
