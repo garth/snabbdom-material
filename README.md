@@ -15,7 +15,7 @@ The development of snabbdom-material has been sponsored by [Elastic Time](http:/
 Documentation, Demos & Code Examples
 ------------------------------------
 
-Take a look at the [documentation app](http://garth.github.io/snabbdom-material) for demos and code examples.
+Take a look at the [documentation app](http://garth.github.io/snabbdom-material/dist) for demos and code examples.
 
 ![Demo](https://github.com/garth/snabbdom-material/blob/master/demo.png)
 
