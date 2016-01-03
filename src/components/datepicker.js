@@ -75,8 +75,8 @@ export default function DatePicker({
           {displayDate.get('year')}
         </div>
         <div style={{ fontSize: '36px', fontWeight: 600, lineHeight: '40px' }}>
-          {dateLines.map((line, index) => (
-            <div key={index}>{line}</div>
+          {dateLines.map((line) => (
+            <div>{line}</div>
           ))}
         </div>
       </div>
