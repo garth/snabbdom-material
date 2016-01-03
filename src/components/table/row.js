@@ -14,7 +14,7 @@ export default function TableRow({
         clickable: onClick
       }}
       style={style}
-      on-click={onClick}>
+      on-click={e => onClick ? onClick(e) : null}>
       {h('span', children)}
     </tr>
   );

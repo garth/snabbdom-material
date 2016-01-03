@@ -23,7 +23,7 @@ export default function AppbarButton({
       }, style)}>
       <a
         hook-insert={vnode => Waves.attach(vnode.elm)}
-        on-click={onClick}
+        on-click={e => onClick ? onClick(e) : null}
         style={{
           fontSize: '24px',
           height: '48px',

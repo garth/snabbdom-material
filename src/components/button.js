@@ -50,7 +50,7 @@ export default function Button({
     <button
       hook-insert={vnode => Waves.attach(vnode.elm)}
       type={type}
-      on-click={onClick}
+      on-click={e => onClick ? onClick(e) : null}
       style={Object.assign(style, styleOverrides)}
       class={{
         [className]: className,

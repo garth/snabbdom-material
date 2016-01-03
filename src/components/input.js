@@ -22,8 +22,6 @@ export default function Input({
   } = defaultMaterial
 }) {
 
-  let labelElement;
-
   return (
     <div
       class={{
@@ -32,14 +30,14 @@ export default function Input({
       }}
       style={style}>
       <input
-        on-click={onClick}
+        on-click={e => onClick ? onClick(e) : null}
         on-focus={e => {
-          labelElement.style.color = secondaryColor;
+          e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor;
           if (typeof onFocus === 'function') {
             onFocus(e);
           }
         }}
-        on-blur={() => labelElement.style.color = 'inherit'}
+        on-blur={e => e.target.parentElement.querySelector('.inputLabel').style.color = 'inherit'}
         type={type}
         class={{
           'paper-divider': true,
@@ -47,7 +45,7 @@ export default function Input({
         }}
         style={inputStyle}
         value={value}
-        on-change={onChange}
+        on-change={e => onChange ? onChange(e) : null}
         readOnly={readOnly}
         required/>
       <span
@@ -59,14 +57,12 @@ export default function Input({
           backgroundColor: isError ? errorColor : isSuccess ? successColor : secondaryColor
         }}/>
       <label>
-        <span hook-insert={vnode => labelElement = vnode.elm}>
+        <span classNames="inputLabel">
           {label}
         </span>
       </label>
       <div
-        class={{
-          info: true
-        }}
+        classNames="info"
         style={{
           color: isError ? errorColor : 'inherit'
         }}>

@@ -66,7 +66,7 @@ export default function Dialog({
         height: '56px',
         textAlign: 'right'
       }}>
-        {hideDivider ? null : (
+        {hideDivider ? <span/> : (
           <Divider style={{ margin: 0 }}/>
         )}
         {button(cancelLabel, onCancel)}

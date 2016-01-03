@@ -34,7 +34,7 @@ export default function Mask({
         [className]: className
       }}
       style={Object.assign(style, styleOverrides)}
-      on-click={onClick}/>
+      on-click={e => onClick ? onClick(e) : null}/>
   ) : <span/>;
 
 }
