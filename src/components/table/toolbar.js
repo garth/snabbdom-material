@@ -12,13 +12,16 @@ export default function TableToolbar({
       'toolbar': true,
       [className]: className
     }}>
-      <th
-        colSpan={colSpan}
-        style={Object.assign({
-          paddingLeft: 0
-        }, style)}>
-        {h('span', children)}
-      </th>
+      {
+        h('th', {
+          props: {
+            colSpan
+          },
+          style: Object.assign({
+            paddingLeft: 0
+          }, style)
+        }, children)
+      }
     </tr>
   );
 
