@@ -3,6 +3,7 @@ import Mask from './mask';
 import Divider from './divider';
 import Button from './button';
 import screen from './helpers/screen';
+import defaultMaterial from './defaultMaterial';
 
 function button(label, onClick) {
   if (!label) { return null; }
@@ -32,7 +33,8 @@ export default function Dialog({
   onOk,
   style = {},
   title,
-  width = 280
+  width = 280,
+  material = defaultMaterial
 }, children = '') {
 
   // componentDidMount() {
@@ -92,7 +94,7 @@ export default function Dialog({
   return (
     <div
       style={{ zIndex: 1000 }}>
-      <Mask isOpen={isOpen}/>
+      <Mask isOpen={isOpen} material={material}/>
       <div
         class={{
           paper2: true,

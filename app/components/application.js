@@ -19,15 +19,15 @@ export default Component({
   title
 }, signals }) => {
 
-  // const materialSettings = {
-  //   primaryColor: '#FFC107',
-  //   primaryFontColor: 'rgba(0, 0, 0, 0.7)',
-  //   secondaryColor: '#009688',
-  //   secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
-  //   errorColor: '#C00',
-  //   successColor: '#090',
-  //   typographyColor: '#212121'
-  // };
+  const material = {
+    primaryColor: '#FFC107',
+    primaryFontColor: 'rgba(0, 0, 0, 0.7)',
+    secondaryColor: '#009688',
+    secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
+    errorColor: '#C00',
+    successColor: '#090',
+    typographyColor: '#212121'
+  };
 
   if (previousPage !== currentPage) {
     previousPage = currentPage;
@@ -35,12 +35,11 @@ export default Component({
   }
 
   // const RouteComponent = require('./' + currentPage);
-  const AppbarButton = Appbar.Button;
 
   return (
     <div>
-      <Sidenav isOpen={sidenavOpen} onClose={() => signals.sidenavClosed()}>
-        <Sidenav.Title showCloseButton>Material Components</Sidenav.Title>
+      <Sidenav isOpen={sidenavOpen} onClose={() => signals.sidenavClosed()} material={material}>
+        <Sidenav.Title showCloseButton material={material}>Material Components</Sidenav.Title>
         {[
           { icon: 'directions', page: 'introduction', title: 'Introduction', signal: signals.introductionPageOpened },
           { icon: 'tune', page: 'gettingStarted', title: 'Getting Started', signal: signals.gettingStartedPageOpened },
@@ -65,32 +64,48 @@ export default Component({
           { icon: 'devices', page: 'responsiveEvents', title: 'Responsive Events', signal: signals.responsiveEventsPageOpened }
         ].map(menu => {
           return menu.separator ? (
-            <Sidenav.Separator/>
+            <Sidenav.Separator material={material}/>
           ) : (
             <Sidenav.Item
               showIcon
               icon={<Icon name={menu.icon}/>}
               selected={menu.page === currentPage}
-              onClick={() => menu.signal()}>{menu.title}</Sidenav.Item>
+              onClick={() => menu.signal()}
+              material={material}>{menu.title}</Sidenav.Item>
           );
         })}
       </Sidenav>
-      <Appbar fixed>
-        <AppbarButton style={{ float: 'left' }} onClick={() => signals.sidenavOpened()}>
+      <Appbar fixed material={material}>
+        <Appbar.Button style={{ float: 'left' }} onClick={() => signals.sidenavOpened()} material={material}>
           <Icon name="menu"/>
-        </AppbarButton>
-        <Appbar.Title>{title}</Appbar.Title>
+        </Appbar.Button>
+        <Appbar.Title material={material}>{title}</Appbar.Title>
         <div style={{ float: 'right' }}>
           <Appbar.Button
-            onClick={() => location.href='https://github.com/garth/material-components'}>
+            onClick={() => location.href = 'https://github.com/garth/material-components'}
+            material={material}>
             <Icon name="github"/>
           </Appbar.Button>
-          <Appbar.Button onClick={() => signals.localeMenuOpened()}>
+          <Appbar.Button
+            onClick={() => signals.localeMenuOpened()}
+            material={material}>
             <Icon name="globe"/>
           </Appbar.Button>
-          <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()}>
-            <Menu.Item showIcon onClick={() => signals.localeSelected({ locale: 'de' })} selected={locale === 'de'}>Deutsch</Menu.Item>
-            <Menu.Item showIcon onClick={() => signals.localeSelected({ locale: 'en' })} selected={locale === 'en'}>English</Menu.Item>
+          <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()} material={material}>
+            <Menu.Item
+              showIcon
+              onClick={() => signals.localeSelected({ locale: 'de' })}
+              selected={locale === 'de'}
+              material={material}>
+              Deutsch
+            </Menu.Item>
+            <Menu.Item
+              showIcon
+              onClick={() => signals.localeSelected({ locale: 'en' })}
+              selected={locale === 'en'}
+              material={material}>
+              English
+            </Menu.Item>
           </Menu>
         </div>
       </Appbar>
@@ -105,4 +120,4 @@ export default Component({
       </div>
     </div>
   );
-})
+});

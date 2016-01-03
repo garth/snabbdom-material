@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import defaultSettings from './defaultSettings';
+import defaultMaterial from './defaultMaterial';
 
 export default function Spinner({
   className,
@@ -9,10 +9,10 @@ export default function Spinner({
   secondary,
   size = 30,
   style = {},
-  materialSettings: {
+  material: {
     primaryColor,
     secondaryColor
-  } = defaultSettings
+  } = defaultMaterial
 }) {
 
   const spinner = (

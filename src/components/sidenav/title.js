@@ -1,15 +1,13 @@
 import { html } from 'snabbdom-jsx';
 import Button from '../appbar/button';
-import defaultSettings from '../defaultSettings';
+import defaultMaterial from '../defaultMaterial';
 
 export default function SidenavTitle({
   className,
   closeMenuHandler,
   showCloseButton,
   style = {},
-  materialSettings: {
-    typographyColor
-  } = defaultSettings
+  material = defaultMaterial
 }, children = '') {
 
   return (
@@ -29,16 +27,15 @@ export default function SidenavTitle({
           style={{
             float: 'right'
           }}
-          class={{
-            'waves-dark': true
-          }}
-          on-click={closeMenuHandler}>
+          className="waves-dark"
+          onClick={closeMenuHandler}
+          material={material}>
           <svg
             style={{
               position: 'relative',
               top: '4px'
             }}
-            fill={typographyColor}
+            fill={material.typographyColor || defaultMaterial.typographyColor}
             height="24"
             viewBox="0 0 24 24"
             width="24">

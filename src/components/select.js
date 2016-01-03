@@ -1,6 +1,7 @@
 import { html } from 'snabbdom-jsx';
 import Input from './input';
 import Menu from './menu';
+import defaultMaterial from './defaultMaterial';
 
 export default function Select({
   className,
@@ -16,7 +17,8 @@ export default function Select({
   readOnly,
   selected,
   style = {},
-  value
+  value,
+  material = defaultMaterial
 }) {
 
   let selectedIndex = 0;
@@ -57,7 +59,8 @@ export default function Select({
           width: '100%'
         }}
         isOpen={isOpen && !readOnly && !!menuItems}
-        onClose={onClose}>
+        onClose={onClose}
+        material={material}>
         {menuItems}
       </Menu>
       <svg
@@ -78,7 +81,8 @@ export default function Select({
         message={message}
         onClick={onOpen}
         readOnly
-        value={`${displayValue}`}/>
+        value={`${displayValue}`}
+        material={material}/>
     </div>
   );
 }

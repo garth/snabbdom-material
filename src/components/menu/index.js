@@ -48,7 +48,8 @@ const Menu = function Menu({
   isOpen,
   onClose,
   rightAlign,
-  style = {}
+  style = {},
+  material
 }, children = '') {
 
   const menuStyle = {
@@ -77,7 +78,7 @@ const Menu = function Menu({
         position: 'absolute',
         width: rightAlign ? null : '100%'
       }}>
-      <Mask dark={false} isOpen={isOpen} on-click={onClose}/>
+      <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
       <div
         hook-insert={componentDidMount(isOpen, onClose)}
         hook-postpatch={checkBounds}

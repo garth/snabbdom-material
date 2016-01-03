@@ -1,9 +1,11 @@
 import { html } from 'snabbdom-jsx';
 import Divider from '../divider';
+import defaultMaterial from '../defaultMaterial';
 
 export default function MenuSeparator({
   className,
-  style = {}
+  style = {},
+  material = defaultMaterial
 }) {
 
   return (
@@ -12,7 +14,8 @@ export default function MenuSeparator({
       style={Object.assign({
         height: '8px',
         margin: '0 0 8px 0'
-      }, style)}/>
+      }, style)}
+      material={material}/>
   );
 
 }

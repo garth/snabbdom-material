@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import defaultSettings from './defaultSettings';
+import defaultMaterial from './defaultMaterial';
 import Waves from './helpers/waves';
 import moment from 'moment';
 
@@ -20,11 +20,11 @@ export default function Calendar({
   titleFormat = 'MMMM YYYY',
   validDays,
   year = (new Date()).getFullYear(),
-  materialSettings: {
+  material: {
     secondaryColor,
     secondaryFontColor,
     typographyColor
-  } = defaultSettings
+  } = defaultMaterial
 }) {
 
   const _onChange = function (day, validDay) {

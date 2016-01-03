@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import defaultSettings from './defaultSettings';
+import defaultMaterial from './defaultMaterial';
 import moment from 'moment';
 import Dialog from './dialog';
 import Calendar from './calendar';
@@ -18,10 +18,7 @@ export default function DatePicker({
   style = {},
   validDays,
   year = (new Date()).getFullYear(),
-  materialSettings: {
-    secondaryColor,
-    secondaryFontColor
-  } = defaultSettings
+  material = defaultMaterial
 }) {
 
   // componentDidMount() {
@@ -52,7 +49,7 @@ export default function DatePicker({
   return (
     <Dialog
       isOpen={isOpen}
-      onOk={pickingValue ? () => onOk({ target: { value: this.props.pickingValue } }) : null}
+      onOk={pickingValue ? () => onOk({ target: { value: pickingValue } }) : null}
       okLabel="OK"
       onCancel={onCancel}
       cancelLabel="Cancel"
@@ -62,14 +59,15 @@ export default function DatePicker({
       noPadding
       ignoreResizeEvents
       className={className}
-      style={Object.assign({ overflow: 'hidden' }, style)}>
+      style={Object.assign({ overflow: 'hidden' }, style)}
+      material={material}>
       <div
         style={{
           width: isPortrait ? '100%' : '168px',
           height: isPortrait ? '96px' : '322px',
           marginBottom: isPortrait ? 0 : '-56px',
-          backgroundColor: secondaryColor,
-          color: secondaryFontColor,
+          backgroundColor: material.secondaryColor || defaultMaterial.secondaryColor,
+          color: material.secondaryFontColor || defaultMaterial.secondaryFontColor,
           padding: isPortrait ? '16px 24px' : '16px',
           position: 'absolute'
         }}>
@@ -92,7 +90,8 @@ export default function DatePicker({
         year={year}
         style={{
           margin: isPortrait ? '104px 24px 0' : '8px 24px 0 192px'
-        }}/>
+        }}
+        material={material}/>
     </Dialog>
   );
 }

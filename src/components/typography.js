@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import defaultSettings from './defaultSettings';
+import defaultMaterial from './defaultMaterial';
 
 export default function Typography({
   className,
@@ -13,11 +13,11 @@ export default function Typography({
   primary,
   secondary,
   style,
-  materialSettings: {
+  material: {
     primaryColor,
     secondaryColor,
     typographyColor
-  } = defaultSettings
+  } = defaultMaterial
 }, children = '') {
 
   return (

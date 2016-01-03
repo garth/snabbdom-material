@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import defaultSettings from './defaultSettings';
+import defaultMaterial from './defaultMaterial';
 import Waves from './helpers/waves';
 
 export default function Checkbox({
@@ -9,9 +9,9 @@ export default function Checkbox({
   readOnly,
   style = {},
   value = false,
-  materialSettings: {
+  material: {
     secondaryColor
-  } = defaultSettings
+  } = defaultMaterial
 }) {
 
   const icon = value ? (

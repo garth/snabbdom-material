@@ -1,16 +1,16 @@
 import { html } from 'snabbdom-jsx';
 import Button from './button';
 import Title from './title';
-import defaultSettings from '../defaultSettings';
+import defaultMaterial from '../defaultMaterial';
 
 const Appbar = function Appbar({
   className,
   fixed,
   style = {},
-  materialSettings: {
+  material: {
     primaryColor,
     primaryFontColor
-  } = defaultSettings
+  } = defaultMaterial
 }, children = '') {
 
   return (

@@ -1,6 +1,6 @@
 import { html } from 'snabbdom-jsx';
 import MenuItem from '../menu/item';
-import defaultSettings from '../defaultSettings';
+import defaultMaterial from '../defaultMaterial';
 
 export default function SidenavItem({
   className,
@@ -9,10 +9,7 @@ export default function SidenavItem({
   selected,
   showIcon,
   style = {},
-  materialSettings: {
-    primaryColor,
-    typographyColor
-  } = defaultSettings
+  material = defaultMaterial
 }, children = '') {
 
   return (
@@ -26,8 +23,11 @@ export default function SidenavItem({
       }}
       style={Object.assign({
         padding: '8px 40px 8px 24px',
-        color: selected ? primaryColor : typographyColor
-      }, style)}>
+        color: selected
+          ? material.primaryColor || defaultMaterial.primaryColor
+          : material.typographyColor || defaultMaterial.typographyColor
+      }, style)}
+      material={material}>
       {children}
     </MenuItem>
   );

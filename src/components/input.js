@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import defaultSettings from './defaultSettings';
+import defaultMaterial from './defaultMaterial';
 
 export default function Input({
   className,
@@ -15,11 +15,11 @@ export default function Input({
   style = {},
   type = 'text',
   value = '',
-  materialSettings: {
+  material: {
     secondaryColor,
     errorColor,
     successColor
-  } = defaultSettings
+  } = defaultMaterial
 }) {
 
   let labelElement;

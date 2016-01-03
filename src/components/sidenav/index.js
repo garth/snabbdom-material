@@ -3,13 +3,15 @@ import Mask from '../mask';
 import Item from './item';
 import Title from './title';
 import Separator from '../menu/separator';
+import defaultMaterial from '../defaultMaterial';
 
 const Sidenav = function Sidenav({
   className,
   isOpen,
   mini,
   onClose,
-  style = {}
+  style = {},
+  material = defaultMaterial
 }, children = '') {
 
   return mini ? (
@@ -31,7 +33,7 @@ const Sidenav = function Sidenav({
     </div>
   ) : (
     <div>
-      <Mask onClick={onClose} isOpen={isOpen}/>
+      <Mask onClick={onClose} isOpen={isOpen} material={material}/>
       <div
         class={{
           sidenav: true,
