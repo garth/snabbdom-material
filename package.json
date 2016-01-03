@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Stateless UI components for snabbdom that follow material design",
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "mocha",
     "start": "parallelshell 'node-sass --watch src/index.scss lib/index.css' 'watch \"eslint --cache .\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
