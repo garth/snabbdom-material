@@ -56,7 +56,6 @@ export default Controller(Model({
 
   // routing
   route: {
-    url: '/',
     page: 'home',
     title: ''
   }

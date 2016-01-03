@@ -1,11 +1,17 @@
-import React from 'react';
+/** @jsx html */
+import { html } from 'snabbdom-jsx';
 
-export default function Icon({name, style={}}) {
+export default function Icon({
+  name,
+  style = {}
+}) {
   return (
     <i
       style={Object.assign({
         lineHeight: 'inherit'
       }, style)}
-      className={`icon-${name}`}/>
+      class={{
+        [`icon-${name}`]: true
+      }}/>
   );
 }

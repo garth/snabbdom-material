@@ -1,12 +1,7 @@
-import 'babel/polyfill';
-
 // load the css
-require('normalize.css/normalize.css');
-require('../lib/index.css');
-
-// support tap events
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import '!style!css!normalize.css/normalize.css';
+import '!style!css!../lib/index.css';
+import '!style!css!./vendor/icomoon/style.css';
 
 // load signals
 import './signals/calendar';
@@ -24,17 +19,15 @@ import './signals/spinner';
 
 // hookup the screen event to the signal
 import controller from './controller';
-import { events } from '../lib';
-events.responsive.addListener(screen => controller.signals.screenChanged({ screen }));
+import responsive from '../lib/events/responsive';
+responsive.addListener(screen => controller.signals.screenChanged({ screen }));
 
 // start the router
 import router from './router';
 router.trigger();
 
 // mount the application
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Container } from 'cerebral-react';
-import Application from './components/application.js';
-
-ReactDOM.render(<Container controller={controller} app={Application}/>, document.getElementById('root'));
+import { Component, render } from 'cerebral-snabbdom';
+import Application from './components/application';
+const root = document.body.appendChild(document.createElement('div'));
+render(() => <Application/>, root, controller);

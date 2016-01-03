@@ -21,8 +21,7 @@ export default Router(controller, {
   '/spinner': 'spinnerPageOpened',
   '/calendar': 'calendarPageOpened',
   '/responsiveEvents': 'responsiveEventsPageOpened',
-  '*': 'notFoundPageOpened'
+  '/*': 'notFoundPageOpened'
 }, {
-  onlyHash: true,
-  urlStorePath: ['route', 'url']
+  onlyHash: true
 });
