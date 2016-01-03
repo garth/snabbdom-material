@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'cerebral-snabbdom';
 
-export default class NotFound extends Component {
-
-  static displayName = 'NotFound';
-
-  render() {
-    return (
-      <p>
-        Page not found
-      </p>
-    );
-  }
-}
+export default Component(() => (
+  <p>
+    Page not found
+  </p>
+));

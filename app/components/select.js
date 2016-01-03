@@ -1,39 +1,29 @@
-import React, { Component, PropTypes } from 'react';
-import { Decorator as State } from 'cerebral-react';
+import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Col, Row, Select } from '../../lib';
 
-@State({
+export default Component({
   select: ['demos', 'select']
-})
-export default class SelectDemo extends Component {
+}, ({
+  state: {
+    select
+  },
+  signals
+}) => {
 
-  static displayName = 'Select';
+  const options = [
+    { value: 0, label: 'Option 1' },
+    { value: 1, label: 'Option 2' },
+    { value: 2, label: 'Option 3' },
+    { value: 3, label: 'Option 4' }
+  ];
 
-  static propTypes = {
-    signals: PropTypes.object,
-    select: PropTypes.object
-  };
-
-  render() {
-    const {
-      signals,
-      select
-    } = this.props;
-
-    const options = [
-      { value: 0, label: 'Option 1' },
-      { value: 1, label: 'Option 2' },
-      { value: 2, label: 'Option 3' },
-      { value: 3, label: 'Option 4' }
-    ];
-
-    return (
-      <div>
-        <Example code={`
-import { Select } from 'material-components';
-        `}/>
-        <Example code={`
+  return (
+    <div>
+      <Example code={`
+import { Select } from 'snabbdom-material';
+      `}/>
+      <Example code={`
 let options = [
   { value: 0, label: 'Option 1' },
   { value: 1, label: 'Option 2' },
@@ -70,63 +60,62 @@ let options = [
   onOpen={setOpenState}
   onChange={optionSelected}
   onClose={setClosedState}/>
-        `}/>
-        <div style={{ margin: '16px 0' }}>
-          <Row>
-            <Col type="md-4">
-              <Select
-                label="option"
-                selected={select.selected}
-                options={options}
-                isOpen={select.selectOpen}
-                onOpen={e => signals.selectOpened()}
-                onChange={e => signals.selectChanged({ value: e.target })}
-                onClose={e => signals.selectClosed()}/>
-            </Col>
-            <Col type="md-4">
-              <Select
-                label="Success option"
-                selected={select.selected}
-                options={options}
-                isSuccess
-                isOpen={select.selectSuccessOpen}
-                onOpen={e => signals.selectSuccessOpened()}
-                onChange={e => signals.selectChanged({ value: e.target })}
-                onClose={e => signals.selectSuccessClosed()}/>
-            </Col>
-            <Col type="md-4">
-              <Select
-                label="Error option"
-                value={select.selected && select.selected.value}
-                options={options}
-                isError
-                message="fix me"
-                isOpen={select.selectErrorOpen}
-                onOpen={e => signals.selectErrorOpened()}
-                onChange={e => signals.selectChanged({ value: e.target })}
-                onClose={e => signals.selectErrorClosed()}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col type="md-4 md-offset-4">
-              <Select
-                label="large list of items"
-                value={select.largeSelectedValue}
-                options={(() => {
-                  let options = [];
-                  for (let i = 0; i < 100; i++) {
-                    options.push({ value: i, label: `Option ${i + 1}` });
-                  }
-                  return options;
-                })()}
-                isOpen={select.largeSelectOpen}
-                onOpen={e => signals.selectLargeOpened()}
-                onChange={e => signals.selectLargeChanged({ value: e.target.value })}
-                onClose={e => signals.selectLargeClosed()}/>
-            </Col>
-          </Row>
-        </div>
+      `}/>
+      <div style={{ margin: '16px 0' }}>
+        <Row>
+          <Col type="md-4">
+            <Select
+              label="option"
+              selected={select.selected}
+              options={options}
+              isOpen={select.selectOpen}
+              onOpen={() => signals.selectOpened()}
+              onChange={e => signals.selectChanged({ value: e.target })}
+              onClose={() => signals.selectClosed()}/>
+          </Col>
+          <Col type="md-4">
+            <Select
+              label="Success option"
+              selected={select.selected}
+              options={options}
+              isSuccess
+              isOpen={select.selectSuccessOpen}
+              onOpen={() => signals.selectSuccessOpened()}
+              onChange={e => signals.selectChanged({ value: e.target })}
+              onClose={() => signals.selectSuccessClosed()}/>
+          </Col>
+          <Col type="md-4">
+            <Select
+              label="Error option"
+              value={select.selected && select.selected.value}
+              options={options}
+              isError
+              message="fix me"
+              isOpen={select.selectErrorOpen}
+              onOpen={() => signals.selectErrorOpened()}
+              onChange={e => signals.selectChanged({ value: e.target })}
+              onClose={() => signals.selectErrorClosed()}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col type="md-4 md-offset-4">
+            <Select
+              label="large list of items"
+              value={select.largeSelectedValue}
+              options={(() => {
+                const opts = [];
+                for (let i = 0; i < 100; i++) {
+                  opts.push({ value: i, label: `Option ${i + 1}` });
+                }
+                return opts;
+              })()}
+              isOpen={select.largeSelectOpen}
+              onOpen={() => signals.selectLargeOpened()}
+              onChange={e => signals.selectLargeChanged({ value: e.target.value })}
+              onClose={() => signals.selectLargeClosed()}/>
+          </Col>
+        </Row>
       </div>
-    );
-  }
-}
+    </div>
+  );
+});

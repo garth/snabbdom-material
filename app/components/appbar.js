@@ -1,39 +1,34 @@
-import React, { Component } from 'react';
+import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 
-export default class Appbar extends Component {
-
-  static displayName = 'Appbar';
-
-  render() {
-    return (
-      <div>
-        <Example code={`
-import { Appbar } from 'material-components';
-        `}/>
-        <Example code={`
+export default Component(() => (
+  <div>
+    <Example code={`
+import { Appbar } from 'snabbdom-material';
+    `}/>
+    <Example code={`
 <Appbar fixed>
   <Appbar.Button style={{ float: 'left' }}><Icon name="menu"/></Appbar.Button>
   <Appbar.Title>Material Components</Appbar.Title>
   <div style={{ float: 'right' }}>
     <Appbar.Button
-      onClick={() => location.href='https://github.com/garth/material-components'}>
+      onClick={() => location.href='https://github.com/garth/snabbdom-material'}>
       <Icon name="github"/>
     </Appbar.Button>
-    <Appbar.Button><Icon name="more_vert"/></Appbar.Button>
-    <Menu rightAlign isOpen={showMoreMenu} onClose={hideMoreMenuFunc}>
-      <Menu.Item>Option A</Menu.Item>
-      <Menu.Item>Option B</Menu.Item>
-    </Menu>
+    <div style={{ display: 'inline-block' }}>
+      <Menu rightAlign isOpen={showMoreMenu} onClose={hideMoreMenuFunc}>
+        <Menu.Item>Option A</Menu.Item>
+        <Menu.Item>Option B</Menu.Item>
+      </Menu>
+      <Appbar.Button><Icon name="more_vert"/></Appbar.Button>
+    </div>
   </div>
 </Appbar>
-        `}/>
-        <p>See the appbar above.</p>
-        <p>
-          When using a darker primary color, try
-          using <code>{'<Appbar.Button lightWaves>X</Appbar.Button>'}</code>
-        </p>
-      </div>
-    );
-  }
-}
+    `}/>
+    <p>See the appbar above.</p>
+    <p>
+      When using a darker primary color, try
+      using <code>{'<Appbar.Button lightWaves>X</Appbar.Button>'}</code>
+    </p>
+  </div>
+));

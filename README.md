@@ -8,7 +8,7 @@ Introduction
 
 snabbdom-material is a library of [snabbdom](https://github.com/paldepind/snabbdom) user interface components based on [material design](https://www.google.com/design/spec/).
 
-snabbdom-material are completely stateless making them an ideal companion to libraries such as [Cerebral](http://christianalfoni.com/cerebral/).
+snabbdom-material components are completely stateless making them an ideal companion to libraries such as [Cerebral](http://christianalfoni.com/cerebral/).
 
 The development of snabbdom-material has been sponsored by [Elastic Time](http://www.elastictime.com/).
 

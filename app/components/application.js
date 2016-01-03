@@ -90,31 +90,35 @@ export default Component({
         <Appbar.Title material={material}>{title}</Appbar.Title>
         <div style={{ float: 'right' }}>
           <Appbar.Button
-            onClick={() => location.href = 'https://github.com/garth/material-components'}
+            onClick={() => location.href = 'https://github.com/garth/snabbdom-material'}
             material={material}>
             <Icon name="github"/>
           </Appbar.Button>
-          <Appbar.Button
-            onClick={() => signals.localeMenuOpened()}
-            material={material}>
-            <Icon name="globe"/>
-          </Appbar.Button>
-          <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()} material={material}>
-            <Menu.Item
-              showIcon
-              onClick={() => signals.localeSelected({ locale: 'de' })}
-              selected={locale === 'de'}
+          <div style={{ display: 'inline-block' }}>
+            <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()} material={material}>
+              <Menu.Item
+                showIcon
+                onClick={() => signals.localeSelected({ locale: 'de' })}
+                onClose={() => signals.localeMenuClosed()}
+                selected={locale === 'de'}
+                material={material}>
+                Deutsch
+              </Menu.Item>
+              <Menu.Item
+                showIcon
+                onClick={() => signals.localeSelected({ locale: 'en' })}
+                onClose={() => signals.localeMenuClosed()}
+                selected={locale === 'en'}
+                material={material}>
+                English
+              </Menu.Item>
+            </Menu>
+            <Appbar.Button
+              onClick={() => signals.localeMenuOpened()}
               material={material}>
-              Deutsch
-            </Menu.Item>
-            <Menu.Item
-              showIcon
-              onClick={() => signals.localeSelected({ locale: 'en' })}
-              selected={locale === 'en'}
-              material={material}>
-              English
-            </Menu.Item>
-          </Menu>
+              <Icon name="globe"/>
+            </Appbar.Button>
+          </div>
         </div>
       </Appbar>
       <div
