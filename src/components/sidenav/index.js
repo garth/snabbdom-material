@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Mask from '../mask';
 import Item from './item';
 import Title from './title';
@@ -29,7 +30,7 @@ const Sidenav = function Sidenav({
         marginLeft: '-2px',
         overflow: 'hidden'
       }, style)}>
-      {children}
+      {h('span', children)}
     </div>
   ) : (
     <div style={{ zIndex: 1000 }}>
@@ -48,7 +49,7 @@ const Sidenav = function Sidenav({
             bottom: 0,
             overflow: 'auto'
           }, style, material.sidenav || defaultMaterial.sidenav)}>
-          {children}
+          {h('span', children)}
         </div>
       ) : <span/>}
     </div>

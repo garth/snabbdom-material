@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Waves from './helpers/waves';
 import defaultMaterial from './defaultMaterial';
 
@@ -58,7 +59,7 @@ export default function Button({
         'waves-light': primary && !flat
       }}
       disabled={disabled}>
-      {children}
+      {h('span', children)}
     </button>
   );
 }

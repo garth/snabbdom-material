@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import MenuItem from '../menu/item';
 import defaultMaterial from '../defaultMaterial';
 
@@ -28,7 +29,7 @@ export default function SidenavItem({
           : material.typographyColor || defaultMaterial.typographyColor
       }, style)}
       material={material}>
-      {children}
+      {h('span', children)}
     </MenuItem>
   );
 }

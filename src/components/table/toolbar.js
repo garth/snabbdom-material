@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 
 export default function TableToolbar({
   className,
@@ -16,7 +17,7 @@ export default function TableToolbar({
         style={Object.assign({
           paddingLeft: 0
         }, style)}>
-        {children}
+        {h('span', children)}
       </th>
     </tr>
   );

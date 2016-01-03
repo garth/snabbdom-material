@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Button from './button';
 import Title from './title';
 import defaultMaterial from '../defaultMaterial';
@@ -30,7 +31,7 @@ const Appbar = function Appbar({
           backgroundColor: primaryColor,
           color: primaryFontColor
         }, style)}>
-        {children}
+        {h('span', children)}
       </div>
     </div>
   );

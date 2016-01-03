@@ -50,7 +50,7 @@ export default function SidenavTitle({
           }
         </Button>
       ) : <span/>}
-      {children}
+      {h('span', children)}
     </div>
   );
 }

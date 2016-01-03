@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 
 export default function AppbarTitle({
   className,
@@ -20,7 +21,7 @@ export default function AppbarTitle({
         display: 'inline-block',
         float: 'left'
       }, style)}>
-      {children}
+      {h('span', children)}
     </div>
   );
 

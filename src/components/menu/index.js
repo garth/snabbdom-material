@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Mask from '../mask';
 import Item from './item';
 import Separator from './separator';
@@ -85,7 +86,7 @@ const Menu = function Menu({
             [className]: className
           }}
           style={Object.assign(menuStyle, style, material.fadeInOut || defaultMaterial.fadeInOut)}>
-          {children}
+          {h('span', children)}
         </div>
       ) : <span/>}
     </div>

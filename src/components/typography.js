@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import defaultMaterial from './defaultMaterial';
 
 export default function Typography({
@@ -35,7 +36,7 @@ export default function Typography({
       style={Object.assign({
         color: primary ? primaryColor : secondary ? secondaryColor : typographyColor
       }, style)}>
-      {children}
+      {h('span', children)}
     </div>
   );
 }

@@ -63,7 +63,7 @@ export default function MenuItem({
         display: 'inline-block',
         fontSize: '16px'
       }}>
-        {children}
+        {h('span', children)}
       </div>
     </div>
   );

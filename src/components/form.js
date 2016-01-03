@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 
 export default function Form({
   className,
@@ -19,7 +20,7 @@ export default function Form({
         }
       }}
       noValidate>
-      {children}
+      {h('span', children)}
     </form>
   );
 

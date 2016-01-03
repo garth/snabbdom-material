@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Toolbar from './toolbar';
 import Row from './row';
 
@@ -16,7 +17,7 @@ const Table = function Table({
         'm-c': true,
         [className]: className
       }}>
-      {children}
+      {h('span', children)}
     </table>
   );
 

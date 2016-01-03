@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Waves from '../helpers/waves';
 
 export default function AppbarButton({
@@ -36,7 +37,7 @@ export default function AppbarButton({
           'waves-circle': true,
           'waves-light': lightWaves
         }}>
-        {children}
+        {h('span', children)}
       </a>
     </div>
   );

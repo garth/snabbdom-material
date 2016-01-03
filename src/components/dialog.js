@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 import Mask from './mask';
 import Divider from './divider';
 import Button from './button';
@@ -118,7 +119,7 @@ export default function Dialog({
                 margin: '0 -24px',
                 padding: '0 24px'
               }}>
-              {children}
+              {h('span', children)}
             </div>
           </div>
           {footer}

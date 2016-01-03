@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 
 export default function Row({
   className,
@@ -12,7 +13,7 @@ export default function Row({
         [className]: className
       }}
       style={style}>
-      {children}
+      {h('span', children)}
     </div>
   );
 

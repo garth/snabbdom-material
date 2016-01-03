@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 
 export default function TableRow({
   className,
@@ -14,7 +15,7 @@ export default function TableRow({
       }}
       style={style}
       on-click={onClick}>
-      {children}
+      {h('span', children)}
     </tr>
   );
 }

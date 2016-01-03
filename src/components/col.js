@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import h from 'snabbdom/h';
 
 export default function Col({
   className,
@@ -17,7 +18,7 @@ export default function Col({
         [className]: className
       }, colClasses)}
       style={style}>
-      {children}
+      {h('span', children)}
     </div>
   );
 
