@@ -34,7 +34,7 @@ export default Component({
     window.scrollTo(0, 0);
   }
 
-  // const RouteComponent = require('./' + currentPage);
+  const RouteComponent = require('./' + currentPage).default;
 
   return (
     <div>
@@ -124,7 +124,7 @@ export default Component({
           maxWidth: '950px',
           margin: '0 auto'
         }}>
-        Hello
+        <RouteComponent material={material}/>
       </div>
     </div>
   );
