@@ -36,8 +36,8 @@ export default function Select({
         class={{
           selected: isSelected
         }}
-        key={option.key || option.label}
-        on-click={() => onChange({ target: option })}>
+        onClick={() => onChange({ target: option })}
+        onClose={onClose}>
         {option.label}
       </Menu.Item>
     );

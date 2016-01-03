@@ -72,7 +72,9 @@ const Menu = function Menu({
     <div
       style={{
         zIndex: 1000,
-        position: 'relative'
+        position: 'relative',
+        height: 0,
+        overflow: 'visible'
       }}>
       <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
       {isOpen ? (
