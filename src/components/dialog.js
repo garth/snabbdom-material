@@ -92,42 +92,38 @@ export default function Dialog({
   }
 
   return (
-    <div
-      style={{ zIndex: 1000 }}>
+    <div style={{ zIndex: 1000 }}>
       <Mask isOpen={isOpen} material={material}/>
-      <div
-        class={{
-          paper2: true,
-          transition: true,
-          [className]: className
-        }}
-        style={Object.assign({
-          position: 'fixed',
-          zIndex: 1001,
-          top: `${top}px`,
-          left: `${left}px`,
-          width: `${maxWidth}px`,
-          maxHeight: `${maxHeight}px`,
-          opacity: isOpen ? '0' : '1',
-          transition: 'opacity .3s',
-          delayed: {
-            opacity: isOpen ? '1' : '0'
-          }
-        }, style)}>
-        <div style={{ padding: noPadding ? 0 : '24px' }}>
-          {titleElement}
-          <div
-            style={{
-              maxHeight: `${maxContentHeight}px`,
-              overflow: 'auto',
-              margin: '0 -24px',
-              padding: '0 24px'
-            }}>
-            {children}
+      {isOpen ? (
+        <div
+          class={{
+            paper2: true,
+            transition: true,
+            [className]: className
+          }}
+          style={Object.assign({
+            position: 'fixed',
+            zIndex: 1001,
+            top: `${top}px`,
+            left: `${left}px`,
+            width: `${maxWidth}px`,
+            maxHeight: `${maxHeight}px`,
+          }, style, material.fadeInOut || defaultMaterial.fadeInOut)}>
+          <div style={{ padding: noPadding ? 0 : '24px' }}>
+            {titleElement}
+            <div
+              style={{
+                maxHeight: `${maxContentHeight}px`,
+                overflow: 'auto',
+                margin: '0 -24px',
+                padding: '0 24px'
+              }}>
+              {children}
+            </div>
           </div>
+          {footer}
         </div>
-        {footer}
-      </div>
+      ) : <span/>}
     </div>
   );
 

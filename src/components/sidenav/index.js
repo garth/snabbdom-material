@@ -32,29 +32,25 @@ const Sidenav = function Sidenav({
       {children}
     </div>
   ) : (
-    <div>
+    <div style={{ zIndex: 1000 }}>
       <Mask onClick={onClose} isOpen={isOpen} material={material}/>
-      <div
-        class={{
-          sidenav: true,
-          paper2: true,
-          [className]: className
-        }}
-        style={Object.assign({
-          position: 'fixed',
-          top: 0,
-          bottom: 0,
-          overflow: 'auto',
-          width: '280px',
-          zIndex: 1001,
-          left: isOpen ? '-280px' : '0',
-          transition: 'left .3s ease-out',
-          delayed: {
-            left: isOpen ? '0' : '-280px'
-          }
-        }, style)}>
-        {children}
-      </div>
+      {isOpen ? (
+        <div
+          class={{
+            sidenav: true,
+            paper2: true,
+            [className]: className
+          }}
+          style={Object.assign({
+            zIndex: 1001,
+            position: 'fixed',
+            top: 0,
+            bottom: 0,
+            overflow: 'auto'
+          }, style, material.sidenav || defaultMaterial.sidenav)}>
+          {children}
+        </div>
+      ) : <span/>}
     </div>
   );
 };

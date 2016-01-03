@@ -3,6 +3,7 @@ import Mask from '../mask';
 import Item from './item';
 import Separator from './separator';
 import screen from '../helpers/screen';
+import defaultMaterial from '../defaultMaterial';
 
 function checkBounds(vnode) {
   const menuElement = vnode.elm;
@@ -60,12 +61,7 @@ const Menu = function Menu({
     position: 'absolute',
     overflowY: 'auto',
     scrollbar: 'width: 4px',
-    top: '-8px',
-    opacity: isOpen ? '0' : '1',
-    transition: 'opacity .3s',
-    delayed: {
-      opacity: isOpen ? '1' : '0'
-    }
+    top: '-8px'
   };
   if (rightAlign) {
     menuStyle.right = '0';
@@ -79,17 +75,19 @@ const Menu = function Menu({
         width: rightAlign ? null : '100%'
       }}>
       <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
-      <div
-        hook-insert={componentDidMount(isOpen, onClose)}
-        hook-postpatch={checkBounds}
-        hook-destroy={componentWillUnmount}
-        class={{
-          paper1: true,
-          [className]: className
-        }}
-        style={Object.assign(menuStyle, style)}>
-        {children}
-      </div>
+      {isOpen ? (
+        <div
+          hook-insert={componentDidMount(isOpen, onClose)}
+          hook-postpatch={checkBounds}
+          hook-destroy={componentWillUnmount}
+          class={{
+            paper1: true,
+            [className]: className
+          }}
+          style={Object.assign(menuStyle, style, material.fadeInOut || defaultMaterial.fadeInOut)}>
+          {children}
+        </div>
+      ) : <span/>}
     </div>
   );
 };

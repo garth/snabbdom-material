@@ -1,11 +1,13 @@
 import { html } from 'snabbdom-jsx';
+import defaultMaterial from './defaultMaterial';
 
 export default function Mask({
   className,
   isOpen,
   dark = true,
   onClick,
-  style: styleOverrides = {}
+  style: styleOverrides = {},
+  material = defaultMaterial
 }) {
 
   let style = {
@@ -19,16 +21,12 @@ export default function Mask({
   };
 
   if (dark) {
-    style = Object.assign(style, {
-      opacity: isOpen ? '0' : '1',
-      transition: 'opacity .3s',
-      delayed: {
-        opacity: isOpen ? '1' : '0'
-      }
-    });
+    style = Object.assign(style, material.fadeInOut || defaultMaterial.fadeInOut);
+  } else {
+    style.opacity = '0';
   }
 
-  return (
+  return isOpen ? (
     <div
       class={{
         mask: true,
@@ -37,6 +35,6 @@ export default function Mask({
       }}
       style={Object.assign(style, styleOverrides)}
       on-click={onClick}/>
-  );
+  ) : <span/>;
 
 }

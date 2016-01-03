@@ -9,10 +9,7 @@ export default function Spinner({
   secondary,
   size = 30,
   style = {},
-  material: {
-    primaryColor,
-    secondaryColor
-  } = defaultMaterial
+  material = defaultMaterial
 }) {
 
   const spinner = (
@@ -43,7 +40,11 @@ export default function Spinner({
             strokeLinecap: 'round'
           }}
           fill="none"
-          stroke={primary ? primaryColor : secondary ? secondaryColor : null}
+          stroke={primary
+            ? material.primaryColor || defaultMaterial.primaryColor
+            : secondary
+              ? material.secondaryColor || defaultMaterial.secondaryColor
+              : null}
           cx="50"
           cy="50"
           r="48"
@@ -53,12 +54,12 @@ export default function Spinner({
     </div>
   );
 
-  return inline ? spinner : (
+  return inline ? spinner : isOpen ? (
     <div
       class={{
         paper1: true
       }}
-      style={{
+      style={Object.assign({
         zIndex: 1100,
         position: 'fixed',
         top: '100px',
@@ -67,14 +68,9 @@ export default function Spinner({
         width: `${size + 12}px`,
         height: `${size + 12}px`,
         borderRadius: '50%',
-        padding: '6px',
-        opacity: isOpen ? '0' : '1',
-        transition: 'opacity .3s',
-        delayed: {
-          opacity: isOpen ? '1' : '0'
-        }
-      }}>
+        padding: '6px'
+      }, material.fadeInOut || defaultMaterial.fadeInOut)}>
       {spinner}
     </div>
-  );
+  ) : <span/>;
 }
