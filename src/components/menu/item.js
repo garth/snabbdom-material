@@ -4,9 +4,9 @@ import Waves from '../helpers/waves';
 
 export default function MenuItem({
   className,
-  closeMenuHandler,
   icon,
   onClick,
+  onClose,
   selected,
   showIcon,
   style = {}
@@ -57,7 +57,14 @@ export default function MenuItem({
         whiteSpace: 'nowrap',
         display: 'block'
       }, style)}
-      on-click={closeMenuHandler || onClick}>
+      on-click={e => {
+        if (typeof onClose === 'function') {
+          onClose(e);
+        }
+        if (typeof onClick === 'function') {
+          onClick(e);
+        }
+      }}>
       {iconContainer}
       <div style={{
         display: 'inline-block',

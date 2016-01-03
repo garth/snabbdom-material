@@ -7,6 +7,7 @@ export default function SidenavItem({
   className,
   icon,
   onClick,
+  onClose,
   selected,
   showIcon,
   style = {},
@@ -17,6 +18,7 @@ export default function SidenavItem({
     <MenuItem
       icon={icon}
       onClick={onClick}
+      onClose={onClose}
       selected={false}
       showIcon={showIcon}
       class={{

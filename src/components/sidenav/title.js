@@ -5,7 +5,7 @@ import defaultMaterial from '../defaultMaterial';
 
 export default function SidenavTitle({
   className,
-  closeMenuHandler,
+  onClose,
   showCloseButton,
   style = {},
   material = defaultMaterial
@@ -29,7 +29,7 @@ export default function SidenavTitle({
             float: 'right'
           }}
           className="waves-dark"
-          onClick={closeMenuHandler}
+          onClick={onClose}
           material={material}>
           {
             h('svg', {
