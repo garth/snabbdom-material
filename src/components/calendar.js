@@ -155,15 +155,29 @@ export default function Calendar({
     </div>
   )] : [];
 
-  const padding = date.weekday() ? (
+  navigation.push(
     <div
       style={{
-        display: 'inline-block',
-        width: `${colWidth * date.weekday()}%`,
-        height: '9px'
-      }}
-    />
-  ) : <span/>;
+        color: '#3e3e3e',
+        textAlign: 'center',
+        fontSize: '14px',
+        lineHeight: '48px'
+      }}>
+      {date.format(titleFormat)}
+    </div>
+  );
+
+  if (date.weekday()) {
+    days.unshift(
+      <div
+        style={{
+          display: 'inline-block',
+          width: `${colWidth * date.weekday()}%`,
+          height: '9px'
+        }}
+      />
+    );
+  }
 
   return (
     <div
@@ -177,15 +191,6 @@ export default function Calendar({
       }, style)}>
       <div>
         {navigation}
-        <div
-          style={{
-            color: '#3e3e3e',
-            textAlign: 'center',
-            fontSize: '14px',
-            lineHeight: '48px'
-          }}>
-          {date.format(titleFormat)}
-        </div>
       </div>
       <div
         style={{
@@ -205,7 +210,6 @@ export default function Calendar({
         ))}
       </div>
       <div>
-        {padding}
         {days}
       </div>
     </div>
