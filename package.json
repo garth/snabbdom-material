@@ -5,9 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "parallelshell 'watch \"eslint --cache .\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
-    "dev": "parallelshell 'watch \"eslint --cache .\" src test' 'babel --watch src --out-dir lib'",
-    "build": "babel src --out-dir lib",
+    "start": "parallelshell 'node-sass --watch src/index.scss lib/index.css' 'watch \"eslint --cache .\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
+    "build": "babel src --out-dir lib && node-sass src/index.scss lib/index.css && webpack --config webpack.config.js",
     "lint": "eslint ."
   },
   "repository": {

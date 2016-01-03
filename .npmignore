@@ -1,9 +1,10 @@
 // same as .gitignore
 *.log
+.eslintcache
+dist
+// lib
 node_modules
-demo/main.bundle.*
 
 // .npmignore only
-demo/main.bundle.js
 src
 test
