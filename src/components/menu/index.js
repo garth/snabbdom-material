@@ -51,7 +51,7 @@ const Menu = function Menu({
   onClose,
   rightAlign,
   style = {},
-  material
+  material = defaultMaterial
 }, children = '') {
 
   const menuStyle = {
@@ -72,8 +72,7 @@ const Menu = function Menu({
     <div
       style={{
         zIndex: 1000,
-        position: 'absolute',
-        width: rightAlign ? null : '100%'
+        position: 'relative'
       }}>
       <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
       {isOpen ? (

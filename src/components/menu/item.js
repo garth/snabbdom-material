@@ -41,6 +41,8 @@ export default function MenuItem({
         {iconElement || '\u00A0'}
       </div>
     );
+  } else {
+    iconContainer = <span/>;
   }
 
   return (
