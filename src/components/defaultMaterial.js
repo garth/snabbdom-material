@@ -1,3 +1,6 @@
+const transitionTime = '.3s';
+const sidenavWidth = 280;
+
 export default {
   primaryColor: '#FFC107',
   primaryFontColor: 'rgba(0, 0, 0, 0.7)',
@@ -8,20 +11,20 @@ export default {
   typographyColor: '#212121',
 
   sidenav: {
-    width: '280px',
-    left: '-280px',
-    transition: 'left .3s ease-out',
+    width: `${sidenavWidth}px`,
+    left: `-${sidenavWidth + 10}px`,
+    transition: `left ${transitionTime} ease-out`,
     delayed: {
       left: '0'
     },
     remove: {
-      left: '-280px'
+      left: `-${sidenavWidth + 10}px`
     }
   },
 
   fadeInOut: {
     opacity: '0',
-    transition: 'opacity .3s',
+    transition: `opacity ${transitionTime}`,
     delayed: {
       opacity: '1'
     },
