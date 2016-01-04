@@ -23,7 +23,7 @@ import { Spinner } from 'snabbdom-material';
 // page spinner
 <Spinner isOpen={isLoading}/>
     `}/>
-    <div style={{ margin: '24px 0' }} className="paper1 padded">
+    <div style={{ margin: '24px 0' }} classNames="paper1 padded">
       <Row>
         <Col type="sm-4"><Spinner style={{ margin: '10px auto' }} size={25} inline/></Col>
         <Col type="sm-4"><Spinner style={{ margin: '10px auto' }} size={25} inline primary/></Col>
