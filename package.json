@@ -85,7 +85,8 @@
     "watch": "^0.17.1",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "webpack-sources": "^0.1.0"
   },
   "peerDependencies": {
     "moment": "^2.11.0",
