@@ -1,18 +1,15 @@
 import { html } from 'snabbdom-jsx';
 
 export default function Divider({
-  className,
+  className = '',
   style = {}
 }) {
 
   return (
     <hr
-      class={{
-        'paper-divider': true,
-        [className]: className
-      }}
+      classNames={className ? ['paper-divider', className] : 'paper-divider'}
       style={Object.assign({
-        border: 0,
+        border: '0',
         height: '1px',
         margin: '16px 0'
       }, style)}/>

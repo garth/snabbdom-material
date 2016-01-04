@@ -45,7 +45,7 @@ events.responsive.addListener(screen => store.set('screen', screen));
       the same as <code>type</code> (<code>xs=1, sm=2, md=3, lg=4</code>), but allows you to
       filter by range (<code>if (screen.size > 2) {}</code>).
     </p>
-    <div className={`paper${screen.size} padded`}>
+    <div classNames={`paper${screen.size} padded`}>
       As the screen gets larger this paper will rise.<br/>
       The screen is {screen.type}.
     </div>

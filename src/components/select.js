@@ -5,18 +5,18 @@ import Menu from './menu';
 import defaultMaterial from './defaultMaterial';
 
 export default function Select({
-  className,
-  isError,
-  isOpen,
-  isSuccess,
+  className = '',
+  isError = false,
+  isOpen = false,
+  isSuccess = false,
   label = '',
   message = '',
   onChange,
   onClose,
   onOpen,
   options = [],
-  readOnly,
-  selected,
+  readOnly = false,
+  selected = false,
   style = {},
   value,
   material = defaultMaterial
@@ -47,9 +47,7 @@ export default function Select({
 
   return (
     <div
-      class={{
-        [className]: className
-      }}
+      classNames={className}
       style={Object.assign({
         position: 'relative'
       }, style)}>

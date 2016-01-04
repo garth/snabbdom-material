@@ -20,8 +20,8 @@ import { Col, Row } from 'snabbdom-material';
     `}/>
     <div style={{ padding: '16px 0' }}>
       <Row>
-        <Col type="md-5 md-offset-1"><div className="paper1 padded">md-5 md-offset-1</div></Col>
-        <Col type="md-5"><div className="paper1 padded">md-5</div></Col>
+        <Col type="md-5 md-offset-1"><div classNames="paper1 padded">md-5 md-offset-1</div></Col>
+        <Col type="md-5"><div classNames="paper1 padded">md-5</div></Col>
       </Row>
     </div>
   </div>

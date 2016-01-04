@@ -2,32 +2,29 @@ import { html } from 'snabbdom-jsx';
 import defaultMaterial from './defaultMaterial';
 
 export default function Input({
-  className,
+  className = '',
   inputStyle = {},
-  isError,
-  isSuccess,
+  isError = false,
+  isSuccess = false,
   label = '',
   message = '',
   onChange,
   onClick,
   onFocus,
-  readOnly,
+  readOnly = false,
   style = {},
   type = 'text',
   value = '',
-  material: {
-    secondaryColor,
-    errorColor,
-    successColor
-  } = defaultMaterial
+  material = defaultMaterial
 }) {
+
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
+  const errorColor = material.errorColor || defaultMaterial.errorColor;
+  const successColor = material.successColor || defaultMaterial.successColor;
 
   return (
     <div
-      class={{
-        'input-group': true,
-        [className]: className
-      }}
+      classNames={className ? ['input-group', className] : 'input-group'}
       style={style}>
       <input
         on-click={e => onClick ? onClick(e) : null}
@@ -39,8 +36,8 @@ export default function Input({
         }}
         on-blur={e => e.target.parentElement.querySelector('.inputLabel').style.color = 'inherit'}
         type={type}
+        classNames="paper-divider"
         class={{
-          'paper-divider': true,
           used: value && value.length
         }}
         style={inputStyle}
@@ -49,8 +46,8 @@ export default function Input({
         readOnly={readOnly}
         required/>
       <span
+        classNames="bar"
         class={{
-          'bar': true,
           open: isError || isSuccess
         }}
         style={{

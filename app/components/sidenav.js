@@ -30,7 +30,7 @@ import { Sidenav } from 'snabbdom-material';
   Page Content
 </div>
     `}/>
-    <div className="paper1" style={{
+    <div classNames="paper1" style={{
       height: '200px',
       margin: '16px 0'
     }}>

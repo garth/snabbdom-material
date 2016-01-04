@@ -24,11 +24,11 @@ function button(label, onClick) {
 
 export default function Dialog({
   cancelLabel,
-  className,
+  className = '',
   height = 130,
-  hideDivider,
-  isOpen,
-  noPadding,
+  hideDivider = false,
+  isOpen = false,
+  noPadding = false,
   okLabel,
   onCancel,
   onOk,
@@ -67,7 +67,7 @@ export default function Dialog({
         textAlign: 'right'
       }}>
         {hideDivider ? <span/> : (
-          <Divider style={{ margin: 0 }}/>
+          <Divider style={{ margin: '0' }}/>
         )}
         {button(cancelLabel, onCancel)}
         {button(okLabel, onOk)}
@@ -83,8 +83,8 @@ export default function Dialog({
     titleElement = (
       <div style={{
         fontSize: '20px',
-        fontWeight: 400,
-        marginBottom: children ? '24px' : 0
+        fontWeight: '400',
+        marginBottom: children ? '24px' : '0'
       }}>{title}</div>
     );
     maxContentHeight -= 49;
@@ -93,24 +93,20 @@ export default function Dialog({
   }
 
   return (
-    <div style={{ zIndex: 1000 }}>
+    <div style={{ zIndex: '1000' }}>
       <Mask isOpen={isOpen} material={material}/>
       {isOpen ? (
         <div
-          class={{
-            paper2: true,
-            transition: true,
-            [className]: className
-          }}
+          classNames={className ? ['paper2', className] : 'paper2'}
           style={Object.assign({
             position: 'fixed',
-            zIndex: 1001,
+            zIndex: '1001',
             top: `${top}px`,
             left: `${left}px`,
             width: `${maxWidth}px`,
             maxHeight: `${maxHeight}px`,
           }, style, material.fadeInOut || defaultMaterial.fadeInOut)}>
-          <div style={{ padding: noPadding ? 0 : '24px' }}>
+          <div style={{ padding: noPadding ? '0' : '24px' }}>
             {titleElement}
             <div
               style={{

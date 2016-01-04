@@ -5,22 +5,19 @@ import Title from './title';
 import defaultMaterial from '../defaultMaterial';
 
 const Appbar = function Appbar({
-  className,
-  fixed,
+  className = '',
+  fixed = false,
   style = {},
-  material: {
-    primaryColor,
-    primaryFontColor
-  } = defaultMaterial
+  material = defaultMaterial
 }, children = '') {
+
+  const primaryColor = material.primaryColor || defaultMaterial.primaryColor;
+  const primaryFontColor = material.primaryFontColor || defaultMaterial.primaryFontColor;
 
   return (
     <div style={{ height: '64px' }}>
       <div
-        class={{
-          paper1: true,
-          [className]: className
-        }}
+        classNames={className ? ['paper1', className] : 'paper1'}
         style={Object.assign({
           position: fixed ? 'fixed' : 'inherit',
           width: '100%',

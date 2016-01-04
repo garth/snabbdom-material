@@ -6,8 +6,8 @@ import Calendar from './calendar';
 import screen from './helpers/screen';
 
 export default function DatePicker({
-  className,
-  isOpen,
+  className = '',
+  isOpen = false,
   locale = 'en',
   month = (new Date()).getMonth(),
   onCancel,
@@ -65,7 +65,7 @@ export default function DatePicker({
         style={{
           width: isPortrait ? '100%' : '168px',
           height: isPortrait ? '96px' : '322px',
-          marginBottom: isPortrait ? 0 : '-56px',
+          marginBottom: isPortrait ? '0' : '-56px',
           backgroundColor: material.secondaryColor || defaultMaterial.secondaryColor,
           color: material.secondaryFontColor || defaultMaterial.secondaryFontColor,
           padding: isPortrait ? '16px 24px' : '16px',
@@ -74,7 +74,7 @@ export default function DatePicker({
         <div style={{ fontSize: '15px', marginBottom: '2px' }}>
           {displayDate.get('year')}
         </div>
-        <div style={{ fontSize: '36px', fontWeight: 600, lineHeight: '40px' }}>
+        <div style={{ fontSize: '36px', fontWeight: '600', lineHeight: '40px' }}>
           {dateLines.map((line) => (
             <div>{line}</div>
           ))}
