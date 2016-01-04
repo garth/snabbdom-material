@@ -2,21 +2,16 @@ import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 
 export default function Col({
-  className,
+  className = '',
   style = {},
   type = ''
 }, children = '') {
 
-  const colClasses = type.split(' ').reduce((classes, col) => {
-    classes[`col-${col}`] = true;
-    return classes;
-  }, {});
+  const colClasses = type.split(' ').map(col => `col-${col}`);
 
   return (
     <div
-      class={Object.assign({
-        [className]: className
-      }, colClasses)}
+      classNames={className ? [className, ...colClasses] : colClasses}
       style={style}>
       {h('span', children)}
     </div>

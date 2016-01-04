@@ -3,7 +3,7 @@ import Divider from '../divider';
 import defaultMaterial from '../defaultMaterial';
 
 export default function MenuSeparator({
-  className,
+  className = '',
   style = {},
   material = defaultMaterial
 }) {

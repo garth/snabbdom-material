@@ -3,12 +3,12 @@ import h from 'snabbdom/h';
 import Waves from '../helpers/waves';
 
 export default function MenuItem({
-  className,
+  className = '',
   icon,
   onClick,
   onClose,
-  selected,
-  showIcon,
+  selected = false,
+  showIcon = false,
   style = {}
 }, children = '') {
 
@@ -48,10 +48,7 @@ export default function MenuItem({
   return (
     <div
       hook-insert={vnode => Waves.attach(vnode.elm)}
-      class={{
-        'menu-item': true,
-        [className]: className
-      }}
+      classNames={className ? ['menu-item', className] : 'menu-item'}
       style={Object.assign({
         padding: '0 40px 0 24px',
         lineHeight: '32px',

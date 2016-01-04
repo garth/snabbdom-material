@@ -3,11 +3,11 @@ import h from 'snabbdom/h';
 import defaultMaterial from './defaultMaterial';
 
 export default function Spinner({
-  className,
-  inline,
-  isOpen,
-  primary,
-  secondary,
+  className = '',
+  inline = false,
+  isOpen = false,
+  primary = false,
+  secondary = false,
   size = 30,
   style = {},
   material = defaultMaterial
@@ -15,9 +15,7 @@ export default function Spinner({
 
   const spinner = (
     <div
-      class={{
-        [className]: className
-      }}
+      classNames={className}
       style={Object.assign({
         position: 'relative',
         margin: '0 auto',
@@ -29,7 +27,7 @@ export default function Spinner({
           style: {
             animation: 'spinner-rotate 2s linear infinite',
             position: 'relative',
-            zoom: size / 100,
+            zoom: `${size / 100}`,
             width: '100px',
             height: '100px'
           }
@@ -63,11 +61,9 @@ export default function Spinner({
 
   return inline ? spinner : isOpen ? (
     <div
-      class={{
-        paper1: true
-      }}
+      classNames="paper1"
       style={Object.assign({
-        zIndex: 1100,
+        zIndex: '1100',
         position: 'fixed',
         top: '100px',
         left: '50%',

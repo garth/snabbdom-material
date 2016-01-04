@@ -4,12 +4,12 @@ import MenuItem from '../menu/item';
 import defaultMaterial from '../defaultMaterial';
 
 export default function SidenavItem({
-  className,
+  className = '',
   icon,
   onClick,
   onClose,
-  selected,
-  showIcon,
+  selected = false,
+  showIcon = false,
   style = {},
   material = defaultMaterial
 }, children = '') {
@@ -21,9 +21,7 @@ export default function SidenavItem({
       onClose={onClose}
       selected={false}
       showIcon={showIcon}
-      class={{
-        [className]: className
-      }}
+      className={className}
       style={Object.assign({
         padding: '8px 40px 8px 24px',
         color: selected

@@ -4,18 +4,17 @@ import Waves from './helpers/waves';
 import defaultMaterial from './defaultMaterial';
 
 export default function Button({
-  className,
-  flat,
+  className = '',
+  flat = false,
   onClick,
-  primary,
+  primary = false,
   style: styleOverrides = {},
   type = 'button',
-  material: {
-    secondaryColor,
-    secondaryFontColor
-  } = defaultMaterial
+  material = defaultMaterial
 }, children = '') {
 
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
+  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor;
   const disabled = !onClick && type !== 'submit';
 
   const style = {
@@ -52,9 +51,8 @@ export default function Button({
       type={type}
       on-click={e => onClick ? onClick(e) : null}
       style={Object.assign(style, styleOverrides)}
+      classNames={className ? ['waves-button', className] : 'waves-button'}
       class={{
-        [className]: className,
-        'waves-button': true,
         'waves-float': !flat && onClick,
         'waves-light': primary && !flat
       }}

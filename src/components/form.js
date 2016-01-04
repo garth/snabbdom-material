@@ -2,7 +2,7 @@ import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 
 export default function Form({
-  className,
+  className = '',
   onSubmit,
   style = {}
 }, children = '') {
@@ -10,9 +10,7 @@ export default function Form({
   return (
     <form
       style={style}
-      class={{
-        [className]: className
-      }}
+      classNames={className}
       on-submit={e => {
         e.preventDefault();
         if (typeof onSubmit === 'function') {

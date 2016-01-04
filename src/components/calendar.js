@@ -11,7 +11,7 @@ function getMoment(date, locale) {
 }
 
 export default function Calendar({
-  className,
+  className = '',
   locale = 'en',
   month = (new Date()).getMonth(),
   onNavigate,
@@ -21,12 +21,12 @@ export default function Calendar({
   titleFormat = 'MMMM YYYY',
   validDays,
   year = (new Date()).getFullYear(),
-  material: {
-    secondaryColor,
-    secondaryFontColor,
-    typographyColor
-  } = defaultMaterial
+  material = defaultMaterial
 }) {
+
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
+  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor;
+  const typographyColor = material.typographyColor || defaultMaterial.typographyColor;
 
   const _onChange = function (day, validDay) {
     if (onChange && validDay) {
@@ -88,9 +88,7 @@ export default function Calendar({
   const navigation = onNavigate ? [(
     <div
       hook-insert={vnode => onNavigate ? Waves.attach(vnode.elm) : null}
-      class={{
-        'waves-circle': true
-      }}
+      classNames="waves-circle"
       style={{
         float: 'left',
         cursor: 'pointer',
@@ -122,9 +120,7 @@ export default function Calendar({
   ), (
     <div
       hook-insert={vnode => onNavigate ? Waves.attach(vnode.elm) : null}
-      class={{
-        'waves-circle': true
-      }}
+      classNames="waves-circle"
       style={{
         float: 'right',
         cursor: 'pointer',
@@ -181,9 +177,7 @@ export default function Calendar({
 
   return (
     <div
-      class={{
-        [className]: className
-      }}
+      classNames={className}
       style={Object.assign({
         lineHeight: '30px',
         fontSize: '12px',

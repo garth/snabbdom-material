@@ -4,16 +4,16 @@ import defaultMaterial from './defaultMaterial';
 import Waves from './helpers/waves';
 
 export default function Checkbox({
-  className,
+  className = '',
   label = '',
   onChange,
-  readOnly,
+  readOnly = false,
   style = {},
   value = false,
-  material: {
-    secondaryColor
-  } = defaultMaterial
+  material = defaultMaterial
 }) {
+
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
 
   const icon = value ? (
     h('svg', {
@@ -43,9 +43,7 @@ export default function Checkbox({
 
   return (
     <label
-      class={{
-        [className]: className
-      }}
+      classNames={className}
       style={Object.assign({
         display: 'inline-block',
         cursor: 'pointer',
@@ -61,9 +59,7 @@ export default function Checkbox({
         checked={!!value}/>
       <div
         hook-insert={vnode => Waves.attach(vnode.elm)}
-        class={{
-          'waves-circle': true
-        }}
+        classNames="waves-circle"
         style={{
           position: 'relative',
           top: '3px',

@@ -2,15 +2,13 @@ import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 
 export default function AppbarTitle({
-  className,
+  className = '',
   style = {}
 }, children = '') {
 
   return (
     <div
-      class={{
-        [className]: className
-      }}
+      classNames={className}
       style={Object.assign({
         fontSize: '31.5px',
         fontWeight: 'normal',

@@ -2,8 +2,8 @@ import { html } from 'snabbdom-jsx';
 import defaultMaterial from './defaultMaterial';
 
 export default function Mask({
-  className,
-  isOpen,
+  className = '',
+  isOpen = false,
   dark = true,
   onClick,
   style: styleOverrides = {},
@@ -12,11 +12,11 @@ export default function Mask({
 
   let style = {
     position: 'fixed',
-    zIndex: 1000,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
+    zIndex: '1000',
+    top: '0',
+    right: '0',
+    bottom: '0',
+    left: '0',
     backgroundColor: 'rgba(0, 0, 0, 0.15)'
   };
 
@@ -28,10 +28,9 @@ export default function Mask({
 
   return isOpen ? (
     <div
+      classNames={className ? [className, 'mask'] : 'mask'}
       class={{
-        mask: true,
-        dark,
-        [className]: className
+        dark
       }}
       style={Object.assign(style, styleOverrides)}
       on-click={e => onClick ? onClick(e) : null}/>

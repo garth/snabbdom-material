@@ -1,7 +1,7 @@
 import h from 'snabbdom/h';
 
 export default function TableRow({
-  className,
+  className = '',
   onClick,
   style = {}
 }, children = '') {

@@ -2,16 +2,13 @@ import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 
 export default function TableToolbar({
-  className,
+  className = '',
   colSpan = 1,
   style = {}
 }, children = '') {
 
   return (
-    <tr class={{
-      'toolbar': true,
-      [className]: className
-    }}>
+    <tr classNames={className ? ['toolbar', className] : 'toolbar'}>
       {
         h('th', {
           props: {

@@ -7,9 +7,9 @@ import Separator from '../menu/separator';
 import defaultMaterial from '../defaultMaterial';
 
 const Sidenav = function Sidenav({
-  className,
-  isOpen,
-  mini,
+  className = '',
+  isOpen = false,
+  mini = false,
   onClose,
   style = {},
   material = defaultMaterial
@@ -17,15 +17,12 @@ const Sidenav = function Sidenav({
 
   return mini ? (
     <div
-      class={{
-        paper: true,
-        [className]: className
-      }}
+      classNames={className ? ['paper', className] : 'paper'}
       style={Object.assign({
         position: 'absolute',
         top: '64px',
-        left: 0,
-        bottom: 0,
+        left: '0',
+        bottom: '0',
         width: '62px',
         marginLeft: '-2px',
         overflow: 'hidden'
@@ -33,20 +30,16 @@ const Sidenav = function Sidenav({
       {h('span', children)}
     </div>
   ) : (
-    <div style={{ zIndex: 1000 }}>
+    <div style={{ zIndex: '1000' }}>
       <Mask onClick={onClose} isOpen={isOpen} material={material}/>
       {isOpen ? (
         <div
-          class={{
-            sidenav: true,
-            paper2: true,
-            [className]: className
-          }}
+          classNames={className ? ['sidenav', 'paper2', className] : ['sidenav', 'paper2']}
           style={Object.assign({
-            zIndex: 1001,
+            zIndex: '1001',
             position: 'fixed',
-            top: 0,
-            bottom: 0,
+            top: '0',
+            bottom: '0',
             overflow: 'auto'
           }, style, material.sidenav || defaultMaterial.sidenav)}>
           {h('span', children)}

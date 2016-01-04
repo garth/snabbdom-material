@@ -4,19 +4,16 @@ import Button from '../appbar/button';
 import defaultMaterial from '../defaultMaterial';
 
 export default function SidenavTitle({
-  className,
+  className = '',
   onClose,
-  showCloseButton,
+  showCloseButton = false,
   style = {},
   material = defaultMaterial
 }, children = '') {
 
   return (
     <div
-      class={{
-        'paper-divider': true,
-        [className]: className
-      }}
+      classNames={className ? ['paper-divider', className] : 'paper-divider'}
       style={Object.assign({
         height: '64px',
         lineHeight: '32px',
