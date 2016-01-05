@@ -11,12 +11,8 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code={`
-import { Checkbox } from 'snabbdom-material';
-    `}/>
-    <Example code={`
-<Checkbox label="Checkbox" value={checked} onChange={setChecked}/>
-    `}/>
+    <Example code="import { Checkbox } from 'snabbdom-material';"/>
+    <Example code='<Checkbox label="Checkbox" value={checked} onChange={setChecked}/>'/>
     <div>
       <Checkbox label="Checkbox" value={checkbox.checked} onChange={(e) => signals.checkboxChanged({ value: e.target.value })}/>
     </div>

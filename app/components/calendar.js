@@ -1,6 +1,7 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Calendar, Col, Row } from '../../lib';
+const N = '\n';
 
 export default Component({
   locale: ['locale'],
@@ -13,20 +14,18 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code={`
-import { Calendar } from 'snabbdom-material';
-    `}/>
+    <Example code="import { Calendar } from 'snabbdom-material';"/>
     <p>
       The locale will default to <code>en</code>, to use any other locale you must ensure that you have
       first <a href="http://momentjs.com/docs/#/i18n/loading-into-browser/">loaded the locale</a> into
       moment.js.
     </p>
-    <Example code={`
-// Non interactive calendar of the current month
-<Calendar locale={locale}/>
-
-// Non interactive calendar of given month
-<Calendar locale={locale} titleFormat="MMM" year={2010} month={0} value={new Date(2010, 0, 5)}/>
+    <Example code={`${
+    N}// Non interactive calendar of the current month${
+    N}<Calendar locale={locale}/>${
+    N}${
+    N}// Non interactive calendar of given month${
+    N}<Calendar locale={locale} titleFormat="MMM" year={2010} month={0} value={new Date(2010, 0, 5)}/>
     `}/>
     <Row>
       <Col type="sm-6">
@@ -46,15 +45,15 @@ import { Calendar } from 'snabbdom-material';
           style={{ margin: '24px auto', padding: '12px' }}/>
       </Col>
     </Row>
-    <Example code={`
-// Interactive calendar
-<Calendar
-  locale={locale}
-  year={year}
-  month={month}
-  value={selectedDate}
-  onChange={setDate}
-  onNavigate={updateCalendar}/>
+    <Example code={`${
+    N}// Interactive calendar${
+    N}<Calendar${
+    N}  locale={locale}${
+    N}  year={year}${
+    N}  month={month}${
+    N}  value={selectedDate}${
+    N}  onChange={setDate}${
+    N}  onNavigate={updateCalendar}/>
     `}/>
     <Calendar
       locale={locale}

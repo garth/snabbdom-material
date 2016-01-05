@@ -4,54 +4,40 @@ import { Col, Row, Typ } from '../../lib';
 
 export default Component(() => (
   <div>
-    <Example code={`
-import { Typ } from 'snabbdom-material';
-    `}/>
+    <Example code="import { Typ } from 'snabbdom-material';"/>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ display3>Display 3</Typ>
-        `}/>
+        <Example code="<Typ display3>Display 3</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ display3>Display 3</Typ></Col>
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ display3>Display 2</Typ>
-        `}/>
+        <Example code="<Typ display3>Display 2</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ display2>Display 2</Typ></Col>
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ display1>Display 1</Typ>
-        `}/>
+        <Example code="<Typ display1>Display 1</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ display1>Display 1</Typ></Col>
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ headline>Headline</Typ>
-        `}/>
+        <Example code="<Typ headline>Headline</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ headline>Headline</Typ></Col>
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ title>Title</Typ>
-        `}/>
+        <Example code="<Typ title>Title</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ title>Title</Typ></Col>
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ subheading>Subheading</Typ>
-        `}/>
+        <Example code="<Typ subheading>Subheading</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ subheading>Subheading</Typ></Col>
     </Row>
@@ -61,17 +47,13 @@ import { Typ } from 'snabbdom-material';
     </p>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ primary display2>Primary</Typ>
-        `}/>
+        <Example code="<Typ primary display2>Primary</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ primary display2>Primay</Typ></Col>
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code={`
-<Typ secondary display2>Secondary</Typ>
-        `}/>
+        <Example code="<Typ secondary display2>Secondary</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ secondary display2>Secondary</Typ></Col>
     </Row>

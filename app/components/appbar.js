@@ -1,29 +1,28 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
+const N = '\n';
 
 export default Component(() => (
   <div>
-    <Example code={`
-import { Appbar } from 'snabbdom-material';
-    `}/>
-    <Example code={`
-<Appbar fixed>
-  <Appbar.Button style={{ float: 'left' }}><Icon name="menu"/></Appbar.Button>
-  <Appbar.Title>Material Components</Appbar.Title>
-  <div style={{ float: 'right' }}>
-    <Appbar.Button
-      onClick={() => location.href='https://github.com/garth/snabbdom-material'}>
-      <Icon name="github"/>
-    </Appbar.Button>
-    <div style={{ display: 'inline-block' }}>
-      <Menu rightAlign isOpen={showMoreMenu} onClose={hideMoreMenuFunc}>
-        <Menu.Item>Option A</Menu.Item>
-        <Menu.Item>Option B</Menu.Item>
-      </Menu>
-      <Appbar.Button><Icon name="more_vert"/></Appbar.Button>
-    </div>
-  </div>
-</Appbar>
+    <Example code="import { Appbar } from 'snabbdom-material';"/>
+    <Example code={`${
+    N}<Appbar fixed>${
+    N}  <Appbar.Button style={{ float: 'left' }}><Icon name="menu"/></Appbar.Button>${
+    N}  <Appbar.Title>Material Components</Appbar.Title>${
+    N}  <div style={{ float: 'right' }}>${
+    N}    <Appbar.Button${
+    N}      onClick={() => location.href='https://github.com/garth/snabbdom-material'}>${
+    N}      <Icon name="github"/>${
+    N}    </Appbar.Button>${
+    N}    <div style={{ display: 'inline-block' }}>${
+    N}      <Menu rightAlign isOpen={showMoreMenu} onClose={hideMoreMenuFunc}>${
+    N}        <Menu.Item>Option A</Menu.Item>${
+    N}        <Menu.Item>Option B</Menu.Item>${
+    N}      </Menu>${
+    N}      <Appbar.Button><Icon name="more_vert"/></Appbar.Button>${
+    N}    </div>${
+    N}  </div>${
+    N}</Appbar>
     `}/>
     <p>See the appbar above.</p>
     <p>

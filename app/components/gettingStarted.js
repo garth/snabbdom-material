@@ -1,5 +1,6 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
+const N = '\n';
 
 export default Component(() => (
   <div>
@@ -9,9 +10,9 @@ export default Component(() => (
       include the following line in your main.js:
     </p>
 
-    <Example code={`
-import '!style!css!normalize.css/normalize.css';
-import '!style!css!snabbdom-material/lib/index.css';
+    <Example code={`${
+    N}import '!style!css!normalize.css/normalize.css';${
+    N}import '!style!css!snabbdom-material/lib/index.css';
     `}/>
 
     <p>
@@ -23,39 +24,39 @@ import '!style!css!snabbdom-material/lib/index.css';
       </a>.
     </p>
 
-    <Example code={`
-const material = {
-  primaryColor: '#FFC107',
-  primaryFontColor: 'rgba(0, 0, 0, 0.7)',
-  secondaryColor: '#009688',
-  secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
-  errorColor: '#C00',
-  successColor: '#090',
-  typographyColor: '#212121',
-
-  sidenav: {
-    width: '280px',
-    left: '-290px',
-    transition: 'left .3s ease-out',
-    delayed: {
-      left: '0'
-    },
-    remove: {
-      left: '-290px'
-    }
-  },
-
-  fadeInOut: {
-    opacity: '0',
-    transition: 'opacity .3s',
-    delayed: {
-      opacity: '1'
-    },
-    remove: {
-      opacity: '0'
-    }
-  }
-};
+    <Example code={`${
+    N}const material = {${
+    N}  primaryColor: '#FFC107',${
+    N}  primaryFontColor: 'rgba(0, 0, 0, 0.7)',${
+    N}  secondaryColor: '#009688',${
+    N}  secondaryFontColor: 'rgba(255, 255, 255, 0.9)',${
+    N}  errorColor: '#C00',${
+    N}  successColor: '#090',${
+    N}  typographyColor: '#212121',${
+    N}${
+    N}  sidenav: {${
+    N}    width: '280px',${
+    N}    left: '-290px',${
+    N}    transition: 'left .3s ease-out',${
+    N}    delayed: {${
+    N}      left: '0'${
+    N}    },${
+    N}    remove: {${
+    N}      left: '-290px'${
+    N}    }${
+    N}  },${
+    N}${
+    N}  fadeInOut: {${
+    N}    opacity: '0',${
+    N}    transition: 'opacity .3s',${
+    N}    delayed: {${
+    N}      opacity: '1'${
+    N}    },${
+    N}    remove: {${
+    N}      opacity: '0'${
+    N}    }${
+    N}  }${
+    N}};
     `}/>
 
   </div>

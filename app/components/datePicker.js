@@ -1,6 +1,7 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Button, DatePicker } from '../../lib';
+const N = '\n';
 
 export default Component({
   locale: ['locale'],
@@ -13,20 +14,18 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code={`
-import { DatePicker } from 'snabbdom-material';
-    `}/>
-    <Example code={`
-<DatePicker
-  locale={locale}
-  isOpen={showDatePicker}
-  year={year}
-  month={month}
-  pickingValue={pickingDate}
-  onChange={onChange}
-  onNavigate={onNavigate}
-  onOk={onOk}
-  onCancel={onCancel}/>
+    <Example code="import { DatePicker } from 'snabbdom-material';"/>
+    <Example code={`${
+    N}<DatePicker${
+    N}  locale={locale}${
+    N}  isOpen={showDatePicker}${
+    N}  year={year}${
+    N}  month={month}${
+    N}  pickingValue={pickingDate}${
+    N}  onChange={onChange}${
+    N}  onNavigate={onNavigate}${
+    N}  onOk={onOk}${
+    N}  onCancel={onCancel}/>
     `}/>
     <p>
       The locale will default to <code>en</code>, to use any other locale you must ensure that you have

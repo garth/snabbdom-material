@@ -1,6 +1,7 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Button, Dialog } from '../../lib';
+const N = '\n';
 
 export default Component({
   dialog: ['demos', 'dialog']
@@ -11,20 +12,18 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code={`
-import { Dialog } from 'snabbdom-material';
-    `}/>
-    <Example code={`
-<Dialog
-  isOpen={showDialog}
-  width={400}
-  height={172}
-  title="Question?"
-  okLabel="OK"
-  onOk={onOk}
-  cancelLabel="Cancel"
-  onCancel={onCancel}>
-</Dialog>
+    <Example code="import { Dialog } from 'snabbdom-material';"/>
+    <Example code={`${
+    N}<Dialog${
+    N}  isOpen={showDialog}${
+    N}  width={400}${
+    N}  height={172}${
+    N}  title="Question?"${
+    N}  okLabel="OK"${
+    N}  onOk={onOk}${
+    N}  cancelLabel="Cancel"${
+    N}  onCancel={onCancel}>${
+    N}</Dialog>
     `}/>
     <Button style={{ margin: '24px 0' }} primary onClick={() => signals.dialogOpened()}>Show Dialog</Button>
     <Dialog

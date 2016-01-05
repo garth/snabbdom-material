@@ -1,6 +1,7 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Checkbox, Col, Row, Spinner } from '../../lib';
+const N = '\n';
 
 export default Component({
   spinner: ['demos', 'spinner']
@@ -11,17 +12,15 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code={`
-import { Spinner } from 'snabbdom-material';
-    `}/>
-    <Example code={`
-// inline spinners
-<Spinner size={25} inline/>
-<Spinner size={50} inline primary/>
-<Spinner size={75} inline secondary/>
-
-// page spinner
-<Spinner isOpen={isLoading}/>
+    <Example code="import { Spinner } from 'snabbdom-material';"/>
+    <Example code={`${
+    N}// inline spinners${
+    N}<Spinner size={25} inline/>${
+    N}<Spinner size={50} inline primary/>${
+    N}<Spinner size={75} inline secondary/>${
+    N}${
+    N}// page spinner${
+    N}<Spinner isOpen={isLoading}/>
     `}/>
     <div style={{ margin: '24px 0' }} classNames="paper1 padded">
       <Row>
@@ -41,7 +40,10 @@ import { Spinner } from 'snabbdom-material';
       </Row>
     </div>
     <div style={{ margin: '24px 0' }}>
-      <Checkbox label="Page is loading" value={spinner.isLoading} onChange={(e) => signals.isLoadingChanged({ value: e.target.value })}/>
+      <Checkbox
+        label="Page is loading"
+        value={spinner.isLoading}
+        onChange={(e) => signals.isLoadingChanged({ value: e.target.value })}/>
     </div>
     <Spinner isOpen={spinner.isLoading}/>
   </div>

@@ -1,23 +1,22 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Col, Row, Divider } from '../../lib';
+const N = '\n';
 
 export default Component(() => (
   <div>
-    <Example code={`
-import { Divider } from 'snabbdom-material';
-    `}/>
+    <Example code="import { Divider } from 'snabbdom-material';"/>
     <p>
       Add a paper class to an element to lift it from the page. The optional <code>padded</code> class
       gives the paper a default padding. A divider component provides seperation.
     </p>
-    <Example code={`
-<div classNames="paper1 padded">Paper 1</div>
-<div classNames="paper2 padded">Paper 2</div>
-<div classNames="paper3 padded">Paper 3</div>
-<div classNames="paper4 padded">Paper 4</div>
-<div classNames="paper5 padded">Paper 5</div>
-<Divider/>
+    <Example code={`${
+    N}<div classNames="paper1 padded">Paper 1</div>${
+    N}<div classNames="paper2 padded">Paper 2</div>${
+    N}<div classNames="paper3 padded">Paper 3</div>${
+    N}<div classNames="paper4 padded">Paper 4</div>${
+    N}<div classNames="paper5 padded">Paper 5</div>${
+    N}<Divider/>
     `}/>
     <div style={{ margin: '16px 0' }}>
       <Row>

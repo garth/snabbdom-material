@@ -1,6 +1,7 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Row, Col, Input } from '../../lib';
+const N = '\n';
 
 export default Component({
   input: ['demos', 'input']
@@ -11,14 +12,12 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code={`
-import { Input } from 'snabbdom-material';
-    `}/>
-    <Example code={`
-<Input label="Email" value={email} onChange={onEmailChange}/>
-<Input label="Password" type="password" value={password} onChange={onPasswordChange}/>
-<Input label="Success" value={email} isSuccess onChange={onEmailChange}/>
-<Input label="Error" value={email} isError message="fix me" onChange={onEmailChange}/>
+    <Example code="import { Input } from 'snabbdom-material';"/>
+    <Example code={`${
+    N}<Input label="Email" value={email} onChange={onEmailChange}/>${
+    N}<Input label="Password" type="password" value={password} onChange={onPasswordChange}/>${
+    N}<Input label="Success" value={email} isSuccess onChange={onEmailChange}/>${
+    N}<Input label="Error" value={email} isError message="fix me" onChange={onEmailChange}/>
     `}/>
     <div style={{ margin: '16px 0' }}>
       <Row>

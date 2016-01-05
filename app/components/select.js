@@ -1,6 +1,7 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
 import { Col, Row, Select } from '../../lib';
+const N = '\n';
 
 export default Component({
   select: ['demos', 'select']
@@ -20,46 +21,44 @@ export default Component({
 
   return (
     <div>
-      <Example code={`
-import { Select } from 'snabbdom-material';
-      `}/>
-      <Example code={`
-let options = [
-  { value: 0, label: 'Option 1' },
-  { value: 1, label: 'Option 2' },
-  { value: 2, label: 'Option 3' }
-];
-
-<Select
-  label="option"
-  selected={selectedObject}
-  options={options}
-  isOpen={isSelectOpen}
-  onOpen={setOpenState}
-  onChange={optionSelected}
-  onClose={setClosedState}/>
-
-<Select
-  label="Success option"
-  selected={selectedObject}
-  options={options}
-  isSuccess
-  isOpen={isSelectOpen}
-  onOpen={setOpenState}
-  onChange={optionSelected}
-  onClose={setClosedState}/>
-
-// note that this version uses value instead of a selected object
-<Select
-  label="Error option"
-  value={selectedObject.value}
-  options={options}
-  isError
-  message="fix me"
-  isOpen={isSelectOpen}
-  onOpen={setOpenState}
-  onChange={optionSelected}
-  onClose={setClosedState}/>
+      <Example code="import { Select } from 'snabbdom-material';"/>
+      <Example code={`${
+      N}let options = [${
+      N}  { value: 0, label: 'Option 1' },${
+      N}  { value: 1, label: 'Option 2' },${
+      N}  { value: 2, label: 'Option 3' }${
+      N}];${
+      N}${
+      N}<Select${
+      N}  label="option"${
+      N}  selected={selectedObject}${
+      N}  options={options}${
+      N}  isOpen={isSelectOpen}${
+      N}  onOpen={setOpenState}${
+      N}  onChange={optionSelected}${
+      N}  onClose={setClosedState}/>${
+      N}${
+      N}<Select${
+      N}  label="Success option"${
+      N}  selected={selectedObject}${
+      N}  options={options}${
+      N}  isSuccess${
+      N}  isOpen={isSelectOpen}${
+      N}  onOpen={setOpenState}${
+      N}  onChange={optionSelected}${
+      N}  onClose={setClosedState}/>${
+      N}${
+      N}// note that this version uses value instead of a selected object${
+      N}<Select${
+      N}  label="Error option"${
+      N}  value={selectedObject.value}${
+      N}  options={options}${
+      N}  isError${
+      N}  message="fix me"${
+      N}  isOpen={isSelectOpen}${
+      N}  onOpen={setOpenState}${
+      N}  onChange={optionSelected}${
+      N}  onClose={setClosedState}/>
       `}/>
       <div style={{ margin: '16px 0' }}>
         <Row>

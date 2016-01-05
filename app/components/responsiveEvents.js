@@ -1,5 +1,6 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
+const N = '\n';
 
 export default Component({
   screen: ['screen']
@@ -9,9 +10,7 @@ export default Component({
   }
 }) => (
   <div>
-    <Example code={`
-import { events } from 'snabbdom-material';
-    `}/>
+    <Example code="import { events } from 'snabbdom-material';"/>
     <p>
       Responsive Events are emitted whenever the screen type or orientation changes. This can be used to
       modify the UI to suite the device. Unlike CSS media queries which change the style of always present
@@ -24,20 +23,20 @@ import { events } from 'snabbdom-material';
       screen data to your central store which would cause your application components which observe the screen
       object in your store to re-render.
     </p>
-    <Example code={`
-// how you apply the change to your store depends on your framework choice
-events.responsive.addListener(screen => store.set('screen', screen));
+    <Example code={`${
+    N}// how you apply the change to your store depends on your framework choice${
+    N}events.responsive.addListener(screen => store.set('screen', screen));
     `}/>
     <p>
       Event listeners receive a screen object which looks like:
     </p>
-    <Example code={`
-{
-  type: 'xs',
-  size: 1,
-  isLandscape: true,
-  isPortrait: false
-}
+    <Example code={`${
+    N}{${
+    N}  type: 'xs',${
+    N}  size: 1,${
+    N}  isLandscape: true,${
+    N}  isPortrait: false${
+    N}}
     `}/>
     <p>
       following the same reponsive configuration as bootstrap, <code>type</code> can be one
