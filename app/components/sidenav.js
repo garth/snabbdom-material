@@ -38,7 +38,7 @@ export default Component(() => (
         top: '0',
         height: '200px'
       }}>
-        <Sidenav.Item showIcon icon={<Icon name="user"/>}/>
+        <Sidenav.Item showIcon icon={<Icon name="person"/>}/>
         <Sidenav.Item showIcon icon={<Icon name="dashboard"/>} selected/>
         <Sidenav.Separator/>
         <Sidenav.Item showIcon icon={<Icon name="settings"/>}/>
