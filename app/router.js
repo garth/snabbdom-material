@@ -14,6 +14,7 @@ export default Router(controller, {
   '/select': 'selectPageOpened',
   '/checkbox': 'checkboxPageOpened',
   '/gridSystem': 'gridSystemPageOpened',
+  '/icon': 'iconPageOpened',
   '/menu': 'menuPageOpened',
   '/dialog': 'dialogPageOpened',
   '/datePicker': 'datePickerPageOpened',

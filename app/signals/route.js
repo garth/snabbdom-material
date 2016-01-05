@@ -49,6 +49,10 @@ controller.signal('gridSystemPageOpened', [
   setRoute('gridSystem', 'Grid System')
 ]);
 
+controller.signal('iconPageOpened', [
+  setRoute('icon', 'Icon')
+]);
+
 controller.signal('menuPageOpened', [
   setRoute('menu', 'Menu')
 ]);

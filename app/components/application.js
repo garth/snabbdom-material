@@ -57,6 +57,7 @@ export default Component({
             { page: 'dialog', icon: 'picture_in_picture', title: 'Dialog', signal: signals.dialogPageOpened },
             { page: 'form', icon: 'content_paste', title: 'Form', signal: signals.formPageOpened },
             { page: 'gridSystem', icon: 'view_compact', title: 'Grid System', signal: signals.gridSystemPageOpened },
+            { page: 'icon', icon: 'person', title: 'Icon', signal: signals.iconPageOpened },
             { page: 'input', icon: 'edit', title: 'Input', signal: signals.inputPageOpened },
             { page: 'menu', icon: 'more_vert', title: 'Menu', signal: signals.menuPageOpened },
             { page: 'paper', icon: 'layers', title: 'Paper', signal: signals.paperPageOpened },
