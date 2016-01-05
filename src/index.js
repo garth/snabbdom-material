@@ -12,6 +12,7 @@ module.exports = {
   Input: require('./components/input').default,
   Mask: require('./components/mask').default,
   Menu: require('./components/menu').default,
+  Paper: require('./components/paper').default,
   Row: require('./components/row').default,
   Select: require('./components/select').default,
   Sidenav: require('./components/sidenav').default,

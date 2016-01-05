@@ -10,7 +10,8 @@
     "test": "mocha",
     "start": "parallelshell 'node-sass --watch src/index.scss lib/index.css' 'watch \"eslint --cache .\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
     "build": "babel src --out-dir lib && node-sass src/index.scss lib/index.css && rimraf dist && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -64,6 +65,7 @@
     "cerebral-router": "^0.8.0",
     "cerebral-snabbdom": "^0.1.2",
     "chai": "^3.4.1",
+    "classnames": "^2.2.3",
     "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.13.1",
