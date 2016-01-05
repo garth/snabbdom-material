@@ -13,7 +13,7 @@ export default Component(() => (
     </Row>
     <Row>
       <Col type="sm-5">
-        <Example code="<Typ display3>Display 2</Typ>"/>
+        <Example code="<Typ display2>Display 2</Typ>"/>
       </Col>
       <Col type="sm-7"><Typ display2>Display 2</Typ></Col>
     </Row>
