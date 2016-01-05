@@ -1,6 +1,7 @@
 import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 import Waves from '../helpers/waves';
+import classNames from 'classnames';
 
 export default function MenuItem({
   className = '',
@@ -48,7 +49,7 @@ export default function MenuItem({
   return (
     <div
       hook-insert={vnode => Waves.attach(vnode.elm)}
-      classNames={className ? ['menu-item', className] : 'menu-item'}
+      classNames={classNames(className, 'menu-item')}
       style={Object.assign({
         padding: '0 40px 0 24px',
         lineHeight: '32px',

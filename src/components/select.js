@@ -3,6 +3,7 @@ import h from 'snabbdom/h';
 import Input from './input';
 import Menu from './menu';
 import defaultMaterial from './defaultMaterial';
+import classNames from 'classnames';
 
 export default function Select({
   className = '',
@@ -33,9 +34,9 @@ export default function Select({
     }
     return (
       <Menu.Item
-        class={{
+        className={classNames({
           selected: isSelected
-        }}
+        })}
         onClick={() => onChange({ target: option })}
         onClose={onClose}>
         {option.label}

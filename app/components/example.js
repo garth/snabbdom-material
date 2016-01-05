@@ -9,7 +9,7 @@ function render(element, code) {
 }
 
 export default ({ code = '' }) => (
-  <pre classNames="language-jsx">
+  <pre>
     <code
       hook-insert={vnode => render(vnode.elm, code)}
       hook-postpatch={(oldvnode, vnode) => render(vnode.elm, code)}

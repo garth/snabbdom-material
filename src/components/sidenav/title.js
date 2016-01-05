@@ -2,6 +2,7 @@ import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 import Button from '../appbar/button';
 import defaultMaterial from '../defaultMaterial';
+import classNames from 'classnames';
 
 export default function SidenavTitle({
   className = '',
@@ -13,7 +14,7 @@ export default function SidenavTitle({
 
   return (
     <div
-      classNames={className ? ['paper-divider', className] : 'paper-divider'}
+      classNames={classNames(className, 'paper-divider')}
       style={Object.assign({
         height: '64px',
         lineHeight: '32px',

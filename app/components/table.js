@@ -54,8 +54,8 @@ export default Component(() => (
           { firstName: 'Brian', lastName: 'Wilson', role: 'user' },
           { firstName: 'Geoff', lastName: 'Hayes', role: 'user' },
           { firstName: 'John', lastName: 'Doe', role: 'admin' }
-        ].map((user, index) => (
-          <Table.Row key={index} onClick={() => console.log('clicked', user)}>
+        ].map(user => (
+          <Table.Row onClick={() => console.log('clicked', user)}>
             <td>{user.firstName}</td>
             <td>{user.lastName}</td>
             <td>{user.role}</td>

@@ -5,6 +5,7 @@ import Divider from './divider';
 import Button from './button';
 import screen from './helpers/screen';
 import defaultMaterial from './defaultMaterial';
+import classNames from 'classnames';
 
 function button(label, onClick) {
   if (!label) { return null; }
@@ -97,7 +98,7 @@ export default function Dialog({
       <Mask isOpen={isOpen} material={material}/>
       {isOpen ? (
         <div
-          classNames={className ? ['paper2', className] : 'paper2'}
+          classNames={classNames(className, 'paper2')}
           style={Object.assign({
             position: 'fixed',
             zIndex: '1001',

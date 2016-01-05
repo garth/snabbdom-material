@@ -6,11 +6,15 @@ export default function TableRow({
   style = {}
 }, children = '') {
 
+  const classNames = {
+    clickable: onClick
+  };
+  if (className) {
+    classNames[className] = true;
+  }
+
   return h('tr', {
-    class: {
-      [className]: className,
-      clickable: onClick
-    },
+    class: classNames,
     style,
     on: {
       click: e => onClick ? onClick(e) : null,

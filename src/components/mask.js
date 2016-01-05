@@ -1,5 +1,6 @@
 import { html } from 'snabbdom-jsx';
 import defaultMaterial from './defaultMaterial';
+import classNames from 'classnames';
 
 export default function Mask({
   className = '',
@@ -28,10 +29,9 @@ export default function Mask({
 
   return isOpen ? (
     <div
-      classNames={className ? [className, 'mask'] : 'mask'}
-      class={{
+      classNames={classNames(className, 'mask', {
         dark
-      }}
+      })}
       style={Object.assign(style, styleOverrides)}
       on-click={e => onClick ? onClick(e) : null}/>
   ) : <span/>;

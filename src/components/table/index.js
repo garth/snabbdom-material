@@ -7,13 +7,16 @@ const Table = function Table({
   style = {}
 }, children = '') {
 
+  const classNames = {};
+  if (className) {
+    classNames[className] = true;
+  }
+
   return h('table.m-c', {
     style: Object.assign({
       width: '100%'
     }, style),
-    class: {
-      [className]: className
-    }
+    class: classNames
   }, children);
 };
 

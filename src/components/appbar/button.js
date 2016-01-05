@@ -1,6 +1,7 @@
 import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
 import Waves from '../helpers/waves';
+import classNames from 'classnames';
 
 export default function AppbarButton({
   className = '',
@@ -31,10 +32,9 @@ export default function AppbarButton({
           margin: '0',
           cursor: 'pointer'
         }}
-        classNames="waves-circle"
-        class={{
+        classNames={classNames('waves-circle', {
           'waves-light': lightWaves
-        }}>
+        })}>
         {h('span', children)}
       </a>
     </div>

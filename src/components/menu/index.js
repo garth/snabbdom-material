@@ -5,6 +5,7 @@ import Item from './item';
 import Separator from './separator';
 // import screen from '../helpers/screen';
 import defaultMaterial from '../defaultMaterial';
+import classNames from 'classnames';
 
 // function checkBounds(vnode) {
 //   const menuElement = vnode.elm;
@@ -83,7 +84,7 @@ const Menu = function Menu({
       <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
       {isOpen ? (
         <div
-          classNames={className ? ['paper1', className] : 'paper1'}
+          classNames={classNames(className, 'paper1')}
           style={Object.assign(menuStyle, style, material.fadeInOut || defaultMaterial.fadeInOut)}>
           {h('span', children)}
         </div>

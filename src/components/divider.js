@@ -1,4 +1,5 @@
 import { html } from 'snabbdom-jsx';
+import classNames from 'classnames';
 
 export default function Divider({
   className = '',
@@ -7,7 +8,7 @@ export default function Divider({
 
   return (
     <hr
-      classNames={className ? ['paper-divider', className] : 'paper-divider'}
+      classNames={classNames(className, 'paper-divider')}
       style={Object.assign({
         border: '0',
         height: '1px',

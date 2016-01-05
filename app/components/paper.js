@@ -42,6 +42,11 @@ export default Component(() => (
         <Divider/>
         After divider
       </Paper>
+      <p>
+        Alternatively you can use the following class
+        names <code>paper1</code>, <code>paper2</code>, <code>paper3</code>, <code>paper4</code>, <code>paper5</code> and <code>padded</code> to
+        apply the paper styling to other elements.
+      </p>
     </div>
   </div>
 ));

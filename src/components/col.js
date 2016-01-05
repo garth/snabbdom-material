@@ -1,5 +1,6 @@
 import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
+import classNames from 'classnames';
 
 export default function Col({
   className = '',
@@ -11,7 +12,7 @@ export default function Col({
 
   return (
     <div
-      classNames={className ? [className, ...colClasses] : colClasses}
+      classNames={classNames(className, colClasses)}
       style={style}>
       {h('span', children)}
     </div>
