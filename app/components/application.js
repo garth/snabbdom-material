@@ -1,7 +1,6 @@
 import { Component } from 'cerebral-snabbdom';
-import Icon from './icon';
 
-import { Appbar, Button, Menu, Sidenav } from '../../lib';
+import { Appbar, Button, Menu, Sidenav, Icon } from '../../lib';
 
 let previousPage;
 

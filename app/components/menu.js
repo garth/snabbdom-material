@@ -1,7 +1,6 @@
 import { Component } from 'cerebral-snabbdom';
 import Example from './example';
-import { Button, Menu } from '../../lib';
-import Icon from './icon';
+import { Button, Menu, Icon } from '../../lib';
 const N = '\n';
 
 export default Component({

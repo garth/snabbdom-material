@@ -8,6 +8,7 @@ module.exports = {
   Dialog: require('./components/dialog').default,
   Divider: require('./components/divider').default,
   Form: require('./components/form').default,
+  Icon: require('./components/icon').default,
   Input: require('./components/input').default,
   Mask: require('./components/mask').default,
   Menu: require('./components/menu').default,
