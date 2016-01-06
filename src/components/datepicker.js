@@ -3,7 +3,6 @@ import defaultMaterial from './defaultMaterial';
 import moment from 'moment';
 import Dialog from './dialog';
 import Calendar from './calendar';
-import screen from './helpers/screen';
 
 export default function DatePicker({
   className = '',
@@ -15,22 +14,14 @@ export default function DatePicker({
   onNavigate,
   onOk,
   pickingValue,
+  screenInfo,
   style = {},
   validDays,
   year = (new Date()).getFullYear(),
   material = defaultMaterial
 }) {
 
-  // componentDidMount() {
-  //   window.addEventListener('resize', this._resize = () => this.forceUpdate());
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('resize', this._resize);
-  // }
-
-  const { width, height } = screen.getSize();
-  const isPortrait = height > width;
+  const { isPortrait } = screenInfo;
   const displayDate = pickingValue ? moment(pickingValue) : moment({ year, month, day: 1 });
   displayDate.locale(locale);
 
@@ -57,7 +48,7 @@ export default function DatePicker({
       height={isPortrait ? 388 : 292}
       hideDivider
       noPadding
-      ignoreResizeEvents
+      screenInfo={screenInfo}
       className={className}
       style={Object.assign({ overflow: 'hidden' }, style)}
       material={material}>

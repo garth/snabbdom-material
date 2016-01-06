@@ -4,9 +4,11 @@ import { Col, Row, Select } from '../../lib';
 const N = '\n';
 
 export default Component({
+  screenInfo: ['screen'],
   select: ['demos', 'select']
 }, ({
   state: {
+    screenInfo,
     select
   },
   signals
@@ -34,6 +36,7 @@ export default Component({
       N}  selected={selectedObject}${
       N}  options={options}${
       N}  isOpen={isSelectOpen}${
+      N}  screenInfo={screenInfo}${
       N}  onOpen={setOpenState}${
       N}  onChange={optionSelected}${
       N}  onClose={setClosedState}/>${
@@ -44,6 +47,7 @@ export default Component({
       N}  options={options}${
       N}  isSuccess${
       N}  isOpen={isSelectOpen}${
+      N}  screenInfo={screenInfo}${
       N}  onOpen={setOpenState}${
       N}  onChange={optionSelected}${
       N}  onClose={setClosedState}/>${
@@ -56,6 +60,7 @@ export default Component({
       N}  isError${
       N}  message="fix me"${
       N}  isOpen={isSelectOpen}${
+      N}  screenInfo={screenInfo}${
       N}  onOpen={setOpenState}${
       N}  onChange={optionSelected}${
       N}  onClose={setClosedState}/>
@@ -68,6 +73,7 @@ export default Component({
               selected={select.selected}
               options={options}
               isOpen={select.selectOpen}
+              screenInfo={screenInfo}
               onOpen={() => signals.selectOpened()}
               onChange={e => signals.selectChanged({ value: e.target })}
               onClose={() => signals.selectClosed()}/>
@@ -79,6 +85,7 @@ export default Component({
               options={options}
               isSuccess
               isOpen={select.selectSuccessOpen}
+              screenInfo={screenInfo}
               onOpen={() => signals.selectSuccessOpened()}
               onChange={e => signals.selectChanged({ value: e.target })}
               onClose={() => signals.selectSuccessClosed()}/>
@@ -91,6 +98,7 @@ export default Component({
               isError
               message="fix me"
               isOpen={select.selectErrorOpen}
+              screenInfo={screenInfo}
               onOpen={() => signals.selectErrorOpened()}
               onChange={e => signals.selectChanged({ value: e.target })}
               onClose={() => signals.selectErrorClosed()}/>
@@ -109,6 +117,7 @@ export default Component({
                 return opts;
               })()}
               isOpen={select.largeSelectOpen}
+              screenInfo={screenInfo}
               onOpen={() => signals.selectLargeOpened()}
               onChange={e => signals.selectLargeChanged({ value: e.target.value })}
               onClose={() => signals.selectLargeClosed()}/>

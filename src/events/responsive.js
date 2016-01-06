@@ -1,32 +1,14 @@
-let screenInfo;
+import { canUseDOM } from 'exenv';
+import getScreenInfo from '../helpers/screenInfo';
+
+let screenInfo = null;
 const subscribers = {};
 
 function resize() {
-  const width = window.innerWidth || document.body.clientWidth || 1024;
-  const height = window.innerHeight || document.body.clientHeight || 768;
+  const screen = getScreenInfo();
 
-  let type = 'xs';
-  let size = 1;
-  if (width >= 1200) {
-    size = 4;
-    type = 'lg';
-  } else if (width >= 992) {
-    size = 3;
-    type = 'md';
-  } else if (width >= 768) {
-    size = 2;
-    type = 'sm';
-  }
-
-  const isLandscape = width >= height;
-
-  if (!screenInfo || type !== screenInfo.type || isLandscape !== screenInfo.isLandscape) {
-    screenInfo = {
-      type,
-      size,
-      isLandscape,
-      isPortrait: !isLandscape
-    };
+  if (!screenInfo || screen.size !== screenInfo.size || screen.isLandscape !== screenInfo.isLandscape) {
+    screenInfo = screen;
     Object.keys(subscribers).forEach(eventHandler => {
       subscribers[eventHandler](screenInfo);
     });
@@ -39,7 +21,9 @@ export default {
       return;
     }
     if (!screenInfo) {
-      window.addEventListener('resize', resize);
+      if (canUseDOM) {
+        window.addEventListener('resize', resize);
+      }
       resize();
     }
     subscribers[eventHandler] = eventHandler;

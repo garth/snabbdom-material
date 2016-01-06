@@ -3,7 +3,7 @@ import h from 'snabbdom/h';
 import Mask from './mask';
 import Divider from './divider';
 import Button from './button';
-import screen from './helpers/screen';
+import getScreenSize from '../helpers/screenSize';
 import defaultMaterial from './defaultMaterial';
 import classNames from 'classnames';
 
@@ -33,25 +33,14 @@ export default function Dialog({
   okLabel,
   onCancel,
   onOk,
+  screenInfo,
   style = {},
   title,
   width = 280,
   material = defaultMaterial
 }, children = '') {
 
-  // componentDidMount() {
-  //   if (!this.props.ignoreResizeEvents) {
-  //     window.addEventListener('resize', this._resize = () => this.forceUpdate());
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   if (!this.props.ignoreResizeEvents) {
-  //     window.removeEventListener('resize', this._resize);
-  //   }
-  // }
-
-  const screenSize = screen.getSize();
+  const screenSize = getScreenSize();
 
   let top = (screenSize.height / 2) - (height / 2);
   top = top < 24 ? 24 : top;

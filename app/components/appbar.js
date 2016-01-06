@@ -15,7 +15,7 @@ export default Component(() => (
     N}      <Icon name="github"/>${
     N}    </Appbar.Button>${
     N}    <div style={{ display: 'inline-block' }}>${
-    N}      <Menu rightAlign isOpen={showMoreMenu} onClose={hideMoreMenuFunc}>${
+    N}      <Menu rightAlign isOpen={showMoreMenu} onClose={hideMoreMenuFunc} screenInfo={screenInfo}>${
     N}        <Menu.Item>Option A</Menu.Item>${
     N}        <Menu.Item>Option B</Menu.Item>${
     N}      </Menu>${

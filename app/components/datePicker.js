@@ -5,11 +5,13 @@ const N = '\n';
 
 export default Component({
   locale: ['locale'],
-  datePicker: ['demos', 'datePicker']
+  datePicker: ['demos', 'datePicker'],
+  screenInfo: ['screen']
 }, ({
   state: {
     locale,
-    datePicker
+    datePicker,
+    screenInfo
   },
   signals
 }) => (
@@ -19,6 +21,7 @@ export default Component({
     N}<DatePicker${
     N}  locale={locale}${
     N}  isOpen={showDatePicker}${
+    N}  screenInfo={screenInfo}${
     N}  year={year}${
     N}  month={month}${
     N}  pickingValue={pickingDate}${
@@ -37,6 +40,7 @@ export default Component({
     <DatePicker
       locale={locale}
       isOpen={datePicker.showDatePicker}
+      screenInfo={screenInfo}
       year={datePicker.pickedCalendar.year}
       month={datePicker.pickedCalendar.month}
       pickingValue={datePicker.pickingDate}

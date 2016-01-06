@@ -17,6 +17,7 @@ export default function Select({
   onOpen,
   options = [],
   readOnly = false,
+  screenInfo,
   selected = false,
   style = {},
   value,
@@ -59,6 +60,7 @@ export default function Select({
           width: '100%'
         }}
         isOpen={isOpen && !readOnly && !!menuItems}
+        screenInfo={screenInfo}
         onClose={onClose}
         material={material}>
         {menuItems}

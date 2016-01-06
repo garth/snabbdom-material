@@ -14,18 +14,23 @@ export default Component({
     <p>
       Responsive Events are emitted whenever the screen type or orientation changes. This can be used to
       modify the UI to suite the device. Unlike CSS media queries which change the style of always present
-      elements, this feature can be used to completely change what application renders. Meaning that your
+      elements, this feature can be used to completely change what the application renders. Meaning that your
       app should only render the elements needed on mobile and not just hide the desktop elements.
     </p>
     <p>
       How you use this feature depends on what framework you use for your application. With Cerebral you would
-      send a signal, with a flux framework you would call an action. In both cases you would then apply the
-      screen data to your central store which would cause your application components which observe the screen
-      object in your store to re-render.
+      send a signal and store the <code>screenInfo</code> in the state tree, which would cause your application
+      components which observe the <code>/screenInfo</code> object in your store to re-render.
+    </p>
+    <p>
+      This <code>screenInfo</code> object is the same as required by some snabbdom-material components.
     </p>
     <Example code={`${
-    N}// how you apply the change to your store depends on your framework choice${
-    N}events.responsive.addListener(screen => store.set('screen', screen));
+    N}// example cerebral setup${
+    N}controller.signal('screenChanged', [${
+    N}  inputToState(['screenInfo'], ['screenInfo'])${
+    N}]);${
+    N}events.responsive.addListener(screenInfo => controller.signals.screenInfoChanged({ screenInfo }));
     `}/>
     <p>
       Event listeners receive a screen object which looks like:

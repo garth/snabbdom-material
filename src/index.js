@@ -1,4 +1,5 @@
 module.exports = {
+  // components
   Appbar: require('./components/appbar').default,
   Button: require('./components/button').default,
   Calendar: require('./components/calendar').default,
@@ -20,6 +21,11 @@ module.exports = {
   Table: require('./components/table').default,
   Typ: require('./components/typography').default,
 
+  // helpers
+  getScreenInfo: require('./helpers/screenInfo').default,
+  getScreenSize: require('./helpers/screenSize').default,
+
+  // events
   events: {
     responsive: require('./events/responsive').default
   }

@@ -7,12 +7,14 @@ let previousPage;
 export default Component({
   currentPage: ['route', 'page'],
   locale: ['locale'],
+  screenInfo: ['screen'],
   showLocaleMenu: ['showLocaleMenu'],
   sidenavOpen: ['sidenavOpen'],
   title: ['route', 'title']
 }, ({ state: {
   currentPage,
   locale,
+  screenInfo,
   showLocaleMenu,
   sidenavOpen,
   title
@@ -99,7 +101,11 @@ export default Component({
             <Icon name="github"/>
           </Appbar.Button>
           <div style={{ display: 'inline-block' }}>
-            <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()} material={material}>
+            <Menu rightAlign
+              isOpen={showLocaleMenu}
+              onClose={() => signals.localeMenuClosed()}
+              screenInfo={screenInfo}
+              material={material}>
               <Menu.Item
                 showIcon
                 onClick={() => signals.localeSelected({ locale: 'de' })}

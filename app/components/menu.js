@@ -4,22 +4,24 @@ import { Button, Menu, Icon } from '../../lib';
 const N = '\n';
 
 export default Component({
-  menu: ['demos', 'menu']
+  menu: ['demos', 'menu'],
+  screenInfo: ['screen']
 }, ({
   state: {
-    menu
+    menu,
+    screenInfo
   },
   signals
 }) => (
   <div>
     <Example code="import { Menu } from 'snabbdom-material';"/>
     <Example code={`${
-    N}<Menu isOpen={showSimpleMenuProp} onClose={hideSimpleMenuFunc}>${
+    N}<Menu isOpen={showSimpleMenuProp} onClose={hideSimpleMenuFunc} screenInfo={screenInfo}>${
     N}  <Menu.Item onClick={itemClicked} onClose={hideSimpleMenuFunc}>Simple Menu Item</Menu.Item>${
     N}  <Menu.Item onClick={itemClicked} onClose={hideSimpleMenuFunc}>Other Option</Menu.Item>${
     N}</Menu>${
     N}${
-    N}<Menu rightAlign isOpen={showMenuProp} onClose={hideMenuFunc}>${
+    N}<Menu rightAlign isOpen={showMenuProp} onClose={hideMenuFunc} screenInfo={screenInfo}>${
     N}  <Menu.Item showIcon onClose={hideMenuFunc} icon={<Icon name="settings"/>} onClick={itemClicked}>Settings</Menu.Item>${
     N}  <Menu.Item showIcon onClose={hideMenuFunc} onClick={itemClicked}>No Icon</Menu.Item>${
     N}  <Menu.Separator/>${
@@ -28,14 +30,14 @@ export default Component({
     N}</Menu>
     `}/>
     <div style={{ margin: '24px 0' }}>
-      <Menu isOpen={menu.showSimpleMenu} onClose={() => signals.simpleMenuClosed()}>
+      <Menu isOpen={menu.showSimpleMenu} onClose={() => signals.simpleMenuClosed()} screenInfo={screenInfo}>
         <Menu.Item onClose={() => signals.simpleMenuClosed()}>Simple Menu Item</Menu.Item>
         <Menu.Item onClose={() => signals.simpleMenuClosed()}>Other Option</Menu.Item>
       </Menu>
       <Button style={{ margin: '0' }} primary onClick={() => signals.simpleMenuOpened()}>Simple Menu</Button>
 
       <div style={{ display: 'inline-block' }}>
-        <Menu rightAlign isOpen={menu.showMenu} onClose={() => signals.menuClosed()}>
+        <Menu rightAlign isOpen={menu.showMenu} onClose={() => signals.menuClosed()} screenInfo={screenInfo}>
           <Menu.Item showIcon icon={<Icon name="settings"/>} onClose={() => signals.menuClosed()}>Settings</Menu.Item>
           <Menu.Item showIcon onClose={() => signals.menuClosed()}>No Icon</Menu.Item>
           <Menu.Separator/>

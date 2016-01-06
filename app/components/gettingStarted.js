@@ -1,9 +1,11 @@
 import { Component } from 'cerebral-snabbdom';
+import { Typ } from '../../lib';
 import Example from './example';
 const N = '\n';
 
 export default Component(() => (
   <div>
+    <Typ headline>Import Require CSS</Typ>
     <p>
       snabbdom-material depends on normalize.css, also some styles and transitions are defined in css and
       must be included in your project. With webpack simply use the <code>css-loader</code> plugin and
@@ -15,10 +17,24 @@ export default Component(() => (
     N}import '!style!css!snabbdom-material/lib/index.css';
     `}/>
 
+    <Typ headline>Screen Info</Typ>
     <p>
-      All snabbdom-material components accept a `material` prop which can be used to cutomise the style
-      of the components. Below you can see the default style, which you can copy and modify to customise
-      the look of your components. For color choices please
+      Many components require a <code>screenInfo</code> object to be passed in via props.
+      A <code>getScreenInfo()</code> helper has been provided that will get the required object. However
+      it is stongly recommended to use the <a href="#/responsiveEvents">responsive events</a> system that
+      will automatically emit an updated <code>screenInfo</code> whenever it changes (such as when the
+      device is rotated).
+    </p>
+    <Example code={`${
+    N}import { getScreenInfo } from 'snabbdom-material';${
+    N}const screenInfo = getScreenInfo();
+    `}/>
+
+    <Typ headline>Custom Styling</Typ>
+    <p>
+      All snabbdom-material components accept a <code>material</code> prop which can be used to cutomise
+      the style of the components. Below you can see the default style, which you can copy and modify to
+      customise the look of your components. For color choices please
       see <a href="https://www.google.com/design/spec/style/color.html#color-color-palette">
         https://www.google.com/design/spec/style/color.html#color-color-palette
       </a>.
