@@ -91,6 +91,7 @@
     "webpack-sources": "^0.1.0"
   },
   "peerDependencies": {
+    "classnames": "^2.2.3",
     "moment": "^2.11.0",
     "snabbdom": "^0.2.8",
     "snabbdom-jsx": "^0.3.0"
