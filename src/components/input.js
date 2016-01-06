@@ -35,7 +35,7 @@ export default function Input({
             onFocus(e);
           }
         }}
-        on-blur={e => e.target.parentElement.querySelector('.inputLabel').style.color = 'inherit'}
+        on-blur={e => e.target.parentElement.querySelector('.inputLabel').style.color = ''}
         type={type}
         classNames={classNames('paper-divider', {
           used: value && value.length
@@ -59,7 +59,7 @@ export default function Input({
       </label>
       <div
         classNames={classNames('info', {
-          color: isError ? errorColor : 'inherit'
+          color: isError ? errorColor : ''
         })}>
         {message}
       </div>

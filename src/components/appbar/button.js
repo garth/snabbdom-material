@@ -44,7 +44,7 @@ export default function AppbarButton({
             margin: '0',
             color: enabled ? fontColor : disabledFontColor,
             textDecoration: 'none',
-            cursor: enabled ? 'pointer' : 'inherit'
+            cursor: enabled ? 'pointer' : ''
           }
         }, children)
       }

@@ -68,15 +68,15 @@ export default function Calendar({
               ? '#3e3e3e'
               : today.isSame(dayDate)
                 ? secondaryColor
-                : 'inherit',
-          cursor: onChange && validDay ? 'pointer' : 'inherit'
+                : '',
+          cursor: onChange && validDay ? 'pointer' : ''
         }}
         on-click={() => _onChange(day, validDay)}>
         <div
           style={{
             width: '30px',
             margin: '0 auto',
-            backgroundColor: selectedDay ? secondaryColor : 'inherit',
+            backgroundColor: selectedDay ? secondaryColor : '',
             borderRadius: '50%'
           }}>
           {day}

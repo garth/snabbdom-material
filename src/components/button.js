@@ -19,7 +19,6 @@ export default function Button({
   const disabled = !onClick && type !== 'submit';
 
   const style = {
-    zIndex: 'inherit',
     fontSize: '16px',
     lineHeight: '36px',
     padding: `0 24px`,
@@ -27,12 +26,13 @@ export default function Button({
     textAlign: 'center',
     minWidth: '64px',
     textTransform: 'uppercase',
-    cursor: !disabled ? 'pointer' : 'inherit'
+    cursor: !disabled ? 'pointer' : ''
   };
 
   if (disabled) {
     if (flat) {
       style.color = 'rgba(0, 0, 0, 0.26)';
+      style.backgroundColor = '';
     } else {
       style.color = 'rgba(0, 0, 0, 0.26)';
       style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
@@ -40,6 +40,7 @@ export default function Button({
   } else if (primary) {
     if (flat) {
       style.color = secondaryColor;
+      style.backgroundColor = '';
     } else {
       style.color = secondaryFontColor;
       style.backgroundColor = secondaryColor;

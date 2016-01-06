@@ -20,7 +20,7 @@ const Appbar = function Appbar({
       <div
         classNames={classNames(className, 'paper1')}
         style={Object.assign({
-          position: fixed ? 'fixed' : 'inherit',
+          position: fixed ? 'fixed' : '',
           width: '100%',
           zIndex: '1',
           height: '64px',
