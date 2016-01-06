@@ -11,7 +11,7 @@ export default Component(() => (
     N}  <Appbar.Title>Material Components</Appbar.Title>${
     N}  <div style={{ float: 'right' }}>${
     N}    <Appbar.Button${
-    N}      onClick={() => location.href='https://github.com/garth/snabbdom-material'}>${
+    N}      href="https://github.com/garth/snabbdom-material">${
     N}      <Icon name="github"/>${
     N}    </Appbar.Button>${
     N}    <div style={{ display: 'inline-block' }}>${
@@ -19,15 +19,11 @@ export default Component(() => (
     N}        <Menu.Item>Option A</Menu.Item>${
     N}        <Menu.Item>Option B</Menu.Item>${
     N}      </Menu>${
-    N}      <Appbar.Button><Icon name="more_vert"/></Appbar.Button>${
+    N}      <Appbar.Button onClick={openShowMoreMenu}><Icon name="more_vert"/></Appbar.Button>${
     N}    </div>${
     N}  </div>${
     N}</Appbar>
     `}/>
     <p>See the appbar above.</p>
-    <p>
-      When using a darker primary color, try
-      using <code>{'<Appbar.Button lightWaves>X</Appbar.Button>'}</code>
-    </p>
   </div>
 ));

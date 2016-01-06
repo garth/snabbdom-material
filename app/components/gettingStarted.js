@@ -28,8 +28,12 @@ export default Component(() => (
     N}const material = {${
     N}  primaryColor: '#FFC107',${
     N}  primaryFontColor: 'rgba(0, 0, 0, 0.7)',${
+    N}  primaryFontColorDisabled: 'rgba(0, 0, 0, 0.45)',${
+    N}  primaryLightWaves: false,${
     N}  secondaryColor: '#009688',${
     N}  secondaryFontColor: 'rgba(255, 255, 255, 0.9)',${
+    N}  secondaryFontColorDisabled: 'rgba(255, 255, 255, 0.6)',${
+    N}  secondaryLightWaves: true,${
     N}  errorColor: '#C00',${
     N}  successColor: '#090',${
     N}  typographyColor: '#212121',${

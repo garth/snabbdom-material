@@ -21,8 +21,12 @@ export default Component({
   const material = {
     primaryColor: '#FFC107',
     primaryFontColor: 'rgba(0, 0, 0, 0.7)',
+    primaryFontColorDisabled: 'rgba(0, 0, 0, 0.45)',
+    primaryLightWaves: false,
     secondaryColor: '#009688',
     secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
+    secondaryFontColorDisabled: 'rgba(255, 255, 255, 0.6)',
+    secondaryLightWaves: true,
     errorColor: '#C00',
     successColor: '#090',
     typographyColor: '#212121'
@@ -90,7 +94,7 @@ export default Component({
         <Appbar.Title material={material}>{title}</Appbar.Title>
         <div style={{ float: 'right' }}>
           <Appbar.Button
-            onClick={() => location.href = 'https://github.com/garth/snabbdom-material'}
+            href="https://github.com/garth/snabbdom-material"
             material={material}>
             <Icon name="github"/>
           </Appbar.Button>

@@ -26,9 +26,8 @@ export default function SidenavTitle({
           style={{
             float: 'right'
           }}
-          className="waves-dark"
           onClick={onClose}
-          material={material}>
+          material={Object.assign({}, material, { primaryLightWaves: false })}>
           {
             h('svg', {
               style: {
