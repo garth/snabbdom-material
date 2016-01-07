@@ -3,34 +3,34 @@ import Example from './example';
 import { Button } from '../../lib';
 const N = '\n';
 
-export default Component(() => (
+export default Component(( { props: { material } }) => (
   <div>
     <Example code="import { Button } from 'snabbdom-material';"/>
+    <p>
+      <Button onClick={() => {}} material={material}>Normal</Button>
+      <Button onClick={() => {}} material={material} primary>Primary</Button>
+      <Button onClick={() => {}} material={material} flat>Flat</Button>
+      <Button onClick={() => {}} material={material} primary flat>Primary Flat</Button>
+    </p>
     <Example code={`${
     N}// enabled buttons${
-    N}<Button onClick={onClick}>Normal</Button>${
-    N}<Button onClick={onClick} primary>Primary</Button>${
-    N}<Button onClick={onClick} flat>Flat</Button>${
-    N}<Button onClick={onClick} primary flat>Primary Flat</Button>
+    N}<Button onClick={onClick} material={material}>Normal</Button>${
+    N}<Button onClick={onClick} material={material} primary>Primary</Button>${
+    N}<Button onClick={onClick} material={material} flat>Flat</Button>${
+    N}<Button onClick={onClick} material={material} primary flat>Primary Flat</Button>
     `}/>
     <p>
-      <Button onClick={() => {}}>Normal</Button>
-      <Button onClick={() => {}} primary>Primary</Button>
-      <Button onClick={() => {}} flat>Flat</Button>
-      <Button onClick={() => {}} primary flat>Primary Flat</Button>
+      <Button material={material}>Normal</Button>
+      <Button material={material} primary>Primary</Button>
+      <Button material={material} flat>Flat</Button>
+      <Button material={material} primary flat>Primary Flat</Button>
     </p>
     <Example code={`${
     N}// disabled buttons${
-    N}<Button>Normal</Button>${
-    N}<Button primary>Primary</Button>${
-    N}<Button flat>Flat</Button>${
-    N}<Button primary flat>Primary Flat</Button>
+    N}<Button material={material}>Normal</Button>${
+    N}<Button material={material} primary>Primary</Button>${
+    N}<Button material={material} flat>Flat</Button>${
+    N}<Button material={material} primary flat>Primary Flat</Button>
     `}/>
-    <p>
-      <Button>Normal</Button>
-      <Button primary>Primary</Button>
-      <Button flat>Flat</Button>
-      <Button primary flat>Primary Flat</Button>
-    </p>
   </div>
 ));

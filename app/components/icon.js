@@ -15,7 +15,7 @@ export default Component(() => (
       After that you can use any of your icons with the following code
       (the <code>icon-</code> prefix is not needed).
     </p>
+    <p><Icon style={{ fontSize: '36px' }} name="person"/></p>
     <Example code='<Icon name="person"/>'/>
-    <p><Icon name="person"/></p>
   </div>
 ));

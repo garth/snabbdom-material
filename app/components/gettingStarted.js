@@ -3,9 +3,13 @@ import { Typ } from '../../lib';
 import Example from './example';
 const N = '\n';
 
-export default Component(() => (
+export default Component(({
+  props: {
+    material
+  }
+}) => (
   <div>
-    <Typ headline>Import Require CSS</Typ>
+    <Typ headline material={material}>Import Require CSS</Typ>
     <p>
       snabbdom-material depends on normalize.css, also some styles and transitions are defined in css and
       must be included in your project. With webpack simply use the <code>css-loader</code> plugin and
@@ -17,7 +21,7 @@ export default Component(() => (
     N}import '!style!css!snabbdom-material/lib/index.css';
     `}/>
 
-    <Typ headline>Screen Info</Typ>
+    <Typ headline material={material}>Screen Info</Typ>
     <p>
       Many components require a <code>screenInfo</code> object to be passed in via props.
       A <code>getScreenInfo()</code> helper has been provided that will get the required object. However
@@ -30,7 +34,7 @@ export default Component(() => (
     N}const screenInfo = getScreenInfo();
     `}/>
 
-    <Typ headline>Custom Styling</Typ>
+    <Typ headline material={material}>Custom Styling</Typ>
     <p>
       All snabbdom-material components accept a <code>material</code> prop which can be used to cutomise
       the style of the components. Below you can see the default style, which you can copy and modify to

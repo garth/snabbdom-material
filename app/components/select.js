@@ -7,6 +7,9 @@ export default Component({
   screenInfo: ['screen'],
   select: ['demos', 'select']
 }, ({
+  props: {
+    material
+  },
   state: {
     screenInfo,
     select
@@ -24,47 +27,6 @@ export default Component({
   return (
     <div>
       <Example code="import { Select } from 'snabbdom-material';"/>
-      <Example code={`${
-      N}let options = [${
-      N}  { value: 0, label: 'Option 1' },${
-      N}  { value: 1, label: 'Option 2' },${
-      N}  { value: 2, label: 'Option 3' }${
-      N}];${
-      N}${
-      N}<Select${
-      N}  label="option"${
-      N}  selected={selectedObject}${
-      N}  options={options}${
-      N}  isOpen={isSelectOpen}${
-      N}  screenInfo={screenInfo}${
-      N}  onOpen={setOpenState}${
-      N}  onChange={optionSelected}${
-      N}  onClose={setClosedState}/>${
-      N}${
-      N}<Select${
-      N}  label="Success option"${
-      N}  selected={selectedObject}${
-      N}  options={options}${
-      N}  isSuccess${
-      N}  isOpen={isSelectOpen}${
-      N}  screenInfo={screenInfo}${
-      N}  onOpen={setOpenState}${
-      N}  onChange={optionSelected}${
-      N}  onClose={setClosedState}/>${
-      N}${
-      N}// note that this version uses value instead of a selected object${
-      N}<Select${
-      N}  label="Error option"${
-      N}  value={selectedObject.value}${
-      N}  options={options}${
-      N}  isError${
-      N}  message="fix me"${
-      N}  isOpen={isSelectOpen}${
-      N}  screenInfo={screenInfo}${
-      N}  onOpen={setOpenState}${
-      N}  onChange={optionSelected}${
-      N}  onClose={setClosedState}/>
-      `}/>
       <div style={{ margin: '16px 0' }}>
         <Row>
           <Col type="md-4">
@@ -76,7 +38,8 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectOpened()}
               onChange={e => signals.selectChanged({ value: e.target })}
-              onClose={() => signals.selectClosed()}/>
+              onClose={() => signals.selectClosed()}
+              material={material}/>
           </Col>
           <Col type="md-4">
             <Select
@@ -88,7 +51,8 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectSuccessOpened()}
               onChange={e => signals.selectChanged({ value: e.target })}
-              onClose={() => signals.selectSuccessClosed()}/>
+              onClose={() => signals.selectSuccessClosed()}
+              material={material}/>
           </Col>
           <Col type="md-4">
             <Select
@@ -101,7 +65,8 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectErrorOpened()}
               onChange={e => signals.selectChanged({ value: e.target })}
-              onClose={() => signals.selectErrorClosed()}/>
+              onClose={() => signals.selectErrorClosed()}
+              material={material}/>
           </Col>
         </Row>
         <Row>
@@ -120,10 +85,55 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectLargeOpened()}
               onChange={e => signals.selectLargeChanged({ value: e.target.value })}
-              onClose={() => signals.selectLargeClosed()}/>
+              onClose={() => signals.selectLargeClosed()}
+              material={material}/>
           </Col>
         </Row>
       </div>
+      <Example code={`${
+      N}let options = [${
+      N}  { value: 0, label: 'Option 1' },${
+      N}  { value: 1, label: 'Option 2' },${
+      N}  { value: 2, label: 'Option 3' }${
+      N}];${
+      N}${
+      N}<Select${
+      N}  label="option"${
+      N}  selected={selectedObject}${
+      N}  options={options}${
+      N}  isOpen={isSelectOpen}${
+      N}  screenInfo={screenInfo}${
+      N}  onOpen={setOpenState}${
+      N}  onChange={optionSelected}${
+      N}  onClose={setClosedState}${
+      N}  material={material}/>${
+      N}${
+      N}<Select${
+      N}  label="Success option"${
+      N}  selected={selectedObject}${
+      N}  options={options}${
+      N}  isSuccess${
+      N}  isOpen={isSelectOpen}${
+      N}  screenInfo={screenInfo}${
+      N}  onOpen={setOpenState}${
+      N}  onChange={optionSelected}${
+      N}  onClose={setClosedState}${
+      N}  material={material}/>${
+      N}${
+      N}// note that this version uses value instead of a selected object${
+      N}<Select${
+      N}  label="Error option"${
+      N}  value={selectedObject.value}${
+      N}  options={options}${
+      N}  isError${
+      N}  message="fix me"${
+      N}  isOpen={isSelectOpen}${
+      N}  screenInfo={screenInfo}${
+      N}  onOpen={setOpenState}${
+      N}  onChange={optionSelected}${
+      N}  onClose={setClosedState}${
+      N}  material={material}/>
+      `}/>
     </div>
   );
 });
