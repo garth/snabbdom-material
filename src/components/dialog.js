@@ -7,17 +7,18 @@ import getScreenSize from '../helpers/screenSize';
 import defaultMaterial from './defaultMaterial';
 import classNames from 'classnames';
 
-function button(label, onClick) {
-  if (!label) { return null; }
+function button(label, primary, onClick, material) {
+  if (!label) { return <span/>; }
   return (
     <Button
       style={{
         margin: '8px 8px 8px 0',
         padding: '0 8px'
       }}
-      primary
+      primary={primary}
       flat
-      onClick={onClick}>
+      onClick={onClick}
+      material={material}>
       {label}
     </Button>
   );
@@ -59,8 +60,8 @@ export default function Dialog({
         {hideDivider ? <span/> : (
           <Divider style={{ margin: '0' }}/>
         )}
-        {button(cancelLabel, onCancel)}
-        {button(okLabel, onOk)}
+        {button(cancelLabel, false, onCancel, material)}
+        {button(okLabel, true, onOk, material)}
       </div>
     );
     maxContentHeight -= 56;

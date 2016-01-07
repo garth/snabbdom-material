@@ -14,6 +14,7 @@ export default function Button({
   material = defaultMaterial
 }, children = '') {
 
+  const primaryFontColor = material.primaryFontColor || defaultMaterial.primaryFontColor;
   const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
   const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor;
   const disabled = !onClick && type !== 'submit';
@@ -26,25 +27,26 @@ export default function Button({
     textAlign: 'center',
     minWidth: '64px',
     textTransform: 'uppercase',
-    cursor: !disabled ? 'pointer' : ''
+    cursor: !disabled ? 'pointer' : '',
+    backgroundColor: ''
   };
 
   if (disabled) {
     if (flat) {
-      style.color = 'rgba(0, 0, 0, 0.26)';
-      style.backgroundColor = '';
+      style.color = 'rgba(0, 0, 0, 0.35)';
     } else {
-      style.color = 'rgba(0, 0, 0, 0.26)';
+      style.color = 'rgba(0, 0, 0, 0.35)';
       style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
     }
   } else if (primary) {
     if (flat) {
       style.color = secondaryColor;
-      style.backgroundColor = '';
     } else {
       style.color = secondaryFontColor;
       style.backgroundColor = secondaryColor;
     }
+  } else {
+    style.color = primaryFontColor;
   }
 
   return (
