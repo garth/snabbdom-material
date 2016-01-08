@@ -32,10 +32,10 @@ export default Component({
     N}  height={172}${
     N}  screenInfo={screenInfo}${
     N}  title="Question?"${
-    N}  okLabel="OK"${
-    N}  onOk={onOk}${
-    N}  cancelLabel="Cancel"${
-    N}  onCancel={onCancel}${
+    N}  footer={<span>${
+    N}    <Dialog.Button onClick={onCancel} flat>Deny</Dialog.Button>${
+    N}    <Dialog.Button onClick={onOk} flat primary>Confirm</Dialog.Button>${
+    N}  </span>}${
     N}  material={material}>${
     N}</Dialog>
     `}/>
@@ -45,10 +45,10 @@ export default Component({
       height={172}
       screenInfo={screenInfo}
       title="Do you confirm or deny?"
-      okLabel="Confirm"
-      onOk={() => signals.dialogClosed()}
-      cancelLabel="Deny"
-      onCancel={() => signals.dialogClosed()}
+      footer={<span>
+        <Dialog.Button onClick={() => signals.dialogClosed()} flat>Deny</Dialog.Button>
+        <Dialog.Button onClick={() => signals.dialogClosed()} flat primary>Confirm</Dialog.Button>
+      </span>}
       material={material}>
       the details of allogation
     </Dialog>

@@ -1,39 +1,19 @@
 import { html } from 'snabbdom-jsx';
 import h from 'snabbdom/h';
-import Mask from './mask';
-import Divider from './divider';
-import Button from './button';
-import getScreenSize from '../helpers/screenSize';
-import defaultMaterial from './defaultMaterial';
+import Mask from '../mask';
+import Divider from '../divider';
+import getScreenSize from '../../helpers/screenSize';
+import defaultMaterial from '../defaultMaterial';
 import classNames from 'classnames';
+import Button from './button';
 
-function button(label, primary, onClick, material) {
-  if (!label) { return <span/>; }
-  return (
-    <Button
-      style={{
-        margin: '8px 8px 8px 0',
-        padding: '0 8px'
-      }}
-      primary={primary}
-      flat
-      onClick={onClick}
-      material={material}>
-      {label}
-    </Button>
-  );
-}
-
-export default function Dialog({
-  cancelLabel,
+const Dialog = function ({
   className = '',
+  footer,
   height = 130,
   hideDivider = false,
   isOpen = false,
   noPadding = false,
-  okLabel,
-  onCancel,
-  onOk,
   screenInfo,
   style = {},
   title,
@@ -50,9 +30,9 @@ export default function Dialog({
   const maxHeight = screenSize.height - 48;
   let maxContentHeight = maxHeight - 48;
 
-  let footer = null;
-  if (okLabel || cancelLabel) {
-    footer = (
+  let footerContainer = null;
+  if (footer) {
+    footerContainer = (
       <div style={{
         height: '56px',
         textAlign: 'right'
@@ -60,18 +40,17 @@ export default function Dialog({
         {hideDivider ? <span/> : (
           <Divider style={{ margin: '0' }}/>
         )}
-        {button(cancelLabel, false, onCancel, material)}
-        {button(okLabel, true, onOk, material)}
+        {footer}
       </div>
     );
     maxContentHeight -= 56;
   } else {
-    footer = <span/>;
+    footerContainer = <span/>;
   }
 
-  let titleElement = null;
+  let titleContainer = null;
   if (title) {
-    titleElement = (
+    titleContainer = (
       <div style={{
         fontSize: '20px',
         fontWeight: '400',
@@ -80,7 +59,7 @@ export default function Dialog({
     );
     maxContentHeight -= 49;
   } else {
-    titleElement = <span/>;
+    titleContainer = <span/>;
   }
 
   return (
@@ -98,7 +77,7 @@ export default function Dialog({
             maxHeight: `${maxHeight}px`,
           }, style, material.fadeInOut || defaultMaterial.fadeInOut)}>
           <div style={{ padding: noPadding ? '0' : '24px' }}>
-            {titleElement}
+            {titleContainer}
             <div
               style={{
                 maxHeight: `${maxContentHeight}px`,
@@ -109,10 +88,14 @@ export default function Dialog({
               {h('span', children)}
             </div>
           </div>
-          {footer}
+          {footerContainer}
         </div>
       ) : <span/>}
     </div>
   );
 
-}
+};
+
+Dialog.Button = Button;
+
+export default Dialog;

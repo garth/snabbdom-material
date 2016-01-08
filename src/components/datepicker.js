@@ -40,10 +40,13 @@ export default function DatePicker({
   return (
     <Dialog
       isOpen={isOpen}
-      onOk={pickingValue ? () => onOk({ target: { value: pickingValue } }) : null}
-      okLabel="OK"
-      onCancel={onCancel}
-      cancelLabel="Cancel"
+      footer={<span>
+        <Dialog.Button flat onClick={onCancel}>Cancel</Dialog.Button>
+        <Dialog.Button flat primary
+          onClick={pickingValue ? () => onOk({ target: { value: pickingValue } }) : null}>
+          OK
+        </Dialog.Button>
+      </span>}
       width={isPortrait ? 328 : 496}
       height={isPortrait ? 388 : 292}
       hideDivider
