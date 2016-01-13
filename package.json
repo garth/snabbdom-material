@@ -1,6 +1,6 @@
 {
   "name": "snabbdom-material",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Stateless UI components for snabbdom that follow material design",
   "main": "lib/index.js",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "mocha",
     "start": "parallelshell 'node-sass --watch src/index.scss lib/index.css' 'watch \"eslint --cache .\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
-    "build": "babel src --out-dir lib && node-sass src/index.scss lib/index.css && rimraf dist && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
+    "build": "rimraf lib && babel src --out-dir lib && node-sass src/index.scss lib/index.css && rimraf dist && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
     "lint": "eslint .",
     "prepublish": "npm run build"
   },
