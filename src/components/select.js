@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import h from 'raskdom/h';
 import Input from './input';
 import Menu from './menu';
 import defaultMaterial from './defaultMaterial';

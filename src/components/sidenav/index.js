@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import h from 'raskdom/h';
 import Mask from '../mask';
 import Item from './item';
 import Title from './title';

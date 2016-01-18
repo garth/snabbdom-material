@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import h from 'raskdom/h';
 import defaultMaterial from './defaultMaterial';
 
 export default function Spinner({

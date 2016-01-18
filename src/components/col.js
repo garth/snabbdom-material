@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import h from 'raskdom/h';
 import classNames from 'classnames';
 
 export default function Col({

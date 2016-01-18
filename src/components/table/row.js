@@ -1,4 +1,4 @@
-import h from 'snabbdom/h';
+import h from 'raskdom/h';
 
 export default function TableRow({
   className = '',

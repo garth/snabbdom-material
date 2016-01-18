@@ -1,5 +1,5 @@
 import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import h from 'raskdom/h';
 import Waves from '../helpers/waves';
 import classNames from 'classnames';
 
