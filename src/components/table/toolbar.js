@@ -15,7 +15,7 @@ export default function TableToolbar({
             colSpan
           },
           style: Object.assign({
-            paddingLeft: 0
+            paddingLeft: '0'
           }, style)
         }, children)
       }

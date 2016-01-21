@@ -48,7 +48,7 @@ export default function Spinner({
             },
             style: {
               strokeDasharray: '1,400',
-              strokeDashoffset: 0,
+              strokeDashoffset: '0',
               animation: 'spinner-dash 1.5s ease-in-out infinite' +
                 (!primary && !secondary ? ', spinner-color 6s ease-in-out infinite' : ''),
               strokeLinecap: 'round'
