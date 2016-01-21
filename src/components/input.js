@@ -30,12 +30,18 @@ export default function Input({
       <input
         on-click={e => onClick ? onClick(e) : null}
         on-focus={e => {
-          e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor;
-          if (typeof onFocus === 'function') {
-            onFocus(e);
+          if (e.target) {
+            e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor;
+            if (typeof onFocus === 'function') {
+              onFocus(e);
+            }
           }
         }}
-        on-blur={e => e.target.parentElement.querySelector('.inputLabel').style.color = ''}
+        on-blur={e => {
+          if (e.target) {
+            e.target.parentElement.querySelector('.inputLabel').style.color = ''
+          }
+        }}
         type={type}
         classNames={classNames('paper-divider', {
           used: value && value.length
