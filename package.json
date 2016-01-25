@@ -1,6 +1,6 @@
 {
   "name": "snabbdom-material",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Stateless UI components for snabbdom that follow material design",
   "main": "lib/index.js",
   "files": [
@@ -79,8 +79,8 @@
     "normalize.css": "^3.0.3",
     "parallelshell": "^2.0.0",
     "postcss-loader": "^0.8.0",
-    "raskdom": "^0.3.0",
     "rimraf": "^2.5.0",
+    "snabbdom": "^0.3.1",
     "snabbdom-jsx": "^0.3.0",
     "stats-webpack-plugin": "^0.3.0",
     "style-loader": "^0.13.0",
@@ -93,7 +93,7 @@
   "peerDependencies": {
     "classnames": "^2.2.3",
     "moment": "^2.11.0",
-    "raskdom": "^0.3.0",
+    "snabbdom": "^0.3.1",
     "snabbdom-jsx": "^0.3.0"
   }
 }

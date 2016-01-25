@@ -1,4 +1,4 @@
-import h from 'raskdom/h';
+import h from 'snabbdom/h';
 import Toolbar from './toolbar';
 import Row from './row';
 
