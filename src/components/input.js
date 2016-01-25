@@ -5,6 +5,7 @@ import classNames from 'classnames'
 export default function Input ({
   className = '',
   inputStyle = {},
+  isFocused = false,
   isError = false,
   isSuccess = false,
   label = '',
@@ -12,6 +13,7 @@ export default function Input ({
   onChange,
   onClick,
   onFocus,
+  onBlur,
   readOnly = false,
   style = {},
   type = 'text',
@@ -28,19 +30,8 @@ export default function Input ({
       style={style}>
       <input
         on-click={e => onClick ? onClick(e) : null}
-        on-focus={e => {
-          if (e.target && e.target.parentElement) {
-            e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor
-            if (typeof onFocus === 'function') {
-              onFocus(e)
-            }
-          }
-        }}
-        on-blur={e => {
-          if (e.target && e.target.parentElement) {
-            e.target.parentElement.querySelector('.inputLabel').style.color = ''
-          }
-        }}
+        on-focus={e => onFocus ? onFocus(e) : null}
+        on-blur={e => onBlur ? onBlur(e) : null}
         type={type}
         classNames={classNames('paper-divider', {
           used: value && value.length
@@ -58,7 +49,15 @@ export default function Input ({
           backgroundColor: isError ? errorColor : isSuccess ? successColor : secondaryColor
         }}/>
       <label>
-        <span classNames="inputLabel">
+        <span style={{
+          color: !isFocused
+            ? ''
+            : isError
+              ? errorColor
+              : isSuccess
+                ? successColor
+                : secondaryColor
+        }}>
           {label}
         </span>
       </label>

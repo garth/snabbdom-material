@@ -12,7 +12,11 @@ export default Controller(Model({
   demos: {
     input: {
       email: '',
-      password: ''
+      isEmailFocused1: false,
+      isEmailFocused2: false,
+      isEmailFocused3: false,
+      password: '',
+      isPasswordFocused: false
     },
     select: {
       selectOpen: false,

@@ -85,6 +85,7 @@ export default function Select ({
         inputStyle={{ cursor: 'pointer' }}
         isError={isError}
         isSuccess={isSuccess}
+        isFocused={isOpen}
         label={label}
         message={message}
         onClick={onOpen}

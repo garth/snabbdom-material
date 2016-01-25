@@ -8,3 +8,11 @@ controller.signal('emailChanged', [
 controller.signal('passwordChanged', [
   inputToState(['value'], ['demos', 'input', 'password'])
 ])
+
+controller.signal('focused', [
+  ({ input, state }) => state.set(input.path, true)
+])
+
+controller.signal('blurred', [
+  ({ input, state }) => state.set(input.path, false)
+])
