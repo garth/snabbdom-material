@@ -1,10 +1,10 @@
-import { html } from 'snabbdom-jsx';
-import defaultMaterial from './defaultMaterial';
-import moment from 'moment';
-import Dialog from './dialog';
-import Calendar from './calendar';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import defaultMaterial from './defaultMaterial'
+import moment from 'moment'
+import Dialog from './dialog'
+import Calendar from './calendar'
 
-export default function DatePicker({
+export default function DatePicker ({
   className = '',
   isOpen = false,
   locale = 'en',
@@ -20,21 +20,20 @@ export default function DatePicker({
   year = (new Date()).getFullYear(),
   material = defaultMaterial
 }) {
+  const { isPortrait } = screenInfo
+  const displayDate = pickingValue ? moment(pickingValue) : moment({ year, month, day: 1 })
+  displayDate.locale(locale)
 
-  const { isPortrait } = screenInfo;
-  const displayDate = pickingValue ? moment(pickingValue) : moment({ year, month, day: 1 });
-  displayDate.locale(locale);
-
-  let dateLines = null;
+  let dateLines = null
   if (!pickingValue) {
-    dateLines = [displayDate.format('MMM')];
+    dateLines = [displayDate.format('MMM')]
   } else if (isPortrait) {
-    dateLines = [displayDate.format('ddd MMM D')];
+    dateLines = [displayDate.format('ddd MMM D')]
   } else {
     dateLines = [
       displayDate.format('ddd'),
       displayDate.format('MMM D')
-    ];
+    ]
   }
 
   return (
@@ -87,5 +86,5 @@ export default function DatePicker({
         }}
         material={material}/>
     </Dialog>
-  );
+  )
 }

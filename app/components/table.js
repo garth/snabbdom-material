@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Button, Table } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Button, Table } from '../../lib'
+const N = '\n'
 
 export default Component(({
   props: {
@@ -15,7 +15,7 @@ export default Component(({
       element types use the default html
       elements <code>thead</code>, <code>tbody</code>, <code>th</code> and <code>td</code>.
     </p>
-    <Table style={{ margin: '24px 0' }} className="paper1" material={material}>
+    <Table style={{ margin: '24px 0' }} className='paper1' material={material}>
       <thead>
         <Table.Toolbar colSpan={3} material={material}>
           <Button style={{ margin: '0 8px', padding: '0 8px' }} primary flat onClick={() => {}} material={material}>Add</Button>
@@ -68,4 +68,4 @@ export default Component(({
     N}</Table>
     `}/>
   </div>
-));
+))

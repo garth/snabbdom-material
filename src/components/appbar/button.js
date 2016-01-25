@@ -1,21 +1,20 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import Waves from '../helpers/waves';
-import classNames from 'classnames';
-import defaultMaterial from '../defaultMaterial';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import Waves from '../helpers/waves'
+import classNames from 'classnames'
+import defaultMaterial from '../defaultMaterial'
 
-export default function AppbarButton({
+export default function AppbarButton ({
   className = '',
   onClick,
   href = '',
   style = {},
   material = defaultMaterial
 }, children = '') {
-
-  const lightWaves = material.primaryLightWaves || defaultMaterial.primaryLightWaves;
-  const fontColor = material.primaryFontColor || defaultMaterial.primaryFontColor;
-  const disabledFontColor = material.primaryFontColorDisabled || defaultMaterial.primaryFontColorDisabled;
-  const enabled = onClick || href;
+  const lightWaves = material.primaryLightWaves || defaultMaterial.primaryLightWaves
+  const fontColor = material.primaryFontColor || defaultMaterial.primaryFontColor
+  const disabledFontColor = material.primaryFontColorDisabled || defaultMaterial.primaryFontColorDisabled
+  const enabled = onClick || href
 
   // console.log(`${href ? 'a' : 'div'}.${classNames('waves-circle', { 'waves-light': lightWaves }).replace(/ /g, '.')}`);
 
@@ -49,5 +48,5 @@ export default function AppbarButton({
         }, children)
       }
     </div>
-  );
+  )
 }

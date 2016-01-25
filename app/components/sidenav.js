@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Icon, Sidenav, Typ } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Icon, Sidenav, Typ } from '../../lib'
+const N = '\n'
 
 export default Component(({
   props: {
@@ -24,7 +24,7 @@ export default Component(({
 
     <Typ headline material={material}>Mini Sidenav</Typ>
     <p>It's also possible to have a mini sidenav that is always on display.</p>
-    <div classNames="paper1" style={{
+    <div classNames='paper1' style={{
       height: '200px',
       margin: '16px 0'
     }}>
@@ -37,10 +37,10 @@ export default Component(({
           height: '200px'
         }}
         material={material}>
-        <Sidenav.Item showIcon material={material} icon={<Icon name="person"/>}/>
-        <Sidenav.Item showIcon material={material} icon={<Icon name="dashboard"/>} selected/>
+        <Sidenav.Item showIcon material={material} icon={<Icon name='person'/>}/>
+        <Sidenav.Item showIcon material={material} icon={<Icon name='dashboard'/>} selected/>
         <Sidenav.Separator material={material}/>
-        <Sidenav.Item showIcon material={material} icon={<Icon name="settings"/>}/>
+        <Sidenav.Item showIcon material={material} icon={<Icon name='settings'/>}/>
       </Sidenav>
       <div style={{
         padding: '16px',
@@ -61,4 +61,4 @@ export default Component(({
     N}</div>
     `}/>
   </div>
-));
+))

@@ -1,6 +1,6 @@
-import Controller from 'cerebral';
-import Model from 'cerebral-baobab';
-import moment from 'moment';
+import Controller from 'cerebral'
+import Model from 'cerebral-baobab'
+import moment from 'moment'
 
 export default Controller(Model({
 
@@ -61,4 +61,4 @@ export default Controller(Model({
   }
 }), {
   moment
-});
+})

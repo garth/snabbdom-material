@@ -1,8 +1,8 @@
-import { Component } from 'cerebral-snabbdom';
+import { Component } from 'cerebral-snabbdom'
 
-import { Appbar, Button, Menu, Sidenav, Icon } from '../../lib';
+import { Appbar, Button, Menu, Sidenav, Icon } from '../../lib'
 
-let previousPage;
+let previousPage
 
 export default Component({
   currentPage: ['route', 'page'],
@@ -19,7 +19,6 @@ export default Component({
   sidenavOpen,
   title
 }, signals }) => {
-
   const material = {
     primaryColor: '#FFC107',
     primaryFontColor: 'rgba(0, 0, 0, 0.7)',
@@ -32,14 +31,14 @@ export default Component({
     errorColor: '#C00',
     successColor: '#090',
     typographyColor: '#212121'
-  };
-
-  if (previousPage !== currentPage) {
-    previousPage = currentPage;
-    window.scrollTo(0, 0);
   }
 
-  const RouteComponent = require('./' + currentPage).default;
+  if (previousPage !== currentPage) {
+    previousPage = currentPage
+    window.scrollTo(0, 0)
+  }
+
+  const RouteComponent = require('./' + currentPage).default
 
   return (
     <div>
@@ -85,20 +84,20 @@ export default Component({
                 onClick={() => menu.signal()}
                 onClose={() => signals.sidenavClosed()}
                 material={material}>{menu.title}</Sidenav.Item>
-            );
+            )
           })}
         </div>
       </Sidenav>
       <Appbar fixed material={material}>
         <Appbar.Button style={{ float: 'left' }} onClick={() => signals.sidenavOpened()} material={material}>
-          <Icon name="menu"/>
+          <Icon name='menu'/>
         </Appbar.Button>
         <Appbar.Title material={material}>{title}</Appbar.Title>
         <div style={{ float: 'right' }}>
           <Appbar.Button
-            href="https://github.com/garth/snabbdom-material"
+            href='https://github.com/garth/snabbdom-material'
             material={material}>
-            <Icon name="github"/>
+            <Icon name='github'/>
           </Appbar.Button>
           <div style={{ display: 'inline-block' }}>
             <Menu rightAlign
@@ -126,7 +125,7 @@ export default Component({
             <Appbar.Button
               onClick={() => signals.localeMenuOpened()}
               material={material}>
-              <Icon name="globe"/>
+              <Icon name='globe'/>
             </Appbar.Button>
           </div>
         </div>
@@ -141,5 +140,5 @@ export default Component({
         <RouteComponent material={material}/>
       </div>
     </div>
-  );
-});
+  )
+})

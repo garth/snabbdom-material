@@ -1,9 +1,9 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import MenuItem from '../menu/item';
-import defaultMaterial from '../defaultMaterial';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import MenuItem from '../menu/item'
+import defaultMaterial from '../defaultMaterial'
 
-export default function SidenavItem({
+export default function SidenavItem ({
   className = '',
   icon,
   onClick,
@@ -13,7 +13,6 @@ export default function SidenavItem({
   style = {},
   material = defaultMaterial
 }, children = '') {
-
   return (
     <MenuItem
       icon={icon}
@@ -31,5 +30,5 @@ export default function SidenavItem({
       material={material}>
       {h('span', children)}
     </MenuItem>
-  );
+  )
 }

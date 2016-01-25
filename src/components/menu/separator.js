@@ -1,13 +1,12 @@
-import { html } from 'snabbdom-jsx';
-import Divider from '../divider';
-import defaultMaterial from '../defaultMaterial';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import Divider from '../divider'
+import defaultMaterial from '../defaultMaterial'
 
-export default function MenuSeparator({
+export default function MenuSeparator ({
   className = '',
   style = {},
   material = defaultMaterial
 }) {
-
   return (
     <Divider
       className={className}
@@ -16,6 +15,5 @@ export default function MenuSeparator({
         margin: '0 0 8px 0'
       }, style)}
       material={material}/>
-  );
-
+  )
 }

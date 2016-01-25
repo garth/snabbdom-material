@@ -1,6 +1,6 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+const N = '\n'
 
 export default Component(() => (
   <div>
@@ -27,4 +27,4 @@ export default Component(() => (
     `}/>
     <p>See the appbar above.</p>
   </div>
-));
+))

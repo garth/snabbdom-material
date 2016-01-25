@@ -1,36 +1,36 @@
-import { canUseDOM } from 'exenv';
-import getScreenInfo from '../helpers/screenInfo';
+import { canUseDOM } from 'exenv'
+import getScreenInfo from '../helpers/screenInfo'
 
-let screenInfo = null;
-const subscribers = {};
+let screenInfo = null
+const subscribers = {}
 
-function resize() {
-  const screen = getScreenInfo();
+function resize () {
+  const screen = getScreenInfo()
 
   if (!screenInfo || screen.size !== screenInfo.size || screen.isLandscape !== screenInfo.isLandscape) {
-    screenInfo = screen;
+    screenInfo = screen
     Object.keys(subscribers).forEach(eventHandler => {
-      subscribers[eventHandler](screenInfo);
-    });
+      subscribers[eventHandler](screenInfo)
+    })
   }
 }
 
 export default {
-  addListener(eventHandler) {
+  addListener (eventHandler) {
     if (typeof eventHandler !== 'function') {
-      return;
+      return
     }
     if (!screenInfo) {
       if (canUseDOM) {
-        window.addEventListener('resize', resize);
+        window.addEventListener('resize', resize)
       }
-      resize();
+      resize()
     }
-    subscribers[eventHandler] = eventHandler;
-    eventHandler(screenInfo);
+    subscribers[eventHandler] = eventHandler
+    eventHandler(screenInfo)
   },
 
-  removeListener(eventHandler) {
-    delete subscribers[eventHandler];
+  removeListener (eventHandler) {
+    delete subscribers[eventHandler]
   }
-};
+}

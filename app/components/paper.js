@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Col, Row, Divider, Paper } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Col, Row, Divider, Paper } from '../../lib'
+const N = '\n'
 
 export default Component(({
   props: {
@@ -16,19 +16,19 @@ export default Component(({
     </p>
     <div style={{ margin: '16px 0' }}>
       <Row>
-        <Col type="sm-offset-1 sm-2">
+        <Col type='sm-offset-1 sm-2'>
           <Paper elevation={1} style={{ margin: '16px 0' }} material={material}>Paper 1</Paper>
         </Col>
-        <Col type="sm-2">
+        <Col type='sm-2'>
           <Paper elevation={2} style={{ margin: '16px 0' }} material={material}>Paper 2</Paper>
         </Col>
-        <Col type="sm-2">
+        <Col type='sm-2'>
           <Paper elevation={3} noPadding style={{ margin: '16px 0' }} material={material}>Paper 3</Paper>
         </Col>
-        <Col type="sm-2">
+        <Col type='sm-2'>
           <Paper elevation={4} style={{ margin: '16px 0' }} material={material}>Paper 4</Paper>
         </Col>
-        <Col type="sm-2">
+        <Col type='sm-2'>
           <Paper elevation={5} style={{ margin: '16px 0' }} material={material}>Paper 5</Paper>
         </Col>
       </Row>
@@ -55,4 +55,4 @@ export default Component(({
       </p>
     </div>
   </div>
-));
+))

@@ -1,6 +1,6 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+const N = '\n'
 
 export default Component({
   screen: ['screen']
@@ -58,4 +58,4 @@ export default Component({
       the UI every time this event is triggered should be ok.
     </p>
   </div>
-));
+))

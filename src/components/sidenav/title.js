@@ -1,17 +1,16 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import Button from '../appbar/button';
-import defaultMaterial from '../defaultMaterial';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import Button from '../appbar/button'
+import defaultMaterial from '../defaultMaterial'
+import classNames from 'classnames'
 
-export default function SidenavTitle({
+export default function SidenavTitle ({
   className = '',
   onClose,
   showCloseButton = false,
   style = {},
   material = defaultMaterial
 }, children = '') {
-
   return (
     <div
       classNames={classNames(className, 'paper-divider')}
@@ -49,5 +48,5 @@ export default function SidenavTitle({
       ) : <span/>}
       {h('span', children)}
     </div>
-  );
+  )
 }

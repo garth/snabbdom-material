@@ -1,12 +1,11 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import { html } from 'snabbdom-jsx'  // eslint-disable-line
+import h from 'snabbdom/h'
 
-export default function TableToolbar({
+export default function TableToolbar ({
   className = '',
   colSpan = 1,
   style = {}
 }, children = '') {
-
   return (
     <tr classNames={className ? ['toolbar', className] : 'toolbar'}>
       {
@@ -20,6 +19,5 @@ export default function TableToolbar({
         }, children)
       }
     </tr>
-  );
-
+  )
 }

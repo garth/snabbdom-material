@@ -1,5 +1,0 @@
-app/vendor
-dist
-lib
-node_modules
-webpack.*.js

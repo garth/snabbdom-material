@@ -1,9 +1,9 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Button } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Button } from '../../lib'
+const N = '\n'
 
-export default Component(( { props: { material } }) => (
+export default Component(({ props: { material } }) => (
   <div>
     <Example code="import { Button } from 'snabbdom-material';"/>
     <p>
@@ -33,4 +33,4 @@ export default Component(( { props: { material } }) => (
     N}<Button material={material} primary flat>Primary Flat</Button>
     `}/>
   </div>
-));
+))

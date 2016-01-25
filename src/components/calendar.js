@@ -1,16 +1,16 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import defaultMaterial from './defaultMaterial';
-import Waves from './helpers/waves';
-import moment from 'moment';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import defaultMaterial from './defaultMaterial'
+import Waves from './helpers/waves'
+import moment from 'moment'
 
-function getMoment(date, locale) {
-  const value = moment(date);
-  value.locale(locale);
-  return value;
+function getMoment (date, locale) {
+  const value = moment(date)
+  value.locale(locale)
+  return value
 }
 
-export default function Calendar({
+export default function Calendar ({
   className = '',
   locale = 'en',
   month = (new Date()).getMonth(),
@@ -23,39 +23,38 @@ export default function Calendar({
   year = (new Date()).getFullYear(),
   material = defaultMaterial
 }) {
-
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
-  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor;
-  const typographyColor = material.typographyColor || defaultMaterial.typographyColor;
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
+  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor
+  const typographyColor = material.typographyColor || defaultMaterial.typographyColor
 
   const _onChange = function (day, validDay) {
     if (onChange && validDay) {
-      onChange({ target: { value: new Date(year, month, day) } });
+      onChange({ target: { value: new Date(year, month, day) } })
     }
-  };
+  }
 
-  const date = getMoment({ year, month, day: 1 }, locale);
-  const localeData = moment.localeData(locale);
-  const previousMonth = date.clone().subtract(1, 'months');
-  const nextMonth = date.clone().add(1, 'months');
-  const firstDayOfWeek = localeData.firstDayOfWeek();
+  const date = getMoment({ year, month, day: 1 }, locale)
+  const localeData = moment.localeData(locale)
+  const previousMonth = date.clone().subtract(1, 'months')
+  const nextMonth = date.clone().add(1, 'months')
+  const firstDayOfWeek = localeData.firstDayOfWeek()
 
-  let weekdays = [];
+  let weekdays = []
   for (let i = 0; i < 7; i++) {
-    weekdays.push(localeData.weekdaysShort({ day: () => i })[0]);
+    weekdays.push(localeData.weekdaysShort({ day: () => i })[0])
   }
   if (firstDayOfWeek > 0) {
-    weekdays = [...weekdays.slice(firstDayOfWeek), ...weekdays.slice(0, firstDayOfWeek)];
+    weekdays = [...weekdays.slice(firstDayOfWeek), ...weekdays.slice(0, firstDayOfWeek)]
   }
 
-  const colWidth = 14.28571428;
-  const today = getMoment(new Date(), locale).startOf('day');
+  const colWidth = 14.28571428
+  const today = getMoment(new Date(), locale).startOf('day')
 
-  const days = [];
+  const days = []
   for (let day = 1; day <= date.daysInMonth(); day++) {
-    const dayDate = new Date(year, month, day);
-    const validDay = !Array.isArray(validDays) || validDays.includes(day);
-    const selectedDay = value && getMoment(value, locale).startOf('day').isSame(dayDate);
+    const dayDate = new Date(year, month, day)
+    const validDay = !Array.isArray(validDays) || validDays.includes(day)
+    const selectedDay = value && getMoment(value, locale).startOf('day').isSame(dayDate)
     days.push(
       <div
         style={{
@@ -82,13 +81,13 @@ export default function Calendar({
           {day}
         </div>
       </div>
-    );
+    )
   }
 
   const navigation = onNavigate ? [(
     <div
       hook-insert={vnode => onNavigate ? Waves.attach(vnode.elm) : null}
-      classNames="waves-circle"
+      classNames='waves-circle'
       style={{
         float: 'left',
         cursor: 'pointer',
@@ -120,7 +119,7 @@ export default function Calendar({
   ), (
     <div
       hook-insert={vnode => onNavigate ? Waves.attach(vnode.elm) : null}
-      classNames="waves-circle"
+      classNames='waves-circle'
       style={{
         float: 'right',
         cursor: 'pointer',
@@ -149,7 +148,7 @@ export default function Calendar({
         ])
       }
     </div>
-  )] : [];
+  )] : []
 
   navigation.push(
     <div
@@ -161,7 +160,7 @@ export default function Calendar({
       }}>
       {date.format(titleFormat)}
     </div>
-  );
+  )
 
   if (date.weekday()) {
     days.unshift(
@@ -172,7 +171,7 @@ export default function Calendar({
           height: '9px'
         }}
       />
-    );
+    )
   }
 
   return (
@@ -207,5 +206,5 @@ export default function Calendar({
         {days}
       </div>
     </div>
-  );
+  )
 }

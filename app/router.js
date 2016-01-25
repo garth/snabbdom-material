@@ -1,5 +1,5 @@
-import Router from 'cerebral-router';
-import controller from './controller';
+import Router from 'cerebral-router'
+import controller from './controller'
 
 export default Router(controller, {
   '/': 'introductionPageOpened',
@@ -25,4 +25,4 @@ export default Router(controller, {
   '/*': 'notFoundPageOpened'
 }, {
   onlyHash: true
-});
+})

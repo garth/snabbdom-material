@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Col, Row, Select } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Col, Row, Select } from '../../lib'
+const N = '\n'
 
 export default Component({
   screenInfo: ['screen'],
@@ -16,22 +16,21 @@ export default Component({
   },
   signals
 }) => {
-
   const options = [
     { value: 0, label: 'Option 1' },
     { value: 1, label: 'Option 2' },
     { value: 2, label: 'Option 3' },
     { value: 3, label: 'Option 4' }
-  ];
+  ]
 
   return (
     <div>
       <Example code="import { Select } from 'snabbdom-material';"/>
       <div style={{ margin: '16px 0' }}>
         <Row>
-          <Col type="md-4">
+          <Col type='md-4'>
             <Select
-              label="option"
+              label='option'
               selected={select.selected}
               options={options}
               isOpen={select.selectOpen}
@@ -41,9 +40,9 @@ export default Component({
               onClose={() => signals.selectClosed()}
               material={material}/>
           </Col>
-          <Col type="md-4">
+          <Col type='md-4'>
             <Select
-              label="Success option"
+              label='Success option'
               selected={select.selected}
               options={options}
               isSuccess
@@ -54,13 +53,13 @@ export default Component({
               onClose={() => signals.selectSuccessClosed()}
               material={material}/>
           </Col>
-          <Col type="md-4">
+          <Col type='md-4'>
             <Select
-              label="Error option"
+              label='Error option'
               value={select.selected && select.selected.value}
               options={options}
               isError
-              message="fix me"
+              message='fix me'
               isOpen={select.selectErrorOpen}
               screenInfo={screenInfo}
               onOpen={() => signals.selectErrorOpened()}
@@ -70,16 +69,16 @@ export default Component({
           </Col>
         </Row>
         <Row>
-          <Col type="md-4 md-offset-4">
+          <Col type='md-4 md-offset-4'>
             <Select
-              label="large list of items"
+              label='large list of items'
               value={select.largeSelectedValue}
               options={(() => {
-                const opts = [];
+                const opts = []
                 for (let i = 0; i < 100; i++) {
-                  opts.push({ value: i, label: `Option ${i + 1}` });
+                  opts.push({ value: i, label: `Option ${i + 1}` })
                 }
-                return opts;
+                return opts
               })()}
               isOpen={select.largeSelectOpen}
               screenInfo={screenInfo}
@@ -135,5 +134,5 @@ export default Component({
       N}  material={material}/>
       `}/>
     </div>
-  );
-});
+  )
+})

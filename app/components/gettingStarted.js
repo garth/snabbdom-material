@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import { Typ } from '../../lib';
-import Example from './example';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import { Typ } from '../../lib'
+import Example from './example'
+const N = '\n'
 
 export default Component(({
   props: {
@@ -25,7 +25,7 @@ export default Component(({
     <p>
       Many components require a <code>screenInfo</code> object to be passed in via props.
       A <code>getScreenInfo()</code> helper has been provided that will get the required object. However
-      it is stongly recommended to use the <a href="#/responsiveEvents">responsive events</a> system that
+      it is stongly recommended to use the <a href='#/responsiveEvents'>responsive events</a> system that
       will automatically emit an updated <code>screenInfo</code> whenever it changes (such as when the
       device is rotated).
     </p>
@@ -39,7 +39,7 @@ export default Component(({
       All snabbdom-material components accept a <code>material</code> prop which can be used to cutomise
       the style of the components. Below you can see the default style, which you can copy and modify to
       customise the look of your components. For color choices please
-      see <a href="https://www.google.com/design/spec/style/color.html#color-color-palette">
+      see <a href='https://www.google.com/design/spec/style/color.html#color-color-palette'>
         https://www.google.com/design/spec/style/color.html#color-color-palette
       </a>.
     </p>
@@ -84,4 +84,4 @@ export default Component(({
     `}/>
 
   </div>
-));
+))

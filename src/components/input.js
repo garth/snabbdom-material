@@ -1,8 +1,8 @@
-import { html } from 'snabbdom-jsx';
-import defaultMaterial from './defaultMaterial';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import defaultMaterial from './defaultMaterial'
+import classNames from 'classnames'
 
-export default function Input({
+export default function Input ({
   className = '',
   inputStyle = {},
   isError = false,
@@ -18,10 +18,9 @@ export default function Input({
   value = '',
   material = defaultMaterial
 }) {
-
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
-  const errorColor = material.errorColor || defaultMaterial.errorColor;
-  const successColor = material.successColor || defaultMaterial.successColor;
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
+  const errorColor = material.errorColor || defaultMaterial.errorColor
+  const successColor = material.successColor || defaultMaterial.successColor
 
   return (
     <div
@@ -30,15 +29,15 @@ export default function Input({
       <input
         on-click={e => onClick ? onClick(e) : null}
         on-focus={e => {
-          if (e.target) {
-            e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor;
+          if (e.target && e.target.parentElement) {
+            e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor
             if (typeof onFocus === 'function') {
-              onFocus(e);
+              onFocus(e)
             }
           }
         }}
         on-blur={e => {
-          if (e.target) {
+          if (e.target && e.target.parentElement) {
             e.target.parentElement.querySelector('.inputLabel').style.color = ''
           }
         }}
@@ -70,5 +69,5 @@ export default function Input({
         {message}
       </div>
     </div>
-  );
+  )
 }

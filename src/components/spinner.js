@@ -1,8 +1,8 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import defaultMaterial from './defaultMaterial';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import defaultMaterial from './defaultMaterial'
 
-export default function Spinner({
+export default function Spinner ({
   className = '',
   inline = false,
   isOpen = false,
@@ -12,7 +12,6 @@ export default function Spinner({
   style = {},
   material = defaultMaterial
 }) {
-
   const spinner = (
     <div
       classNames={className}
@@ -57,11 +56,11 @@ export default function Spinner({
         ])
       }
     </div>
-  );
+  )
 
   return inline ? spinner : isOpen ? (
     <div
-      classNames="paper1"
+      classNames='paper1'
       style={Object.assign({
         zIndex: '1100',
         position: 'fixed',
@@ -75,5 +74,5 @@ export default function Spinner({
       }, material.fadeInOut || defaultMaterial.fadeInOut)}>
       {spinner}
     </div>
-  ) : <span/>;
+  ) : <span/>
 }

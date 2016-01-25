@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Button, Dialog } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Button, Dialog } from '../../lib'
+const N = '\n'
 
 export default Component({
   dialog: ['demos', 'dialog'],
@@ -44,7 +44,7 @@ export default Component({
       width={400}
       height={172}
       screenInfo={screenInfo}
-      title="Do you confirm or deny?"
+      title='Do you confirm or deny?'
       footer={<span>
         <Dialog.Button onClick={() => signals.dialogClosed()} flat>Deny</Dialog.Button>
         <Dialog.Button onClick={() => signals.dialogClosed()} flat primary>Confirm</Dialog.Button>
@@ -53,4 +53,4 @@ export default Component({
       the details of allogation
     </Dialog>
   </div>
-));
+))

@@ -1,5 +1,5 @@
-const transitionTime = '.3s';
-const sidenavWidth = 280;
+const transitionTime = '.3s'
+const sidenavWidth = 280
 
 export default {
   primaryColor: '#FFC107',
@@ -36,4 +36,4 @@ export default {
       opacity: '0'
     }
   }
-};
+}

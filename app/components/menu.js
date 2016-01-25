@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Button, Menu, Icon } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Button, Menu, Icon } from '../../lib'
+const N = '\n'
 
 export default Component({
   menu: ['demos', 'menu'],
@@ -28,7 +28,7 @@ export default Component({
 
       <div style={{ display: 'inline-block' }}>
         <Menu rightAlign isOpen={menu.showMenu} onClose={() => signals.menuClosed()} screenInfo={screenInfo} material={material}>
-          <Menu.Item showIcon material={material} icon={<Icon name="settings"/>} onClose={() => signals.menuClosed()}>Settings</Menu.Item>
+          <Menu.Item showIcon material={material} icon={<Icon name='settings'/>} onClose={() => signals.menuClosed()}>Settings</Menu.Item>
           <Menu.Item showIcon material={material} onClose={() => signals.menuClosed()}>No Icon</Menu.Item>
           <Menu.Separator/>
           <Menu.Item showIcon material={material} selected={menu.selectedOption === 1} onClick={() => signals.selectMenuOption({ value: 1 })} onClose={() => signals.menuClosed()}>Option 1</Menu.Item>
@@ -99,4 +99,4 @@ export default Component({
     N}</Menu>
     `}/>
   </div>
-));
+))

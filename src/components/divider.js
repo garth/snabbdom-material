@@ -1,11 +1,10 @@
-import { html } from 'snabbdom-jsx';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import classNames from 'classnames'
 
-export default function Divider({
+export default function Divider ({
   className = '',
   style = {}
 }) {
-
   return (
     <hr
       classNames={classNames(className, 'paper-divider')}
@@ -14,5 +13,5 @@ export default function Divider({
         height: '1px',
         margin: '16px 0'
       }, style)}/>
-  );
+  )
 }

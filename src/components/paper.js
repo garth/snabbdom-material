@@ -1,7 +1,7 @@
-import { html } from 'snabbdom-jsx';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import classNames from 'classnames'
 
-export default function Paper({
+export default function Paper ({
   className = '',
   elevation = 2,
   noPadding = false,
@@ -17,5 +17,5 @@ export default function Paper({
       }, style)}>
       {children}
     </div>
-  );
+  )
 }

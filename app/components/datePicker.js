@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Button, DatePicker } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Button, DatePicker } from '../../lib'
+const N = '\n'
 
 export default Component({
   locale: ['locale'],
@@ -43,7 +43,7 @@ export default Component({
     `}/>
     <p>
       The locale will default to <code>en</code>, to use any other locale you must ensure that you have
-      first <a href="http://momentjs.com/docs/#/i18n/loading-into-browser/">loaded the locale</a> into
+      first <a href='http://momentjs.com/docs/#/i18n/loading-into-browser/'>loaded the locale</a> into
       moment.js.
     </p>
     <DatePicker
@@ -59,4 +59,4 @@ export default Component({
       onCancel={() => signals.datePickerCanceled()}
       material={material}/>
   </div>
-));
+))

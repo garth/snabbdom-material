@@ -1,11 +1,11 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import Input from './input';
-import Menu from './menu';
-import defaultMaterial from './defaultMaterial';
-import classNames from 'classnames';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import Input from './input'
+import Menu from './menu'
+import defaultMaterial from './defaultMaterial'
+import classNames from 'classnames'
 
-export default function Select({
+export default function Select ({
   className = '',
   isError = false,
   isOpen = false,
@@ -23,15 +23,13 @@ export default function Select({
   value,
   material = defaultMaterial
 }) {
-
-  let selectedIndex = 0;
-  let displayValue = '';
+  let selectedIndex = 0
+  let displayValue = ''
   const menuItems = options.map((option, index) => {
-    const isSelected = (selected && option.label === selected.label)
-     || (value !== null && option.value === value);
+    const isSelected = (selected && option.label === selected.label) || (value !== null && option.value === value)
     if (!selectedIndex && isSelected) {
-      selectedIndex = index;
-      displayValue = option.label;
+      selectedIndex = index
+      displayValue = option.label
     }
     return (
       <Menu.Item
@@ -42,10 +40,10 @@ export default function Select({
         onClose={onClose}>
         {option.label}
       </Menu.Item>
-    );
-  });
+    )
+  })
 
-  const top = 10 - (selectedIndex * 32);
+  const top = 10 - (selectedIndex * 32)
 
   return (
     <div
@@ -94,5 +92,5 @@ export default function Select({
         value={`${displayValue}`}
         material={material}/>
     </div>
-  );
+  )
 }

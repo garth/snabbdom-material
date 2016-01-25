@@ -1,9 +1,9 @@
-import { canUseDOM } from 'exenv';
+import { canUseDOM } from 'exenv'
 
-let Waves;
+let Waves
 
 if (canUseDOM) {
-  Waves = require('node-waves');
+  Waves = require('node-waves')
 
   Waves.init({
     // How long Waves effect duration
@@ -14,11 +14,11 @@ if (canUseDOM) {
     // and hide the effect if user scrolls
     // (0 to disable delay) (in milliseconds)
     delay: 200
-  });
+  })
 } else {
   Waves = {
     attach: () => {}
-  };
+  }
 }
 
-export default Waves;
+export default Waves

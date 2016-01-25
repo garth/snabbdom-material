@@ -1,7 +1,7 @@
-import { Component } from 'cerebral-snabbdom';
-import Example from './example';
-import { Checkbox, Col, Row, Spinner } from '../../lib';
-const N = '\n';
+import { Component } from 'cerebral-snabbdom'
+import Example from './example'
+import { Checkbox, Col, Row, Spinner } from '../../lib'
+const N = '\n'
 
 export default Component({
   spinner: ['demos', 'spinner']
@@ -16,21 +16,21 @@ export default Component({
 }) => (
   <div>
     <Example code="import { Spinner } from 'snabbdom-material';"/>
-    <div style={{ margin: '24px 0' }} classNames="paper1 padded">
+    <div style={{ margin: '24px 0' }} classNames='paper1 padded'>
       <Row>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={25} inline/></Col>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={25} inline primary/></Col>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={25} inline secondary/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={25} inline/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={25} inline primary/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={25} inline secondary/></Col>
       </Row>
       <Row>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={50} inline/></Col>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={50} inline primary/></Col>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={50} inline secondary/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={50} inline/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={50} inline primary/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={50} inline secondary/></Col>
       </Row>
       <Row>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={75} inline/></Col>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={75} inline primary/></Col>
-        <Col type="sm-4"><Spinner material={material} style={{ margin: '10px auto' }} size={75} inline secondary/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={75} inline/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={75} inline primary/></Col>
+        <Col type='sm-4'><Spinner material={material} style={{ margin: '10px auto' }} size={75} inline secondary/></Col>
       </Row>
     </div>
     <Example code={`${
@@ -41,7 +41,7 @@ export default Component({
     `}/>
     <div style={{ margin: '24px 0' }}>
       <Checkbox
-        label="Page is loading"
+        label='Page is loading'
         value={spinner.isLoading}
         onChange={(e) => signals.isLoadingChanged({ value: e.target.value })}
         material={material}/>
@@ -52,4 +52,4 @@ export default Component({
     `}/>
     <Spinner isOpen={spinner.isLoading} material={material}/>
   </div>
-));
+))

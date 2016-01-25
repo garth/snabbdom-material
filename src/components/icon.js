@@ -1,6 +1,6 @@
-import { html } from 'snabbdom-jsx';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
 
-export default function Icon({
+export default function Icon ({
   name,
   style = {}
 }) {
@@ -10,5 +10,5 @@ export default function Icon({
         lineHeight: 'inherit'
       }, style)}
       classNames={`icon-${name}`}/>
-  );
+  )
 }
