@@ -7,7 +7,7 @@
     "lib"
   ],
   "scripts": {
-    "lint": "standard src/**/*.js app/actions/**/*.js app/components/**/*.js app/signals/**/*.js app/*.js test/**/*.js --verbose | snazzy",
+    "lint": "standard src/**/*.js app/**/*.js test/**/*.js --verbose | snazzy",
     "pretest": "npm run lint",
     "test": "mocha",
     "start": "parallelshell 'node-sass --watch src/index.scss lib/index.css' 'watch \"npm run lint --silent\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
@@ -18,6 +18,9 @@
   "standard": {
     "global": [
       "React"
+    ],
+    "ignore": [
+      "/app/vendor/"
     ]
   },
   "repository": {
