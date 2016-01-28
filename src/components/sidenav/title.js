@@ -2,7 +2,6 @@ import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
 import Button from '../appbar/button'
 import defaultMaterial from '../defaultMaterial'
-import classNames from 'classnames'
 
 export default function SidenavTitle ({
   className = '',
@@ -13,7 +12,7 @@ export default function SidenavTitle ({
 }, children = '') {
   return (
     <div
-      classNames={classNames(className, 'paper-divider')}
+      classNames={`${className} paper-divider`}
       style={Object.assign({
         height: '64px',
         lineHeight: '32px',

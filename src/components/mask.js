@@ -1,6 +1,6 @@
+/* eslint-disable react/no-unknown-property */
 import { html } from 'snabbdom-jsx' // eslint-disable-line
 import defaultMaterial from './defaultMaterial'
-import classNames from 'classnames'
 
 export default function Mask ({
   className = '',
@@ -28,9 +28,10 @@ export default function Mask ({
 
   return isOpen ? (
     <div
-      classNames={classNames(className, 'mask', {
+      classNames={`${className} mask`}
+      class={{
         dark
-      })}
+      }}
       style={Object.assign(style, styleOverrides)}
       on-click={e => onClick ? onClick(e) : null}/>
   ) : <span/>

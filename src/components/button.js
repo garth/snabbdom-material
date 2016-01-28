@@ -1,8 +1,8 @@
+/* eslint-disable react/no-unknown-property */
 import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
 import Waves from './helpers/waves'
 import defaultMaterial from './defaultMaterial'
-import classNames from 'classnames'
 
 export default function Button ({
   className = '',
@@ -54,10 +54,11 @@ export default function Button ({
       type={type}
       on-click={e => onClick ? onClick(e) : null}
       style={Object.assign(style, styleOverrides)}
-      classNames={classNames(className, 'waves-button', {
+      classNames={`${className} waves-button`}
+      class={{
         'waves-float': !flat && onClick,
         'waves-light': primary && !flat
-      })}
+      }}
       disabled={disabled}>
       {h('span', children)}
     </button>

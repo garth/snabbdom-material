@@ -1,6 +1,6 @@
+/* eslint-disable react/no-unknown-property */
 import { html } from 'snabbdom-jsx' // eslint-disable-line
 import defaultMaterial from './defaultMaterial'
-import classNames from 'classnames'
 
 export default function Input ({
   className = '',
@@ -26,25 +26,27 @@ export default function Input ({
 
   return (
     <div
-      classNames={classNames(className, 'input-group')}
+      classNames={`${className} input-group`}
       style={style}>
       <input
         on-click={e => onClick ? onClick(e) : null}
         on-focus={e => onFocus ? onFocus(e) : null}
         on-blur={e => onBlur ? onBlur(e) : null}
         type={type}
-        classNames={classNames('paper-divider', {
+        classNames='paper-divider'
+        class={{
           used: value && value.length
-        })}
+        }}
         style={inputStyle}
         value={value}
         on-change={e => onChange ? onChange(e) : null}
         readOnly={readOnly}
         required/>
       <span
-        classNames={classNames('bar', {
+        classNames='bar'
+        class={{
           open: isError || isSuccess
-        })}
+        }}
         style={{
           backgroundColor: isError ? errorColor : isSuccess ? successColor : secondaryColor
         }}/>
@@ -62,9 +64,10 @@ export default function Input ({
         </span>
       </label>
       <div
-        classNames={classNames('info', {
+        classNames='info'
+        class={{
           color: isError ? errorColor : ''
-        })}>
+        }}>
         {message}
       </div>
     </div>

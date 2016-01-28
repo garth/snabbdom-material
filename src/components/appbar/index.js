@@ -3,7 +3,6 @@ import h from 'snabbdom/h'
 import Button from './button'
 import Title from './title'
 import defaultMaterial from '../defaultMaterial'
-import classNames from 'classnames'
 
 const Appbar = function Appbar ({
   className = '',
@@ -17,7 +16,7 @@ const Appbar = function Appbar ({
   return (
     <div style={{ height: '64px' }}>
       <div
-        classNames={classNames(className, 'paper1')}
+        classNames={`${className} paper1`}
         style={Object.assign({
           position: fixed ? 'fixed' : '',
           width: '100%',

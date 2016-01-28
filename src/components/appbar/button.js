@@ -1,7 +1,6 @@
 import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
 import Waves from '../helpers/waves'
-import classNames from 'classnames'
 import defaultMaterial from '../defaultMaterial'
 
 export default function AppbarButton ({
@@ -30,7 +29,10 @@ export default function AppbarButton ({
         backgroundColor: 'transparent'
       }, style)}>
       {
-        h(`${href ? 'a' : 'div'}.${classNames('waves-circle', { 'waves-light': lightWaves }).replace(/ /g, '.')}`, {
+        h(`${href ? 'a' : 'div'}.waves-circle`, {
+          class: {
+            'waves-light': lightWaves
+          },
           hook: { insert: vnode => enabled ? Waves.attach(vnode.elm) : null },
           on: { click: e => onClick ? onClick(e) : null },
           props: { href },

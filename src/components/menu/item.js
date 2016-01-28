@@ -1,7 +1,6 @@
 import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
 import Waves from '../helpers/waves'
-import classNames from 'classnames'
 
 export default function MenuItem ({
   className = '',
@@ -48,7 +47,7 @@ export default function MenuItem ({
   return (
     <div
       hook-insert={vnode => Waves.attach(vnode.elm)}
-      classNames={classNames(className, 'menu-item')}
+      classNames={`${className} menu-item`}
       style={Object.assign({
         padding: '0 40px 0 24px',
         lineHeight: '32px',

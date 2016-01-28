@@ -1,5 +1,4 @@
 import { html } from 'snabbdom-jsx' // eslint-disable-line
-import classNames from 'classnames'
 
 export default function Divider ({
   className = '',
@@ -7,7 +6,7 @@ export default function Divider ({
 }) {
   return (
     <hr
-      classNames={classNames(className, 'paper-divider')}
+      classNames={`${className} paper-divider`}
       style={Object.assign({
         border: '0',
         height: '1px',

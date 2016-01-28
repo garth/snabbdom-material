@@ -4,7 +4,6 @@ import Mask from '../mask'
 import Divider from '../divider'
 import getScreenSize from '../../helpers/screenSize'
 import defaultMaterial from '../defaultMaterial'
-import classNames from 'classnames'
 import Button from './button'
 
 const Dialog = function ({
@@ -66,7 +65,7 @@ const Dialog = function ({
       <Mask isOpen={isOpen} material={material}/>
       {isOpen ? (
         <div
-          classNames={classNames(className, 'paper2')}
+          classNames={`${className} paper2`}
           style={Object.assign({
             position: 'fixed',
             zIndex: '1001',

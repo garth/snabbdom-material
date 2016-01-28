@@ -1,6 +1,5 @@
 import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
-import classNames from 'classnames'
 
 export default function Row ({
   className = '',
@@ -8,7 +7,7 @@ export default function Row ({
 }, children = '') {
   return (
     <div
-      classNames={classNames(className, 'row')}
+      classNames={`${className} row`}
       style={style}>
       {h('span', children)}
     </div>

@@ -5,7 +5,6 @@ import Item from './item'
 import Separator from './separator'
 import getScreenSize from '../../helpers/screenSize'
 import defaultMaterial from '../defaultMaterial'
-import classNames from 'classnames'
 
 const inserted = function (vnode) {
   const { height: screenHeight } = getScreenSize()
@@ -61,7 +60,7 @@ const Menu = function Menu ({
       <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
       {
         isOpen
-          ? h(`div.${classNames(className, 'paper1').replace(/ /g, '.')}`, {
+          ? h(`div.${(className + ' paper1').trim().replace(/ /g, '.')}`, {
             hook: { insert: inserted },
             style: Object.assign(menuStyle, style, material.fadeInOut || defaultMaterial.fadeInOut)
           }, children)

@@ -1,5 +1,5 @@
+/* eslint-disable react/no-unknown-property */
 import { html } from 'snabbdom-jsx' // eslint-disable-line
-import classNames from 'classnames'
 
 export default function Paper ({
   className = '',
@@ -9,9 +9,10 @@ export default function Paper ({
 }, children = '') {
   return (
     <div
-      classNames={classNames(className, `paper${elevation}`, {
+      classNames={`${className} paper${elevation}`}
+      class={{
         padded: !noPadding
-      })}
+      }}
       style={Object.assign({
         lineHeight: 'inherit'
       }, style)}>
