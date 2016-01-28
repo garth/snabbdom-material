@@ -1,4 +1,4 @@
-import { Component } from 'cerebral-snabbdom'
+import { Component } from 'cerebral-view-snabbdom'
 import Example from './example'
 import { Icon, Sidenav, Typ } from '../../lib'
 const N = '\n'

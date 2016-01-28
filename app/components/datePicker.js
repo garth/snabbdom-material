@@ -1,4 +1,4 @@
-import { Component } from 'cerebral-snabbdom'
+import { Component } from 'cerebral-view-snabbdom'
 import Example from './example'
 import { Button, DatePicker } from '../../lib'
 const N = '\n'

@@ -1,4 +1,5 @@
-import { Component } from 'cerebral-snabbdom'
+import { Component } from 'cerebral-view-snabbdom'
+import pages from './index'
 
 import { Appbar, Button, Menu, Sidenav, Icon } from '../../lib'
 
@@ -38,7 +39,7 @@ export default Component({
     window.scrollTo(0, 0)
   }
 
-  const RouteComponent = require('./' + currentPage).default
+  const RouteComponent = pages[currentPage]
 
   return (
     <div>

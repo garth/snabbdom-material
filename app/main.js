@@ -20,14 +20,14 @@ import './signals/spinner'
 // hookup the screen event to the signal
 import controller from './controller'
 import responsive from '../lib/events/responsive'
-responsive.addListener(screen => controller.signals.screenChanged({ screen }))
+const screenChanged = controller.getSignals().screenChanged
+responsive.addListener(screen => screenChanged({ screen }))
 
 // start the router
-import router from './router'
-router.trigger()
+import './router'
 
 // mount the application
-import { Component, render } from 'cerebral-snabbdom' // eslint-disable-line
+import { Component, render } from 'cerebral-view-snabbdom' // eslint-disable-line
 import Application from './components/application'
 const root = document.body.appendChild(document.createElement('div'))
 render(() => <Application/>, root, controller)

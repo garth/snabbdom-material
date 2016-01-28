@@ -1,9 +1,9 @@
 import controller from '../controller'
 import set from 'cerebral-addons/set'
-import inputToState from 'cerebral-addons/inputToState'
+import copy from 'cerebral-addons/copy'
 
 controller.signal('selectChanged', [
-  inputToState(['value'], ['demos', 'select', 'selected'])
+  copy('input:/value', ['demos', 'select', 'selected'])
 ])
 
 controller.signal('selectOpened', [
@@ -31,7 +31,7 @@ controller.signal('selectErrorClosed', [
 ])
 
 controller.signal('selectLargeChanged', [
-  inputToState(['value'], ['demos', 'select', 'largeSelectedValue'])
+  copy('input:/value', ['demos', 'select', 'largeSelectedValue'])
 ])
 
 controller.signal('selectLargeOpened', [

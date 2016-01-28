@@ -1,12 +1,12 @@
 import controller from '../controller'
-import inputToState from 'cerebral-addons/inputToState'
+import copy from 'cerebral-addons/copy'
 
 controller.signal('emailChanged', [
-  inputToState(['value'], ['demos', 'input', 'email'])
+  copy('input:/value', ['demos', 'input', 'email'])
 ])
 
 controller.signal('passwordChanged', [
-  inputToState(['value'], ['demos', 'input', 'password'])
+  copy('input:/value', ['demos', 'input', 'password'])
 ])
 
 controller.signal('focused', [

@@ -1,6 +1,6 @@
 import controller from '../controller'
 import set from 'cerebral-addons/set'
-import inputToState from 'cerebral-addons/inputToState'
+import copy from 'cerebral-addons/copy'
 
 controller.signal('menuOpened', [
   set(['demos', 'menu', 'showMenu'], true)
@@ -19,5 +19,5 @@ controller.signal('simpleMenuClosed', [
 ])
 
 controller.signal('selectMenuOption', [
-  inputToState(['value'], ['demos', 'menu', 'selectedOption'])
+  copy('input:/value', ['demos', 'menu', 'selectedOption'])
 ])

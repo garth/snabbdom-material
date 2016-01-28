@@ -1,4 +1,4 @@
-import { Component } from 'cerebral-snabbdom'
+import { Component } from 'cerebral-view-snabbdom'
 import Example from './example'
 import { Col, Row, Divider, Paper } from '../../lib'
 const N = '\n'

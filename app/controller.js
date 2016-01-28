@@ -1,9 +1,8 @@
 import Controller from 'cerebral'
-import Model from 'cerebral-baobab'
+import Model from 'cerebral-model-baobab'
 import moment from 'moment'
 
 export default Controller(Model({
-
   locale: 'en',
   screen: {},
   sidenavOpen: false,
@@ -60,7 +59,7 @@ export default Controller(Model({
 
   // routing
   route: {
-    page: 'home',
+    page: 'introduction',
     title: ''
   }
 }), {

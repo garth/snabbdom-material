@@ -1,7 +1,7 @@
-import Router from 'cerebral-router'
+import router from 'cerebral-module-router'
 import controller from './controller'
 
-export default Router(controller, {
+controller.addModules(router({
   '/': 'introductionPageOpened',
   '/gettingStarted': 'gettingStartedPageOpened',
   '/paper': 'paperPageOpened',
@@ -25,4 +25,4 @@ export default Router(controller, {
   '/*': 'notFoundPageOpened'
 }, {
   onlyHash: true
-})
+}))
