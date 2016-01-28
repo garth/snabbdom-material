@@ -1,10 +1,12 @@
 import controller from '../controller'
 import set from 'cerebral-addons/set'
 
-controller.signal('sidenavOpened', [
-  set('sidenavOpen', true)
-])
+controller.addSignals({
+  sidenavOpened: [
+    set('sidenavOpen', true)
+  ],
 
-controller.signal('sidenavClosed', [
-  set('sidenavOpen', false)
-])
+  sidenavClosed: [
+    set('sidenavOpen', false)
+  ]
+})

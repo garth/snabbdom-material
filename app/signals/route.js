@@ -1,86 +1,88 @@
 import controller from '../controller'
 import setRoute from '../actions/setRoute'
 
-controller.signal('introductionPageOpened', [
-  setRoute('introduction', 'Introduction')
-])
+controller.addSignals({
+  introductionPageOpened: [
+    setRoute('introduction', 'Introduction')
+  ],
 
-controller.signal('gettingStartedPageOpened', [
-  setRoute('gettingStarted', 'Getting Started')
-])
+  gettingStartedPageOpened: [
+    setRoute('gettingStarted', 'Getting Started')
+  ],
 
-controller.signal('paperPageOpened', [
-  setRoute('paper', 'Paper')
-])
+  paperPageOpened: [
+    setRoute('paper', 'Paper')
+  ],
 
-controller.signal('typographyPageOpened', [
-  setRoute('typography', 'Typography')
-])
+  typographyPageOpened: [
+    setRoute('typography', 'Typography')
+  ],
 
-controller.signal('appbarPageOpened', [
-  setRoute('appbar', 'Appbar')
-])
+  appbarPageOpened: [
+    setRoute('appbar', 'Appbar')
+  ],
 
-controller.signal('sidenavPageOpened', [
-  setRoute('sidenav', 'Sidenav')
-])
+  sidenavPageOpened: [
+    setRoute('sidenav', 'Sidenav')
+  ],
 
-controller.signal('formPageOpened', [
-  setRoute('form', 'Form')
-])
+  formPageOpened: [
+    setRoute('form', 'Form')
+  ],
 
-controller.signal('buttonPageOpened', [
-  setRoute('button', 'Button')
-])
+  buttonPageOpened: [
+    setRoute('button', 'Button')
+  ],
 
-controller.signal('inputPageOpened', [
-  setRoute('input', 'Input')
-])
+  inputPageOpened: [
+    setRoute('input', 'Input')
+  ],
 
-controller.signal('selectPageOpened', [
-  setRoute('select', 'Select')
-])
+  selectPageOpened: [
+    setRoute('select', 'Select')
+  ],
 
-controller.signal('checkboxPageOpened', [
-  setRoute('checkbox', 'Checkbox')
-])
+  checkboxPageOpened: [
+    setRoute('checkbox', 'Checkbox')
+  ],
 
-controller.signal('gridSystemPageOpened', [
-  setRoute('gridSystem', 'Grid System')
-])
+  gridSystemPageOpened: [
+    setRoute('gridSystem', 'Grid System')
+  ],
 
-controller.signal('iconPageOpened', [
-  setRoute('icon', 'Icon')
-])
+  iconPageOpened: [
+    setRoute('icon', 'Icon')
+  ],
 
-controller.signal('menuPageOpened', [
-  setRoute('menu', 'Menu')
-])
+  menuPageOpened: [
+    setRoute('menu', 'Menu')
+  ],
 
-controller.signal('dialogPageOpened', [
-  setRoute('dialog', 'Dialog')
-])
+  dialogPageOpened: [
+    setRoute('dialog', 'Dialog')
+  ],
 
-controller.signal('datePickerPageOpened', [
-  setRoute('datePicker', 'Date Picker')
-])
+  datePickerPageOpened: [
+    setRoute('datePicker', 'Date Picker')
+  ],
 
-controller.signal('tablePageOpened', [
-  setRoute('table', 'Table')
-])
+  tablePageOpened: [
+    setRoute('table', 'Table')
+  ],
 
-controller.signal('spinnerPageOpened', [
-  setRoute('spinner', 'Spinner')
-])
+  spinnerPageOpened: [
+    setRoute('spinner', 'Spinner')
+  ],
 
-controller.signal('calendarPageOpened', [
-  setRoute('calendar', 'Calendar')
-])
+  calendarPageOpened: [
+    setRoute('calendar', 'Calendar')
+  ],
 
-controller.signal('responsiveEventsPageOpened', [
-  setRoute('responsiveEvents', 'Responsive Events')
-])
+  responsiveEventsPageOpened: [
+    setRoute('responsiveEvents', 'Responsive Events')
+  ],
 
-controller.signal('notFoundPageOpened', [
-  setRoute('notFound', 'Page Not Found')
-])
+  notFoundPageOpened: [
+    setRoute('notFound', 'Page Not Found')
+  ]
+})
