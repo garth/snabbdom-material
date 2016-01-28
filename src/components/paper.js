@@ -3,7 +3,7 @@ import { html } from 'snabbdom-jsx' // eslint-disable-line
 
 export default function Paper ({
   className = '',
-  elevation = 2,
+  elevation = 1,
   noPadding = false,
   style = {}
 }, children = '') {
