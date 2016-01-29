@@ -65,7 +65,7 @@ export default function Input ({
       </label>
       <div
         classNames='info'
-        class={{
+        style={{
           color: isError ? errorColor : ''
         }}>
         {message}
