@@ -33,8 +33,8 @@ export default function Select ({
     }
     return (
       <Menu.Item
-        class={{
-          selected: isSelected
+        style={{
+          backgroundColor: isSelected ? '#dcdcdc' : ''
         }}
         onClick={() => onChange({ target: option })}
         onClose={onClose}>
