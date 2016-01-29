@@ -79,7 +79,7 @@ const Dialog = function ({
             <div
               style={{
                 maxHeight: `${maxContentHeight}px`,
-                overflow: 'auto',
+                // overflow: 'auto',
                 margin: '0 -24px',
                 padding: '0 24px'
               }}>
