@@ -29,9 +29,12 @@ export default function Input ({
       classNames={`${className} input-group`}
       style={style}>
       <input
-        on-click={e => onClick ? onClick(e) : null}
-        on-focus={e => onFocus ? onFocus(e) : null}
-        on-blur={e => onBlur ? onBlur(e) : null}
+        on={{
+          click: e => onClick ? onClick(e) : null,
+          focus: e => onFocus ? onFocus(e) : null,
+          blur: e => onBlur ? onBlur(e) : null,
+          input: e => onChange ? onChange(e) : null
+        }}
         type={type}
         classNames='paper-divider'
         class={{
@@ -39,7 +42,6 @@ export default function Input ({
         }}
         style={inputStyle}
         value={value}
-        on-change={e => onChange ? onChange(e) : null}
         readOnly={readOnly}
         required/>
       <span
