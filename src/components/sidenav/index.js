@@ -1,12 +1,12 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import Mask from '../mask';
-import Item from './item';
-import Title from './title';
-import Separator from '../menu/separator';
-import defaultMaterial from '../defaultMaterial';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import Mask from '../mask'
+import Item from './item'
+import Title from './title'
+import Separator from '../menu/separator'
+import defaultMaterial from '../defaultMaterial'
 
-const Sidenav = function Sidenav({
+const Sidenav = function Sidenav ({
   className = '',
   isOpen = false,
   mini = false,
@@ -14,7 +14,6 @@ const Sidenav = function Sidenav({
   style = {},
   material = defaultMaterial
 }, children = '') {
-
   return mini ? (
     <div
       classNames={className ? ['paper', className] : 'paper'}
@@ -46,11 +45,11 @@ const Sidenav = function Sidenav({
         </div>
       ) : <span/>}
     </div>
-  );
-};
+  )
+}
 
-Sidenav.Item = Item;
-Sidenav.Separator = Separator;
-Sidenav.Title = Title;
+Sidenav.Item = Item
+Sidenav.Separator = Separator
+Sidenav.Title = Title
 
-export default Sidenav;
+export default Sidenav

@@ -1,6 +1,8 @@
-import controller from '../controller';
-import inputToState from 'cerebral-addons/inputToState';
+import controller from '../controller'
+import copy from 'cerebral-addons/copy'
 
-controller.signal('isLoadingChanged', [
-  inputToState(['value'], ['demos', 'spinner', 'isLoading'])
-]);
+controller.addSignals({
+  isLoadingChanged: [
+    copy('input:/value', ['demos', 'spinner', 'isLoading'])
+  ]
+})

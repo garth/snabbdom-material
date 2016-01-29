@@ -1,8 +1,9 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import defaultMaterial from './defaultMaterial';
+/* eslint-disable react/no-unknown-property */
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import defaultMaterial from './defaultMaterial'
 
-export default function Typography({
+export default function Typography ({
   className = '',
   display3 = false,
   display2 = false,
@@ -16,7 +17,6 @@ export default function Typography({
   style = {},
   material = defaultMaterial
 }, children = '') {
-
   return (
     <div
       classNames={className}
@@ -38,5 +38,5 @@ export default function Typography({
       }, style)}>
       {h('span', children)}
     </div>
-  );
+  )
 }

@@ -1,17 +1,15 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
 
-export default function Row({
+export default function Row ({
   className = '',
   style = {}
 }, children = '') {
-
   return (
     <div
-      classNames={className ? ['row', className] : 'row'}
+      classNames={`${className} row`}
       style={style}>
       {h('span', children)}
     </div>
-  );
-
+  )
 }

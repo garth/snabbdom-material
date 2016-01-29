@@ -1,8 +1,8 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import Waves from '../helpers/waves';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import Waves from '../helpers/waves'
 
-export default function MenuItem({
+export default function MenuItem ({
   className = '',
   icon,
   onClick,
@@ -11,8 +11,7 @@ export default function MenuItem({
   showIcon = false,
   style = {}
 }, children = '') {
-
-  let iconContainer = null;
+  let iconContainer = null
   if (showIcon) {
     const iconElement = selected ? (
       h('svg', {
@@ -30,7 +29,7 @@ export default function MenuItem({
         h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } }),
         h('path', { attrs: { d: 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' } })
       ])
-    ) : icon;
+    ) : icon
     iconContainer = (
       <div style={{
         display: 'inline-block',
@@ -40,15 +39,15 @@ export default function MenuItem({
       }}>
         {iconElement || '\u00A0'}
       </div>
-    );
+    )
   } else {
-    iconContainer = <span/>;
+    iconContainer = <span/>
   }
 
   return (
     <div
       hook-insert={vnode => Waves.attach(vnode.elm)}
-      classNames={className ? ['menu-item', className] : 'menu-item'}
+      classNames={`${className} menu-item`}
       style={Object.assign({
         padding: '0 40px 0 24px',
         lineHeight: '32px',
@@ -58,10 +57,10 @@ export default function MenuItem({
       }, style)}
       on-click={e => {
         if (typeof onClose === 'function') {
-          onClose(e);
+          onClose(e)
         }
         if (typeof onClick === 'function') {
-          onClick(e);
+          onClick(e)
         }
       }}>
       {iconContainer}
@@ -72,5 +71,5 @@ export default function MenuItem({
         {h('span', children)}
       </div>
     </div>
-  );
+  )
 }

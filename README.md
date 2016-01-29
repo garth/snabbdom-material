@@ -8,7 +8,7 @@ Introduction
 
 snabbdom-material is a library of [snabbdom](https://github.com/paldepind/snabbdom) user interface components based on [material design](https://www.google.com/design/spec/).
 
-snabbdom-material components are completely stateless making them an ideal companion to libraries such as [Cerebral](http://christianalfoni.com/cerebral/).
+snabbdom-material components are completely stateless making them an ideal companion to libraries such as [Cerebral](http://www.cerebraljs.com/).
 
 The development of snabbdom-material has been sponsored by [Elastic Time](http://www.elastictime.com/).
 
@@ -32,7 +32,7 @@ Contribute
 Fork the repository
 
 * `npm install`
-* `npm run dev` runs dev mode which watches for changes and auto lints, tests and builds. Visit http://localhost:8080/webpack-dev-server/index.html to view the demo app.
+* `npm start` runs dev mode which watches for changes and auto lints, tests and builds. Visit http://localhost:3000/ to view the demo app.
 * `npm test` runs the tests
 * `npm run lint` lints the code
 * `npm run build` compiles to es5

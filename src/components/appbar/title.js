@@ -1,11 +1,10 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
 
-export default function AppbarTitle({
+export default function AppbarTitle ({
   className = '',
   style = {}
 }, children = '') {
-
   return (
     <div
       classNames={className}
@@ -21,6 +20,5 @@ export default function AppbarTitle({
       }, style)}>
       {h('span', children)}
     </div>
-  );
-
+  )
 }

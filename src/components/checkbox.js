@@ -1,9 +1,9 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import defaultMaterial from './defaultMaterial';
-import Waves from './helpers/waves';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import defaultMaterial from './defaultMaterial'
+import Waves from './helpers/waves'
 
-export default function Checkbox({
+export default function Checkbox ({
   className = '',
   label = '',
   onChange,
@@ -12,8 +12,7 @@ export default function Checkbox({
   value = false,
   material = defaultMaterial
 }) {
-
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
 
   const icon = value ? (
     h('svg', {
@@ -39,7 +38,7 @@ export default function Checkbox({
       h('path', { attrs: { d: 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z' } }),
       h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
     ])
-  );
+  )
 
   return (
     <label
@@ -52,14 +51,14 @@ export default function Checkbox({
       }, style)}>
       <input
         style={{ display: 'none' }}
-        type="checkbox"
-        value="on"
+        type='checkbox'
+        value='on'
         on-change={e => onChange({ target: { value: e.target.checked } })}
         readOnly={readOnly}
         checked={!!value}/>
       <div
         hook-insert={vnode => Waves.attach(vnode.elm)}
-        classNames="waves-circle"
+        classNames='waves-circle'
         style={{
           position: 'relative',
           top: '3px',
@@ -73,5 +72,5 @@ export default function Checkbox({
       </div>
       {label}
     </label>
-  );
+  )
 }

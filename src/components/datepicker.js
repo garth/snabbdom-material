@@ -1,11 +1,10 @@
-import { html } from 'snabbdom-jsx';
-import defaultMaterial from './defaultMaterial';
-import moment from 'moment';
-import Dialog from './dialog';
-import Calendar from './calendar';
-import screen from './helpers/screen';
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import defaultMaterial from './defaultMaterial'
+import moment from 'moment'
+import Dialog from './dialog'
+import Calendar from './calendar'
 
-export default function DatePicker({
+export default function DatePicker ({
   className = '',
   isOpen = false,
   locale = 'en',
@@ -15,49 +14,43 @@ export default function DatePicker({
   onNavigate,
   onOk,
   pickingValue,
+  screenInfo,
   style = {},
   validDays,
   year = (new Date()).getFullYear(),
   material = defaultMaterial
 }) {
+  const { isPortrait } = screenInfo
+  const displayDate = pickingValue ? moment(pickingValue) : moment({ year, month, day: 1 })
+  displayDate.locale(locale)
 
-  // componentDidMount() {
-  //   window.addEventListener('resize', this._resize = () => this.forceUpdate());
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('resize', this._resize);
-  // }
-
-  const { width, height } = screen.getSize();
-  const isPortrait = height > width;
-  const displayDate = pickingValue ? moment(pickingValue) : moment({ year, month, day: 1 });
-  displayDate.locale(locale);
-
-  let dateLines = null;
+  let dateLines = null
   if (!pickingValue) {
-    dateLines = [displayDate.format('MMM')];
+    dateLines = [displayDate.format('MMM')]
   } else if (isPortrait) {
-    dateLines = [displayDate.format('ddd MMM D')];
+    dateLines = [displayDate.format('ddd MMM D')]
   } else {
     dateLines = [
       displayDate.format('ddd'),
       displayDate.format('MMM D')
-    ];
+    ]
   }
 
   return (
     <Dialog
       isOpen={isOpen}
-      onOk={pickingValue ? () => onOk({ target: { value: pickingValue } }) : null}
-      okLabel="OK"
-      onCancel={onCancel}
-      cancelLabel="Cancel"
+      footer={<span>
+        <Dialog.Button flat onClick={onCancel}>Cancel</Dialog.Button>
+        <Dialog.Button flat primary
+          onClick={pickingValue ? () => onOk({ target: { value: pickingValue } }) : null}>
+          OK
+        </Dialog.Button>
+      </span>}
       width={isPortrait ? 328 : 496}
       height={isPortrait ? 388 : 292}
       hideDivider
       noPadding
-      ignoreResizeEvents
+      screenInfo={screenInfo}
       className={className}
       style={Object.assign({ overflow: 'hidden' }, style)}
       material={material}>
@@ -93,5 +86,5 @@ export default function DatePicker({
         }}
         material={material}/>
     </Dialog>
-  );
+  )
 }

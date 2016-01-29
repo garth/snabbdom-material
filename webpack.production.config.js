@@ -36,7 +36,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new ContextReplacementPlugin(/moment[\/\\]locale$/, /^\.\/(en)$/)
+    new ContextReplacementPlugin(/moment[\/\\]locale$/, /^\.\/(en|de)$/)
   ],
   module: {
     loaders: [{

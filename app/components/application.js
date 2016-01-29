@@ -1,40 +1,45 @@
-import { Component } from 'cerebral-snabbdom';
-import Icon from './icon';
+import { Component } from 'cerebral-view-snabbdom'
+import pages from './index'
 
-import { Appbar, Button, Menu, Sidenav } from '../../lib';
+import { Appbar, Button, Menu, Sidenav, Icon } from '../../lib'
 
-let previousPage;
+let previousPage
 
 export default Component({
   currentPage: ['route', 'page'],
   locale: ['locale'],
+  screenInfo: ['screen'],
   showLocaleMenu: ['showLocaleMenu'],
   sidenavOpen: ['sidenavOpen'],
   title: ['route', 'title']
 }, ({ state: {
   currentPage,
   locale,
+  screenInfo,
   showLocaleMenu,
   sidenavOpen,
   title
 }, signals }) => {
-
   const material = {
     primaryColor: '#FFC107',
     primaryFontColor: 'rgba(0, 0, 0, 0.7)',
+    primaryFontColorDisabled: 'rgba(0, 0, 0, 0.45)',
+    primaryLightWaves: false,
     secondaryColor: '#009688',
     secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
+    secondaryFontColorDisabled: 'rgba(255, 255, 255, 0.6)',
+    secondaryLightWaves: true,
     errorColor: '#C00',
     successColor: '#090',
     typographyColor: '#212121'
-  };
-
-  if (previousPage !== currentPage) {
-    previousPage = currentPage;
-    window.scrollTo(0, 0);
   }
 
-  const RouteComponent = require('./' + currentPage).default;
+  if (previousPage !== currentPage) {
+    previousPage = currentPage
+    window.scrollTo(0, 0)
+  }
+
+  const RouteComponent = pages[currentPage]
 
   return (
     <div>
@@ -58,6 +63,7 @@ export default Component({
             { page: 'dialog', icon: 'picture_in_picture', title: 'Dialog', signal: signals.dialogPageOpened },
             { page: 'form', icon: 'content_paste', title: 'Form', signal: signals.formPageOpened },
             { page: 'gridSystem', icon: 'view_compact', title: 'Grid System', signal: signals.gridSystemPageOpened },
+            { page: 'icon', icon: 'person', title: 'Icon', signal: signals.iconPageOpened },
             { page: 'input', icon: 'edit', title: 'Input', signal: signals.inputPageOpened },
             { page: 'menu', icon: 'more_vert', title: 'Menu', signal: signals.menuPageOpened },
             { page: 'paper', icon: 'layers', title: 'Paper', signal: signals.paperPageOpened },
@@ -79,23 +85,27 @@ export default Component({
                 onClick={() => menu.signal()}
                 onClose={() => signals.sidenavClosed()}
                 material={material}>{menu.title}</Sidenav.Item>
-            );
+            )
           })}
         </div>
       </Sidenav>
       <Appbar fixed material={material}>
         <Appbar.Button style={{ float: 'left' }} onClick={() => signals.sidenavOpened()} material={material}>
-          <Icon name="menu"/>
+          <Icon name='menu'/>
         </Appbar.Button>
         <Appbar.Title material={material}>{title}</Appbar.Title>
         <div style={{ float: 'right' }}>
           <Appbar.Button
-            onClick={() => location.href = 'https://github.com/garth/snabbdom-material'}
+            href='https://github.com/garth/snabbdom-material'
             material={material}>
-            <Icon name="github"/>
+            <Icon name='github'/>
           </Appbar.Button>
           <div style={{ display: 'inline-block' }}>
-            <Menu rightAlign isOpen={showLocaleMenu} onClose={() => signals.localeMenuClosed()} material={material}>
+            <Menu rightAlign
+              isOpen={showLocaleMenu}
+              onClose={() => signals.localeMenuClosed()}
+              screenInfo={screenInfo}
+              material={material}>
               <Menu.Item
                 showIcon
                 onClick={() => signals.localeSelected({ locale: 'de' })}
@@ -116,7 +126,7 @@ export default Component({
             <Appbar.Button
               onClick={() => signals.localeMenuOpened()}
               material={material}>
-              <Icon name="globe"/>
+              <Icon name='globe'/>
             </Appbar.Button>
           </div>
         </div>
@@ -131,5 +141,5 @@ export default Component({
         <RouteComponent material={material}/>
       </div>
     </div>
-  );
-});
+  )
+})

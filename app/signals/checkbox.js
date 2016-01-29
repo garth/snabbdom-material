@@ -1,6 +1,8 @@
-import controller from '../controller';
-import inputToState from 'cerebral-addons/inputToState';
+import controller from '../controller'
+import copy from 'cerebral-addons/copy'
 
-controller.signal('checkboxChanged', [
-  inputToState(['value'], ['demos', 'checkbox', 'checked'])
-]);
+controller.addSignals({
+  checkboxChanged: [
+    copy('input:/value', ['demos', 'checkbox', 'checked'])
+  ]
+})

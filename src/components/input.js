@@ -1,9 +1,11 @@
-import { html } from 'snabbdom-jsx';
-import defaultMaterial from './defaultMaterial';
+/* eslint-disable react/no-unknown-property */
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import defaultMaterial from './defaultMaterial'
 
-export default function Input({
+export default function Input ({
   className = '',
   inputStyle = {},
+  isFocused = false,
   isError = false,
   isSuccess = false,
   label = '',
@@ -11,42 +13,39 @@ export default function Input({
   onChange,
   onClick,
   onFocus,
+  onBlur,
   readOnly = false,
   style = {},
   type = 'text',
   value = '',
   material = defaultMaterial
 }) {
-
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
-  const errorColor = material.errorColor || defaultMaterial.errorColor;
-  const successColor = material.successColor || defaultMaterial.successColor;
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
+  const errorColor = material.errorColor || defaultMaterial.errorColor
+  const successColor = material.successColor || defaultMaterial.successColor
 
   return (
     <div
-      classNames={className ? ['input-group', className] : 'input-group'}
+      classNames={`${className} input-group`}
       style={style}>
       <input
-        on-click={e => onClick ? onClick(e) : null}
-        on-focus={e => {
-          e.target.parentElement.querySelector('.inputLabel').style.color = secondaryColor;
-          if (typeof onFocus === 'function') {
-            onFocus(e);
-          }
+        on={{
+          click: e => onClick ? onClick(e) : null,
+          focus: e => onFocus ? onFocus(e) : null,
+          blur: e => onBlur ? onBlur(e) : null,
+          input: e => onChange ? onChange(e) : null
         }}
-        on-blur={e => e.target.parentElement.querySelector('.inputLabel').style.color = 'inherit'}
         type={type}
-        classNames="paper-divider"
+        classNames='paper-divider'
         class={{
           used: value && value.length
         }}
         style={inputStyle}
         value={value}
-        on-change={e => onChange ? onChange(e) : null}
         readOnly={readOnly}
         required/>
       <span
-        classNames="bar"
+        classNames='bar'
         class={{
           open: isError || isSuccess
         }}
@@ -54,17 +53,25 @@ export default function Input({
           backgroundColor: isError ? errorColor : isSuccess ? successColor : secondaryColor
         }}/>
       <label>
-        <span classNames="inputLabel">
+        <span style={{
+          color: !isFocused
+            ? ''
+            : isError
+              ? errorColor
+              : isSuccess
+                ? successColor
+                : secondaryColor
+        }}>
           {label}
         </span>
       </label>
       <div
-        classNames="info"
+        classNames='info'
         style={{
-          color: isError ? errorColor : 'inherit'
+          color: isError ? errorColor : ''
         }}>
         {message}
       </div>
     </div>
-  );
+  )
 }

@@ -1,9 +1,8 @@
-import Controller from 'cerebral';
-import Model from 'cerebral-baobab';
-import moment from 'moment';
+import Controller from 'cerebral'
+import Model from 'cerebral-model-baobab'
+import moment from 'moment'
 
 export default Controller(Model({
-
   locale: 'en',
   screen: {},
   sidenavOpen: false,
@@ -12,7 +11,11 @@ export default Controller(Model({
   demos: {
     input: {
       email: '',
-      password: ''
+      isEmailFocused1: false,
+      isEmailFocused2: false,
+      isEmailFocused3: false,
+      password: '',
+      isPasswordFocused: false
     },
     select: {
       selectOpen: false,
@@ -56,9 +59,9 @@ export default Controller(Model({
 
   // routing
   route: {
-    page: 'home',
+    page: 'introduction',
     title: ''
   }
 }), {
   moment
-});
+})

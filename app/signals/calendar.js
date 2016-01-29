@@ -1,10 +1,11 @@
-import controller from '../controller';
-import inputToState from 'cerebral-addons/inputToState';
+import controller from '../controller'
+import copy from 'cerebral-addons/copy'
 
-controller.signal('calendarChanged', [
-  inputToState(['value'], ['demos', 'calendar', 'selectedDate'])
-]);
-
-controller.signal('calendarNavigate', [
-  inputToState(['value'], ['demos', 'calendar', 'calendar'])
-]);
+controller.addSignals({
+  calendarChanged: [
+    copy('input:/value', ['demos', 'calendar', 'selectedDate'])
+  ],
+  calendarNavigate: [
+    copy('input:/value', ['demos', 'calendar', 'calendar'])
+  ]
+})

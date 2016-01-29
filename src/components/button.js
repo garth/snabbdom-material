@@ -1,9 +1,10 @@
-import { html } from 'snabbdom-jsx';
-import h from 'snabbdom/h';
-import Waves from './helpers/waves';
-import defaultMaterial from './defaultMaterial';
+/* eslint-disable react/no-unknown-property */
+import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import Waves from './helpers/waves'
+import defaultMaterial from './defaultMaterial'
 
-export default function Button({
+export default function Button ({
   className = '',
   flat = false,
   onClick,
@@ -12,13 +13,12 @@ export default function Button({
   type = 'button',
   material = defaultMaterial
 }, children = '') {
-
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor;
-  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor;
-  const disabled = !onClick && type !== 'submit';
+  const primaryFontColor = material.primaryFontColor || defaultMaterial.primaryFontColor
+  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
+  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor
+  const disabled = !onClick && type !== 'submit'
 
   const style = {
-    zIndex: 'inherit',
     fontSize: '16px',
     lineHeight: '36px',
     padding: `0 24px`,
@@ -26,23 +26,26 @@ export default function Button({
     textAlign: 'center',
     minWidth: '64px',
     textTransform: 'uppercase',
-    cursor: !disabled ? 'pointer' : 'inherit'
-  };
+    cursor: !disabled ? 'pointer' : '',
+    backgroundColor: ''
+  }
 
   if (disabled) {
     if (flat) {
-      style.color = 'rgba(0, 0, 0, 0.26)';
+      style.color = 'rgba(0, 0, 0, 0.35)'
     } else {
-      style.color = 'rgba(0, 0, 0, 0.26)';
-      style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
+      style.color = 'rgba(0, 0, 0, 0.35)'
+      style.backgroundColor = 'rgba(0, 0, 0, 0.12)'
     }
   } else if (primary) {
     if (flat) {
-      style.color = secondaryColor;
+      style.color = secondaryColor
     } else {
-      style.color = secondaryFontColor;
-      style.backgroundColor = secondaryColor;
+      style.color = secondaryFontColor
+      style.backgroundColor = secondaryColor
     }
+  } else {
+    style.color = primaryFontColor
   }
 
   return (
@@ -51,7 +54,7 @@ export default function Button({
       type={type}
       on-click={e => onClick ? onClick(e) : null}
       style={Object.assign(style, styleOverrides)}
-      classNames={className ? ['waves-button', className] : 'waves-button'}
+      classNames={`${className} waves-button`}
       class={{
         'waves-float': !flat && onClick,
         'waves-light': primary && !flat
@@ -59,5 +62,5 @@ export default function Button({
       disabled={disabled}>
       {h('span', children)}
     </button>
-  );
+  )
 }

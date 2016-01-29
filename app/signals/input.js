@@ -1,10 +1,20 @@
-import controller from '../controller';
-import inputToState from 'cerebral-addons/inputToState';
+import controller from '../controller'
+import copy from 'cerebral-addons/copy'
 
-controller.signal('emailChanged', [
-  inputToState(['value'], ['demos', 'input', 'email'])
-]);
+controller.addSignals({
+  emailChanged: [
+    copy('input:/value', ['demos', 'input', 'email'])
+  ],
 
-controller.signal('passwordChanged', [
-  inputToState(['value'], ['demos', 'input', 'password'])
-]);
+  passwordChanged: [
+    copy('input:/value', ['demos', 'input', 'password'])
+  ],
+
+  focused: [
+    ({ input, state }) => state.set(input.path, true)
+  ],
+
+  blurred: [
+    ({ input, state }) => state.set(input.path, false)
+  ]
+})

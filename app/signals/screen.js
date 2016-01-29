@@ -1,6 +1,8 @@
-import controller from '../controller';
-import inputToState from 'cerebral-addons/inputToState';
+import controller from '../controller'
+import copy from 'cerebral-addons/copy'
 
-controller.signal('screenChanged', [
-  inputToState(['screen'], ['screen'])
-]);
+controller.addSignals({
+  screenChanged: [
+    copy('input:/screen', ['screen'])
+  ]
+})

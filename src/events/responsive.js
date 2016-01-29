@@ -1,52 +1,36 @@
-let screenInfo;
-const subscribers = {};
+import { canUseDOM } from 'exenv'
+import getScreenInfo from '../helpers/screenInfo'
 
-function resize() {
-  const width = window.innerWidth || document.body.clientWidth || 1024;
-  const height = window.innerHeight || document.body.clientHeight || 768;
+let screenInfo = null
+const subscribers = {}
 
-  let type = 'xs';
-  let size = 1;
-  if (width >= 1200) {
-    size = 4;
-    type = 'lg';
-  } else if (width >= 992) {
-    size = 3;
-    type = 'md';
-  } else if (width >= 768) {
-    size = 2;
-    type = 'sm';
-  }
+function resize () {
+  const screen = getScreenInfo()
 
-  const isLandscape = width >= height;
-
-  if (!screenInfo || type !== screenInfo.type || isLandscape !== screenInfo.isLandscape) {
-    screenInfo = {
-      type,
-      size,
-      isLandscape,
-      isPortrait: !isLandscape
-    };
+  if (!screenInfo || screen.size !== screenInfo.size || screen.isLandscape !== screenInfo.isLandscape) {
+    screenInfo = screen
     Object.keys(subscribers).forEach(eventHandler => {
-      subscribers[eventHandler](screenInfo);
-    });
+      subscribers[eventHandler](screenInfo)
+    })
   }
 }
 
 export default {
-  addListener(eventHandler) {
+  addListener (eventHandler) {
     if (typeof eventHandler !== 'function') {
-      return;
+      return
     }
     if (!screenInfo) {
-      window.addEventListener('resize', resize);
-      resize();
+      if (canUseDOM) {
+        window.addEventListener('resize', resize)
+      }
+      resize()
     }
-    subscribers[eventHandler] = eventHandler;
-    eventHandler(screenInfo);
+    subscribers[eventHandler] = eventHandler
+    eventHandler(screenInfo)
   },
 
-  removeListener(eventHandler) {
-    delete subscribers[eventHandler];
+  removeListener (eventHandler) {
+    delete subscribers[eventHandler]
   }
-};
+}
