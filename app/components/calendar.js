@@ -55,8 +55,8 @@ export default Component({
       year={calendar.calendar.year}
       month={calendar.calendar.month}
       value={calendar.selectedDate}
-      onChange={e => signals.calendarChanged({ value: e.target.value })}
-      onNavigate={e => signals.calendarNavigate({ value: e.target.value })}
+      onChange={(e) => signals.calendarChanged({ value: e.target.value })}
+      onNavigate={(e) => signals.calendarNavigate({ value: e.target.value })}
       className='paper1'
       style={{ margin: '24px auto', padding: '12px' }}
       material={material}/>

@@ -74,7 +74,7 @@ export default Component({
             { page: 'typography', icon: 'format_size', title: 'Typography', signal: signals.typographyPageOpened },
             { separator: true },
             { page: 'responsiveEvents', icon: 'devices', title: 'Responsive Events', signal: signals.responsiveEventsPageOpened }
-          ].map(menu => {
+          ].map((menu) => {
             return menu.separator ? (
               <Sidenav.Separator material={material}/>
             ) : (

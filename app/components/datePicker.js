@@ -53,9 +53,9 @@ export default Component({
       year={datePicker.pickedCalendar.year}
       month={datePicker.pickedCalendar.month}
       pickingValue={datePicker.pickingDate}
-      onChange={e => signals.datePickerChanged({ value: e.target.value })}
-      onNavigate={e => signals.datePickerNavigate({ value: e.target.value })}
-      onOk={e => signals.datePickerSelected({ value: e.target.value })}
+      onChange={(e) => signals.datePickerChanged({ value: e.target.value })}
+      onNavigate={(e) => signals.datePickerNavigate({ value: e.target.value })}
+      onOk={(e) => signals.datePickerSelected({ value: e.target.value })}
       onCancel={() => signals.datePickerCanceled()}
       material={material}/>
   </div>

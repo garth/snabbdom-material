@@ -30,10 +30,10 @@ export default function Input ({
       style={style}>
       <input
         on={{
-          click: e => onClick ? onClick(e) : null,
-          focus: e => onFocus ? onFocus(e) : null,
-          blur: e => onBlur ? onBlur(e) : null,
-          input: e => onChange ? onChange(e) : null
+          click: (e) => onClick ? onClick(e) : null,
+          focus: (e) => onFocus ? onFocus(e) : null,
+          blur: (e) => onBlur ? onBlur(e) : null,
+          input: (e) => onChange ? onChange(e) : null
         }}
         type={type}
         classNames='paper-divider'
