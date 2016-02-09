@@ -32,7 +32,7 @@ export default function Input ({
         on={{
           click: (e) => onClick ? onClick(e) : null,
           focus: (e) => onFocus ? onFocus(e) : null,
-          blur: (e) => onBlur ? onBlur(e) : null,
+          blur: (e) => onBlur ? setTimeout(() => onBlur(e), 0) : null,
           input: (e) => onChange ? onChange(e) : null
         }}
         type={type}
