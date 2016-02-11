@@ -42,8 +42,8 @@ export default function Spinner ({
               cx: 50,
               cy: 50,
               r: 48,
-              strokeWidth: 4,
-              strokeMiterlimit: 10
+              'stroke-width': 4,
+              'stroke-miterlimit': 10
             },
             style: {
               strokeDasharray: '1,400',
