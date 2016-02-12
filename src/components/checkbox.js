@@ -53,11 +53,11 @@ export default function Checkbox ({
         style={{ display: 'none' }}
         type='checkbox'
         value='on'
-        on-change={e => onChange({ target: { value: e.target.checked } })}
+        on-change={(e) => onChange({ target: { value: e.target.checked } })}
         readOnly={readOnly}
         checked={!!value}/>
       <div
-        hook-insert={vnode => Waves.attach(vnode.elm)}
+        hook-insert={(vnode) => Waves.attach(vnode.elm)}
         classNames='waves-circle'
         style={{
           position: 'relative',

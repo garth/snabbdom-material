@@ -36,7 +36,7 @@ export default Component({
               isOpen={select.selectOpen}
               screenInfo={screenInfo}
               onOpen={() => signals.selectOpened()}
-              onChange={e => signals.selectChanged({ value: e.target })}
+              onChange={(e) => signals.selectChanged({ value: e.target })}
               onClose={() => signals.selectClosed()}
               material={material}/>
           </Col>
@@ -49,7 +49,7 @@ export default Component({
               isOpen={select.selectSuccessOpen}
               screenInfo={screenInfo}
               onOpen={() => signals.selectSuccessOpened()}
-              onChange={e => signals.selectChanged({ value: e.target })}
+              onChange={(e) => signals.selectChanged({ value: e.target })}
               onClose={() => signals.selectSuccessClosed()}
               material={material}/>
           </Col>
@@ -63,7 +63,7 @@ export default Component({
               isOpen={select.selectErrorOpen}
               screenInfo={screenInfo}
               onOpen={() => signals.selectErrorOpened()}
-              onChange={e => signals.selectChanged({ value: e.target })}
+              onChange={(e) => signals.selectChanged({ value: e.target })}
               onClose={() => signals.selectErrorClosed()}
               material={material}/>
           </Col>
@@ -83,7 +83,7 @@ export default Component({
               isOpen={select.largeSelectOpen}
               screenInfo={screenInfo}
               onOpen={() => signals.selectLargeOpened()}
-              onChange={e => signals.selectLargeChanged({ value: e.target.value })}
+              onChange={(e) => signals.selectLargeChanged({ value: e.target.value })}
               onClose={() => signals.selectLargeClosed()}
               material={material}/>
           </Col>

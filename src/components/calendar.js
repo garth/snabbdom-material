@@ -86,7 +86,7 @@ export default function Calendar ({
 
   const navigation = onNavigate ? [(
     <div
-      hook-insert={vnode => onNavigate ? Waves.attach(vnode.elm) : null}
+      hook-insert={(vnode) => onNavigate ? Waves.attach(vnode.elm) : null}
       classNames='waves-circle'
       style={{
         float: 'left',
@@ -118,7 +118,7 @@ export default function Calendar ({
     </div>
   ), (
     <div
-      hook-insert={vnode => onNavigate ? Waves.attach(vnode.elm) : null}
+      hook-insert={(vnode) => onNavigate ? Waves.attach(vnode.elm) : null}
       classNames='waves-circle'
       style={{
         float: 'right',

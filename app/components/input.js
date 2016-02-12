@@ -22,10 +22,10 @@ export default Component({
           <Input
             label='Email'
             value={input.email}
-            onChange={e => signals.emailChanged.sync({ value: e.target.value })}
+            onChange={(e) => signals.emailChanged.sync({ value: e.target.value })}
             isFocused={input.isEmailFocused1}
-            onFocus={e => signals.focused({ path: 'demos.input.isEmailFocused1'.split('.') })}
-            onBlur={e => signals.blurred({ path: 'demos.input.isEmailFocused1'.split('.') })}
+            onFocus={(e) => signals.focused({ path: 'demos.input.isEmailFocused1'.split('.') })}
+            onBlur={(e) => signals.blurred({ path: 'demos.input.isEmailFocused1'.split('.') })}
             material={material}/>
         </Col>
         <Col type='md-6'>
@@ -33,10 +33,10 @@ export default Component({
             label='Password'
             type='password'
             value={input.password}
-            onChange={e => signals.passwordChanged.sync({ value: e.target.value })}
+            onChange={(e) => signals.passwordChanged.sync({ value: e.target.value })}
             isFocused={input.isPasswordFocused}
-            onFocus={e => signals.focused({ path: 'demos.input.isPasswordFocused'.split('.') })}
-            onBlur={e => signals.blurred({ path: 'demos.input.isPasswordFocused'.split('.') })}
+            onFocus={(e) => signals.focused({ path: 'demos.input.isPasswordFocused'.split('.') })}
+            onBlur={(e) => signals.blurred({ path: 'demos.input.isPasswordFocused'.split('.') })}
             material={material}/>
         </Col>
       </Row>
@@ -46,10 +46,10 @@ export default Component({
             label='Success'
             value={input.email}
             isSuccess
-            onChange={e => signals.emailChanged.sync({ value: e.target.value })}
+            onChange={(e) => signals.emailChanged.sync({ value: e.target.value })}
             isFocused={input.isEmailFocused2}
-            onFocus={e => signals.focused({ path: 'demos.input.isEmailFocused2'.split('.') })}
-            onBlur={e => signals.blurred({ path: 'demos.input.isEmailFocused2'.split('.') })}
+            onFocus={(e) => signals.focused({ path: 'demos.input.isEmailFocused2'.split('.') })}
+            onBlur={(e) => signals.blurred({ path: 'demos.input.isEmailFocused2'.split('.') })}
             material={material}/>
         </Col>
         <Col type='md-6'>
@@ -58,10 +58,10 @@ export default Component({
             value={input.email}
             isError
             message='fix me'
-            onChange={e => signals.emailChanged.sync({ value: e.target.value })}
+            onChange={(e) => signals.emailChanged.sync({ value: e.target.value })}
             isFocused={input.isEmailFocused3}
-            onFocus={e => signals.focused({ path: 'demos.input.isEmailFocused3'.split('.') })}
-            onBlur={e => signals.blurred({ path: 'demos.input.isEmailFocused3'.split('.') })}
+            onFocus={(e) => signals.focused({ path: 'demos.input.isEmailFocused3'.split('.') })}
+            onBlur={(e) => signals.blurred({ path: 'demos.input.isEmailFocused3'.split('.') })}
             material={material}/>
         </Col>
       </Row>

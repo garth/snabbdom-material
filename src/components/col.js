@@ -6,7 +6,7 @@ export default function Col ({
   style = {},
   type = ''
 }, children = '') {
-  const colClasses = type.split(' ').map(col => `col-${col}`).join(' ')
+  const colClasses = type.split(' ').map((col) => `col-${col}`).join(' ')
 
   return (
     <div

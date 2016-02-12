@@ -10,7 +10,7 @@ export default function Form ({
     <form
       style={style}
       classNames={className}
-      on-submit={e => {
+      on-submit={(e) => {
         e.preventDefault()
         if (typeof onSubmit === 'function') {
           onSubmit(e)

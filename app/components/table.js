@@ -31,7 +31,7 @@ export default Component(({
           { firstName: 'Brian', lastName: 'Wilson', role: 'user' },
           { firstName: 'Geoff', lastName: 'Hayes', role: 'user' },
           { firstName: 'John', lastName: 'Doe', role: 'admin' }
-        ].map(user => (
+        ].map((user) => (
           <Table.Row onClick={() => console.log('clicked', user)} material={material}>
             <td>{user.firstName}</td>
             <td>{user.lastName}</td>

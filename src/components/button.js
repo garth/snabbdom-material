@@ -21,8 +21,8 @@ export default function Button ({
   const style = {
     fontSize: '16px',
     lineHeight: '36px',
-    padding: `0 24px`,
-    margin: `8px`,
+    padding: '0 24px',
+    margin: '8px',
     textAlign: 'center',
     minWidth: '64px',
     textTransform: 'uppercase',
@@ -50,9 +50,9 @@ export default function Button ({
 
   return (
     <button
-      hook-insert={vnode => Waves.attach(vnode.elm)}
+      hook-insert={(vnode) => Waves.attach(vnode.elm)}
       type={type}
-      on-click={e => onClick ? onClick(e) : null}
+      on-click={(e) => onClick ? onClick(e) : null}
       style={Object.assign(style, styleOverrides)}
       classNames={`${className} waves-button`}
       class={{

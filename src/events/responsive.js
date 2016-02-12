@@ -9,7 +9,7 @@ function resize () {
 
   if (!screenInfo || screen.size !== screenInfo.size || screen.isLandscape !== screenInfo.isLandscape) {
     screenInfo = screen
-    Object.keys(subscribers).forEach(eventHandler => {
+    Object.keys(subscribers).forEach((eventHandler) => {
       subscribers[eventHandler](screenInfo)
     })
   }
