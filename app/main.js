@@ -1,7 +1,10 @@
 // load the css
-import '!style!css!normalize.css/normalize.css'
-import '!style!css!../lib/index.css'
 import '!style!css!./vendor/icomoon/style.css'
+
+import variables from '../src/style/variables'
+import defaultStyle from '../src/style/default'
+import { initStyle } from '../src/style'
+initStyle(defaultStyle(variables))
 
 // load signals
 import './signals/calendar'
