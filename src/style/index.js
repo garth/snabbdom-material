@@ -1,5 +1,7 @@
-import '!style!css!normalize.css/normalize.css'
-import '!style!css!sass!../index.scss'
+// inject the css in to the page
+import insert from 'insert-css'
+import css from './index.scss'
+insert(css, { prepend: true })
 
 import merge from 'deepmerge'
 import easyStyle from 'easy-style'
