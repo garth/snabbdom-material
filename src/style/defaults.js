@@ -1,11 +1,14 @@
-import typography from './typography'
-import sidenav from './sidenav'
 import fadeInOut from './fadeInOut'
+import sidenav from './sidenav'
+import spinner from './spinner'
+import typography from './typography'
 
 export default (variables) => {
   const style = {
-    typ: typography(variables),
-    sidenav: sidenav(variables)
+    fadeInOut: fadeInOut(variables),
+    sidenav: sidenav(variables),
+    spinner: spinner(variables),
+    typ: typography(variables)
   }
 
   return Object.assign({
@@ -20,7 +23,6 @@ export default (variables) => {
       h3: style.typ.display1,
       h4: style.typ.headline,
       h5: style.typ.title
-    },
-    fadeInOut: fadeInOut(variables)
+    }
   }, style)
 }
