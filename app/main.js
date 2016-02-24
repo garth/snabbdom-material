@@ -1,12 +1,6 @@
 // load the css
 import '!style!css!./vendor/icomoon/style.css'
 
-// override the default styles - optional
-// import variables from '../lib/style/variables'
-// import defaultStyle from '../lib/style/default'
-// import { initStyle } from '../lib/style'
-// initStyle(defaultStyle(variables))
-
 // load signals
 import './signals/calendar'
 import './signals/checkbox'

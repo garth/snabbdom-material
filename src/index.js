@@ -28,5 +28,8 @@ module.exports = {
   // events
   events: {
     responsive: require('./events/responsive').default
-  }
+  },
+
+  // style
+  style: require('./style')
 }

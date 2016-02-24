@@ -28,13 +28,15 @@ export default Component(() => (
     </p>
 
     <Example code={`${
-    N}import variables from 'snabbdom-material/variables'${
-    N}import defaultStyle from 'snabbdom-material/default'${
-    N}import { initStyle } from 'snabbdom-material/style'${
+    N}import { style } from 'snabbdom-material'${
     N}${
-    N}// modify the variables or defaultStyle here${
+    N}// optionally modify the style.variables here${
     N}${
-    N}initStyle(defaultStyle(variables))
+    N}style.init(style.variables, {${
+    N}${
+    N}  // optionally set style overrides here${
+    N}${
+    N}})
     `}/>
 
   </div>
