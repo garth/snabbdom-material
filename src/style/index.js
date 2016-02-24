@@ -3,6 +3,9 @@ import insert from 'insert-css'
 import easyStyle from 'easy-style'
 import getChild from '../helpers/getChild'
 
+import variables from './variables'
+import defaultStyle from './default'
+
 // inject the css in to the page
 import css from './index.scss'
 insert(css, { prepend: true })
@@ -19,6 +22,9 @@ export function initStyle (defaultStyle, appStyle = {}) {
 }
 
 export function getStyle (name, overrides) {
+  if (!baseStyle) {
+    initStyle(defaultStyle(variables))
+  }
   return overrides
     ? merge(getChild(baseStyle, name), overrides)
     : getChild(baseStyle, name)
