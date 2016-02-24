@@ -10,7 +10,7 @@
     "lint": "standard src/**/*.js app/**/*.js test/**/*.js --verbose | snazzy",
     "pretest": "npm run lint",
     "test": "mocha",
-    "start": "parallelshell 'watch \"npm run lint --silent\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
+    "start": "BABEL_DISABLE_CACHE=1 parallelshell 'watch \"npm run lint --silent\" src app test' 'babel --watch src --out-dir lib' 'babel-node app/server'",
     "prebuild": "npm run lint",
     "build": "rimraf lib && babel src --out-dir lib && rimraf dist && NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
     "prepublish": "npm run build"
@@ -87,6 +87,7 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.9.0",
     "mocha": "^2.4.5",
+    "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
     "parallelshell": "^2.0.0",
     "postcss-loader": "^0.8.1",

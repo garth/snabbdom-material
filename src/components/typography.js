@@ -1,5 +1,5 @@
 import h from 'snabbdom/h'
-import getStyle from '../style'
+import { getStyle } from '../style'
 
 export default function Typography ({
   display3 = false,
@@ -13,38 +13,37 @@ export default function Typography ({
   secondary = false,
   style
 }, children = '') {
-  const styles = []
+  const options = []
   if (display3) {
-    styles.push('typ.display3')
+    options.push('typ.display3')
   }
   if (display2) {
-    styles.push('typ.display2')
+    options.push('typ.display2')
   }
   if (display1) {
-    styles.push('typ.display1')
+    options.push('typ.display1')
   }
   if (headline) {
-    styles.push('typ.headline')
+    options.push('typ.headline')
   }
   if (title) {
-    styles.push('typ.title')
+    options.push('typ.title')
   }
   if (subheading) {
-    styles.push('typ.subheading')
+    options.push('typ.subheading')
   }
   if (caption) {
-    styles.push('typ.caption')
+    options.push('typ.caption')
   }
   if (primary) {
-    styles.push('typ.primary')
+    options.push('typ.primary')
   }
   if (secondary) {
-    styles.push('typ.secondary')
+    options.push('typ.secondary')
   }
-
   return (
     h('div.typography', {
-      style: Object.assign({}, ...styles.map((name) => getStyle(name)), style)
+      style: Object.assign({}, ...options.map((name) => getStyle(name, style)))
     }, children)
   )
 }

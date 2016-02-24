@@ -1,9 +1,9 @@
 // load the css
 import '!style!css!./vendor/icomoon/style.css'
 
-import variables from '../src/style/variables'
-import defaultStyle from '../src/style/default'
-import { initStyle } from '../src/style'
+import variables from '../lib/style/variables'
+import defaultStyle from '../lib/style/default'
+import { initStyle } from '../lib/style'
 initStyle(defaultStyle(variables))
 
 // load signals
