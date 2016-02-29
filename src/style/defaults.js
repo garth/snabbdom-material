@@ -1,4 +1,5 @@
 import appbar from './appbar'
+import button from './button'
 import fadeInOut from './fadeInOut'
 import sidenav from './sidenav'
 import spinner from './spinner'
@@ -7,6 +8,7 @@ import typography from './typography'
 export default (variables) => {
   const style = {
     appbar: appbar(variables),
+    button: button(variables),
     fadeInOut: fadeInOut(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),

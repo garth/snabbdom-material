@@ -7,30 +7,38 @@ export default Component(({ props: { material } }) => (
   <div>
     <Example code="import { Button } from 'snabbdom-material';"/>
     <p>
-      <Button onClick={() => {}} material={material}>Normal</Button>
-      <Button onClick={() => {}} material={material} primary>Primary</Button>
-      <Button onClick={() => {}} material={material} flat>Flat</Button>
-      <Button onClick={() => {}} material={material} primary flat>Primary Flat</Button>
+      <Button onClick={() => {}}>Normal</Button>
+      <Button onClick={() => {}} primary>Primary</Button>
+      <Button onClick={() => {}} secondary>Secondary</Button>
+      <Button onClick={() => {}} flat>Flat</Button>
+      <Button onClick={() => {}} primary flat>Primary Flat</Button>
+      <Button onClick={() => {}} secondary flat>Secondary Flat</Button>
     </p>
     <Example code={`${
     N}// enabled buttons${
-    N}<Button onClick={onClick} material={material}>Normal</Button>${
-    N}<Button onClick={onClick} material={material} primary>Primary</Button>${
-    N}<Button onClick={onClick} material={material} flat>Flat</Button>${
-    N}<Button onClick={onClick} material={material} primary flat>Primary Flat</Button>
+    N}<Button onClick={onClick}>Normal</Button>${
+    N}<Button onClick={onClick} primary>Primary</Button>${
+    N}<Button onClick={onClick} secondary>Secondary</Button>${
+    N}<Button onClick={onClick} flat>Flat</Button>${
+    N}<Button onClick={onClick} primary flat>Primary Flat</Button>${
+    N}<Button onClick={onClick} secondary flat>Secondary Flat</Button>
     `}/>
     <p>
-      <Button material={material}>Normal</Button>
-      <Button material={material} primary>Primary</Button>
-      <Button material={material} flat>Flat</Button>
-      <Button material={material} primary flat>Primary Flat</Button>
+      <Button>Normal</Button>
+      <Button primary>Primary</Button>
+      <Button secondary>Secondary</Button>
+      <Button flat>Flat</Button>
+      <Button primary flat>Primary Flat</Button>
+      <Button secondary flat>Secondary Flat</Button>
     </p>
     <Example code={`${
     N}// disabled buttons${
-    N}<Button material={material}>Normal</Button>${
-    N}<Button material={material} primary>Primary</Button>${
-    N}<Button material={material} flat>Flat</Button>${
-    N}<Button material={material} primary flat>Primary Flat</Button>
+    N}<Button>Normal</Button>${
+    N}<Button primary>Primary</Button>${
+    N}<Button secondary>Secondary</Button>${
+    N}<Button flat>Flat</Button>${
+    N}<Button primary flat>Primary Flat</Button>${
+    N}<Button secondary flat>Secondary Flat</Button>
     `}/>
   </div>
 ))
