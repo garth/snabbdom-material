@@ -7,9 +7,6 @@ export default Component({
   locale: ['locale'],
   calendar: ['demos', 'calendar']
 }, ({
-  props: {
-    material
-  },
   state: {
     locale,
     calendar
@@ -28,8 +25,7 @@ export default Component({
         <Calendar
           locale={locale}
           className='paper1'
-          style={{ margin: '24px auto', padding: '12px' }}
-          material={material}/>
+          style={{ container: { margin: '24px auto', padding: '12px' } }}/>
       </Col>
       <Col type='sm-6'>
         <Calendar
@@ -39,16 +35,15 @@ export default Component({
           month={0}
           value={new Date(2010, 0, 5)}
           className='paper1'
-          style={{ margin: '24px auto', padding: '12px' }}
-          material={material}/>
+          style={{ container: { margin: '24px auto', padding: '12px' } }}/>
       </Col>
     </Row>
     <Example code={`${
     N}// Non interactive calendar of the current month${
-    N}<Calendar locale={locale} material={material}/>${
+    N}<Calendar locale={locale}/>${
     N}${
     N}// Non interactive calendar of given month${
-    N}<Calendar locale={locale} titleFormat="MMM" year={2010} month={0} value={new Date(2010, 0, 5)} material={material}/>
+    N}<Calendar locale={locale} titleFormat="MMM" year={2010} month={0} value={new Date(2010, 0, 5)}/>
     `}/>
     <Calendar
       locale={locale}
@@ -58,8 +53,7 @@ export default Component({
       onChange={(e) => signals.calendarChanged({ value: e.target.value })}
       onNavigate={(e) => signals.calendarNavigate({ value: e.target.value })}
       className='paper1'
-      style={{ margin: '24px auto', padding: '12px' }}
-      material={material}/>
+      style={{ container: { margin: '24px auto', padding: '12px' } }}/>
     <Example code={`${
     N}// Interactive calendar${
     N}<Calendar${
@@ -68,8 +62,7 @@ export default Component({
     N}  month={month}${
     N}  value={selectedDate}${
     N}  onChange={setDate}${
-    N}  onNavigate={updateCalendar}${
-    N}  material={material}/>
+    N}  onNavigate={updateCalendar}/>
     `}/>
   </div>
 ))

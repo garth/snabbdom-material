@@ -1,6 +1,5 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
-import defaultMaterial from './defaultMaterial'
+import { getStyle } from '../style'
 import Waves from './helpers/waves'
 import moment from 'moment'
 
@@ -11,21 +10,17 @@ function getMoment (date, locale) {
 }
 
 export default function Calendar ({
-  className = '',
   locale = 'en',
   month = (new Date()).getMonth(),
-  onNavigate,
   onChange,
-  value,
-  style = {},
+  onNavigate,
+  style,
   titleFormat = 'MMMM YYYY',
   validDays,
-  year = (new Date()).getFullYear(),
-  material = defaultMaterial
+  value,
+  year = (new Date()).getFullYear()
 }) {
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
-  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor
-  const typographyColor = material.typographyColor || defaultMaterial.typographyColor
+  const styles = getStyle('calendar', style)
 
   const _onChange = function (day, validDay) {
     if (onChange && validDay) {
@@ -55,156 +50,112 @@ export default function Calendar ({
     const dayDate = new Date(year, month, day)
     const validDay = !Array.isArray(validDays) || validDays.includes(day)
     const selectedDay = value && getMoment(value, locale).startOf('day').isSame(dayDate)
-    days.push(
-      <div
-        style={{
-          display: 'inline-block',
-          width: `${colWidth}%`,
-          textAlign: 'center',
-          color: selectedDay
-            ? secondaryFontColor
-            : !validDay
-              ? '#3e3e3e'
-              : today.isSame(dayDate)
-                ? secondaryColor
-                : '',
-          cursor: onChange && validDay ? 'pointer' : ''
-        }}
-        on-click={() => _onChange(day, validDay)}>
-        <div
-          style={{
-            width: '30px',
-            margin: '0 auto',
-            backgroundColor: selectedDay ? secondaryColor : '',
-            borderRadius: '50%'
-          }}>
-          {day}
-        </div>
-      </div>
-    )
+    days.push(h('div', {
+      style: Object.assign(
+        { width: `${colWidth}%` },
+        styles.dayContainer,
+        selectedDay
+          ? styles.dayContainerSelected
+          : !validDay
+            ? styles.dayContainerInvalid
+            : today.isSame(dayDate)
+              ? Object.assign({}, styles.dayContainerToday, styles.dayContainerSelectable)
+              : styles.dayContainerSelectable
+      ),
+      on: {
+        click: () => _onChange(day, validDay)
+      }
+    }, [
+      h('div', {
+        style: Object.assign({}, styles.day, selectedDay ? styles.daySelected : {})
+      }, `${day}`)
+    ]))
   }
 
-  const navigation = onNavigate ? [(
-    <div
-      hook-insert={(vnode) => onNavigate ? Waves.attach(vnode.elm) : null}
-      classNames='waves-circle'
-      style={{
-        float: 'left',
-        cursor: 'pointer',
-        height: '48px',
-        width: '48px',
-        marginLeft: '-5px'
-      }}
-      on-click={() => onNavigate({ target: { value: {
-        year: previousMonth.get('year'),
-        month: previousMonth.get('month')
-      }}})}>
-      {
-        h('svg', {
-          attrs: {
-            fill: typographyColor,
-            height: 24,
-            viewBox: '0 0 24 24',
-            width: 24
-          },
-          style: {
-            margin: '12px 9px 6px 9px'
+  const navigation = onNavigate ? [
+    h('div.waves-circle', {
+      hook: {
+        insert: (vnode) => onNavigate ? Waves.attach(vnode.elm) : null
+      },
+      style: styles.previous,
+      on: {
+        click: () => onNavigate({
+          target: {
+            value: {
+              year: previousMonth.get('year'),
+              month: previousMonth.get('month')
+            }
           }
-        }, [
-          h('path', { attrs: { d: 'M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z' } }),
-          h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
-        ])
+        })
       }
-    </div>
-  ), (
-    <div
-      hook-insert={(vnode) => onNavigate ? Waves.attach(vnode.elm) : null}
-      classNames='waves-circle'
-      style={{
-        float: 'right',
-        cursor: 'pointer',
-        height: '48px',
-        width: '48px',
-        marginRight: '-5px'
-      }}
-      on-click={() => onNavigate({ target: { value: {
-        year: nextMonth.get('year'),
-        month: nextMonth.get('month')
-      }}})}>
-      {
-        h('svg', {
-          attrs: {
-            fill: typographyColor,
-            height: 24,
-            viewBox: '0 0 24 24',
-            width: 24
-          },
-          style: {
-            margin: '12px 9px 6px 9px'
+    }, [
+      h('svg', {
+        attrs: {
+          fill: styles.navIcon.color,
+          height: 24,
+          viewBox: '0 0 24 24',
+          width: 24
+        },
+        style: styles.navIcon
+      }, [
+        h('path', { attrs: { d: 'M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z' } }),
+        h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
+      ])
+    ]),
+    h('div.waves-circle', {
+      hook: {
+        insert: (vnode) => onNavigate ? Waves.attach(vnode.elm) : null
+      },
+      style: styles.next,
+      on: {
+        click: () => onNavigate({
+          target: {
+            value: {
+              year: nextMonth.get('year'),
+              month: nextMonth.get('month')
+            }
           }
-        }, [
-          h('path', { attrs: { d: 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z' } }),
-          h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
-        ])
+        })
       }
-    </div>
-  )] : []
+    }, [
+      h('svg', {
+        attrs: {
+          fill: styles.navIcon.color,
+          height: 24,
+          viewBox: '0 0 24 24',
+          width: 24
+        },
+        style: styles.navIcon
+      }, [
+        h('path', { attrs: { d: 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z' } }),
+        h('path', { attrs: { d: 'M0 0h24v24H0z', fill: 'none' } })
+      ])
+    ])
+  ] : []
 
-  navigation.push(
-    <div
-      style={{
-        color: '#3e3e3e',
-        textAlign: 'center',
-        fontSize: '14px',
-        lineHeight: '48px'
-      }}>
-      {date.format(titleFormat)}
-    </div>
-  )
+  navigation.push(h('div', {
+    style: styles.title
+  }, date.format(titleFormat)))
 
   if (date.weekday()) {
-    days.unshift(
-      <div
-        style={{
-          display: 'inline-block',
-          width: `${colWidth * date.weekday()}%`,
-          height: '9px'
-        }}
-      />
-    )
+    days.unshift(h('div', {
+      style: Object.assign({
+        width: `${colWidth * date.weekday()}%`
+      }, styles.padding)
+    }))
   }
 
-  return (
-    <div
-      classNames={className}
-      style={Object.assign({
-        lineHeight: '30px',
-        fontSize: '12px',
-        width: '280px'
-      }, style)}>
-      <div>
-        {navigation}
-      </div>
-      <div
-        style={{
-          color: '#9e9e9e',
-          fontWeight: 'bold',
-          textAlign: 'center'
-        }}>
-        {weekdays.map((day) => (
-          <div
-            style={{
-              display: 'inline-block',
-              width: `${colWidth}%`,
-              textAlign: 'center'
-            }}>
-            {day}
-          </div>
-        ))}
-      </div>
-      <div>
-        {days}
-      </div>
-    </div>
-  )
+  return h('div', {
+    style: styles.container
+  }, [
+    h('div', {}, navigation),
+    h('div', {
+      style: styles.colHeadings
+    }, weekdays.map((day) => h('div', {
+      style: Object.assign({
+        width: `${colWidth}%`
+      }, styles.dayContainer)
+    }, [ day ]))),
+    h('div', {}, days)
+  ])
 }

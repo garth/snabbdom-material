@@ -3,7 +3,7 @@ import Example from './example'
 import { Button } from '../../lib'
 const N = '\n'
 
-export default Component(({ props: { material } }) => (
+export default Component(() => (
   <div>
     <Example code="import { Button } from 'snabbdom-material';"/>
     <p>

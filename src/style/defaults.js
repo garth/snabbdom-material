@@ -1,5 +1,6 @@
 import appbar from './appbar'
 import button from './button'
+import calendar from './calendar'
 import fadeInOut from './fadeInOut'
 import sidenav from './sidenav'
 import spinner from './spinner'
@@ -9,6 +10,7 @@ export default (variables) => {
   const style = {
     appbar: appbar(variables),
     button: button(variables),
+    calendar: calendar(variables),
     fadeInOut: fadeInOut(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
