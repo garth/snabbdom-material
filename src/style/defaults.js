@@ -6,6 +6,7 @@ import fadeInOut from './fadeInOut'
 import form from './form'
 import icon from './icon'
 import input from './input'
+import menu from './menu'
 import sidenav from './sidenav'
 import spinner from './spinner'
 import typography from './typography'
@@ -20,6 +21,7 @@ export default (variables) => {
     form: form(variables),
     icon: icon(variables),
     input: input(variables),
+    menu: menu(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
     typ: typography(variables)
