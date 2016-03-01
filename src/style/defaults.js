@@ -1,6 +1,7 @@
 import appbar from './appbar'
 import button from './button'
 import calendar from './calendar'
+import checkbox from './checkbox'
 import fadeInOut from './fadeInOut'
 import sidenav from './sidenav'
 import spinner from './spinner'
@@ -11,6 +12,7 @@ export default (variables) => {
     appbar: appbar(variables),
     button: button(variables),
     calendar: calendar(variables),
+    checkbox: checkbox(variables),
     fadeInOut: fadeInOut(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
