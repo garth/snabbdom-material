@@ -1,14 +1,12 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import { getStyle } from '../style'
 
 export default function Icon ({
   name,
-  style = {}
+  style
 }) {
-  return (
-    <i
-      style={Object.assign({
-        lineHeight: 'inherit'
-      }, style)}
-      classNames={`icon-${name}`}/>
-  )
+  const styles = getStyle('icon', style)
+  return h(`i.icon-${name}`, {
+    style: styles
+  })
 }

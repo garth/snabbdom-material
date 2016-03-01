@@ -3,6 +3,8 @@ import button from './button'
 import calendar from './calendar'
 import checkbox from './checkbox'
 import fadeInOut from './fadeInOut'
+import form from './form'
+import icon from './icon'
 import sidenav from './sidenav'
 import spinner from './spinner'
 import typography from './typography'
@@ -14,6 +16,8 @@ export default (variables) => {
     calendar: calendar(variables),
     checkbox: checkbox(variables),
     fadeInOut: fadeInOut(variables),
+    form: form(variables),
+    icon: icon(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
     typ: typography(variables)

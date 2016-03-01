@@ -10,8 +10,8 @@ export default Component(() => (
       the submit event on to the given onSubmit handler.
     </p>
     <Example code={`${
-    N}<Form onSubmit={onSubmit} material={material}/>${
-    N}  <Button type="submit" material={material}>Submit</Button>${
+    N}<Form onSubmit={onSubmit}/>${
+    N}  <Button type="submit">Submit</Button>${
     N}</Form>
     `}/>
   </div>
