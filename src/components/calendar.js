@@ -51,16 +51,15 @@ export default function Calendar ({
     const validDay = !Array.isArray(validDays) || validDays.includes(day)
     const selectedDay = value && getMoment(value, locale).startOf('day').isSame(dayDate)
     days.push(h('div', {
-      style: Object.assign(
-        { width: `${colWidth}%` },
-        styles.dayContainer,
-        selectedDay
-          ? styles.dayContainerSelected
-          : !validDay
-            ? styles.dayContainerInvalid
-            : today.isSame(dayDate)
-              ? Object.assign({}, styles.dayContainerToday, styles.dayContainerSelectable)
-              : styles.dayContainerSelectable
+      style: Object.assign({
+        width: `${colWidth}%`
+      }, styles.dayContainer, selectedDay
+        ? styles.dayContainerSelected
+        : !validDay
+          ? styles.dayContainerInvalid
+          : today.isSame(dayDate)
+            ? Object.assign({}, styles.dayContainerToday, onChange ? styles.dayContainerSelectable : {})
+            : onChange ? styles.dayContainerSelectable : {}
       ),
       on: {
         click: () => _onChange(day, validDay)
