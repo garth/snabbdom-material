@@ -40,7 +40,9 @@ export default function Button ({
         (secondary && styles.secondaryLightWaves)
       )
     },
-    type,
-    disabled: !enabled
+    props: {
+      type,
+      disabled: !enabled
+    }
   }, children)
 }

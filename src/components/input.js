@@ -1,10 +1,7 @@
-/* eslint-disable react/no-unknown-property */
-import { html } from 'snabbdom-jsx' // eslint-disable-line
-import defaultMaterial from './defaultMaterial'
+import h from 'snabbdom/h'
+import { getStyle } from '../style'
 
 export default function Input ({
-  className = '',
-  inputStyle = {},
   isFocused = false,
   isError = false,
   isSuccess = false,
@@ -15,63 +12,47 @@ export default function Input ({
   onFocus,
   onBlur,
   readOnly = false,
-  style = {},
+  style,
   type = 'text',
-  value = '',
-  material = defaultMaterial
+  value = ''
 }) {
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
-  const errorColor = material.errorColor || defaultMaterial.errorColor
-  const successColor = material.successColor || defaultMaterial.successColor
+  const styles = getStyle('input', style)
+  const labelColor = isError ? styles.errorColor : isSuccess ? styles.successColor : styles.labelColor
 
   return (
-    <div
-      classNames={`${className} input-group`}
-      style={style}>
-      <input
-        on={{
+    h('div', {
+      style: styles.container
+    }, [
+      h('input.paper-divider', {
+        on: {
           click: (e) => onClick ? onClick(e) : null,
           focus: (e) => onFocus ? onFocus(e) : null,
           blur: (e) => onBlur ? setTimeout(() => onBlur(e), 0) : null,
           input: (e) => onChange ? onChange(e) : null
-        }}
-        type={type}
-        classNames='paper-divider'
-        class={{
-          used: value && value.length
-        }}
-        style={inputStyle}
-        value={value}
-        readOnly={readOnly}
-        required/>
-      <span
-        classNames='bar'
-        class={{
-          open: isError || isSuccess
-        }}
-        style={{
-          backgroundColor: isError ? errorColor : isSuccess ? successColor : secondaryColor
-        }}/>
-      <label>
-        <span style={{
-          color: !isFocused
-            ? ''
-            : isError
-              ? errorColor
-              : isSuccess
-                ? successColor
-                : secondaryColor
-        }}>
-          {label}
-        </span>
-      </label>
-      <div
-        classNames='info'
-        style={{
-          color: isError ? errorColor : ''
-        }}>
-        {message}
-      </div>
-    </div>
+        },
+        style: styles.input,
+        props: {
+          type,
+          value,
+          readOnly,
+          required: true
+        }
+      }),
+      h('span', {
+        style: Object.assign({
+          backgroundColor: labelColor
+        }, styles.bar, isError || isSuccess || isFocused ? styles.barFocused : {})
+      }),
+      h('label', {
+        style: Object.assign({}, styles.label, {
+          color: !isFocused ? '' : labelColor
+        }, isFocused || value ? styles.labelFocused : {})
+      }, label),
+      h('div', {
+        style: Object.assign({}, styles.message, {
+          color: isError ? styles.errorColor : ''
+        })
+      }, message)
+    ])
   )
 }

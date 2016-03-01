@@ -5,6 +5,7 @@ import checkbox from './checkbox'
 import fadeInOut from './fadeInOut'
 import form from './form'
 import icon from './icon'
+import input from './input'
 import sidenav from './sidenav'
 import spinner from './spinner'
 import typography from './typography'
@@ -18,6 +19,7 @@ export default (variables) => {
     fadeInOut: fadeInOut(variables),
     form: form(variables),
     icon: icon(variables),
+    input: input(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
     typ: typography(variables)
