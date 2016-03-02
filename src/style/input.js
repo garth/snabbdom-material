@@ -1,3 +1,5 @@
+import paper from './paper'
+
 export default (variables) => {
   return {
     container: {
@@ -5,16 +7,14 @@ export default (variables) => {
       margin: '0',
       padding: '15px 0 26px 0'
     },
-    input: {
+    input: Object.assign({
       fontSize: '18px',
       padding: '10px 0',
       display: 'block',
       width: '100%',
       border: 'none',
-      backgroundColor: 'transparent',
-      boxSizing: 'border-box',
-      boxShadow: '0 0.5px 0 0 rgba(0, 0, 0, 0.156), 0 1.5px 0 0 rgba(0, 0, 0, 0.055)'
-    },
+      backgroundColor: 'transparent'
+    }, paper(variables).divider),
     label: {
       color: '#aaa',
       fontSize: '18px',
