@@ -17,7 +17,9 @@ export default function Input ({
   value = ''
 }) {
   const styles = getStyle('input', style)
-  const labelColor = isError ? styles.errorColor : isSuccess ? styles.successColor : styles.labelColor
+  const labelColor = {
+    color: isError ? styles.errorColor : isSuccess ? styles.successColor : styles.labelColor
+  }
 
   return (
     h('div', {
@@ -40,13 +42,13 @@ export default function Input ({
       }),
       h('span', {
         style: Object.assign({
-          backgroundColor: labelColor
+          backgroundColor: labelColor.color
         }, styles.bar, isError || isSuccess || isFocused ? styles.barFocused : {})
       }),
       h('label', {
-        style: Object.assign({}, styles.label, {
-          color: !isFocused ? '' : labelColor
-        }, isFocused || value ? styles.labelFocused : {})
+        style: Object.assign({}, styles.label,
+          !isFocused ? {} : labelColor,
+          isFocused || value ? styles.labelFocused : {})
       }, label),
       h('div', {
         style: Object.assign({}, styles.message, {

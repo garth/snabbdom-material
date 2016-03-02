@@ -11,5 +11,7 @@ export default {
   successColor: '#090',
   typographyColor: '#212121',
   transitionTime: '.3s',
-  sidenavWidth: 280
+  sidenavWidth: 280,
+  menuTopPadding: 10,
+  menuItemHeight: 32
 }

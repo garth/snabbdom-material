@@ -5,14 +5,18 @@ import Item from './item'
 import Separator from './separator'
 import getScreenSize from '../../helpers/screenSize'
 
-const insert = function (vnode) {
+const insert = (styles) => (vnode) => {
   const { height: screenHeight } = getScreenSize()
   const { top, bottom } = vnode.elm.getBoundingClientRect()
   const originalHeight = bottom - top
-  const minHeight = (32 * 8) + 20
+  const minHeight = (styles.menuItemHeight * 8) + (styles.menuTopPadding * 2)
 
-  let offsetTop = top < 6 ? Math.ceil((top - 16) / -32) * 32 : 0
-  const offsetBottom = bottom > screenHeight - 6 ? Math.ceil((bottom - screenHeight + 16) / 32) * 32 : 0
+  let offsetTop = top < 6
+    ? Math.ceil((top - 16) / (styles.menuItemHeight * -1)) * styles.menuItemHeight
+    : 0
+  const offsetBottom = bottom > screenHeight - 6
+    ? Math.ceil((bottom - screenHeight + 16) / styles.menuItemHeight) * styles.menuItemHeight
+    : 0
   let height = bottom - top - offsetTop - offsetBottom
   if (height < minHeight) {
     height = minHeight > originalHeight ? originalHeight : minHeight
@@ -49,7 +53,7 @@ const Menu = function Menu ({
       ? [
         h('div.paper1', {
           hook: {
-            insert
+            insert: insert(styles)
           },
           style: Object.assign(menuStyle, styles.menu)
         }, children)

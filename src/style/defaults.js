@@ -7,6 +7,7 @@ import form from './form'
 import icon from './icon'
 import input from './input'
 import menu from './menu'
+import select from './select'
 import sidenav from './sidenav'
 import spinner from './spinner'
 import typography from './typography'
@@ -22,6 +23,7 @@ export default (variables) => {
     icon: icon(variables),
     input: input(variables),
     menu: menu(variables),
+    select: select(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
     typ: typography(variables)
