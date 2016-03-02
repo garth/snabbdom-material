@@ -1,4 +1,4 @@
-table.m-c {
+table.material-table {
 
   th, td {
     box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.156), 0 1.5px 0 0 rgba(0, 0, 0, 0.055);
@@ -34,12 +34,8 @@ table.m-c {
   }
 
   tbody {
-    tr.clickable {
-      cursor: pointer;
-
-      &:hover {
-        background-color: #EEE;
-      }
+    tr.clickable:hover {
+      background-color: #EEE;
     }
 
     tr.disabled td * {

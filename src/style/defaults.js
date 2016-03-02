@@ -12,6 +12,7 @@ import paper from './paper'
 import select from './select'
 import sidenav from './sidenav'
 import spinner from './spinner'
+import table from './table'
 import typography from './typography'
 
 export default (variables) => {
@@ -30,6 +31,7 @@ export default (variables) => {
     select: select(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),
+    table: table(variables),
     typ: typography(variables)
   }
 

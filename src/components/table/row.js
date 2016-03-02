@@ -1,20 +1,17 @@
 import h from 'snabbdom/h'
+import { getStyle } from '../../style'
 
 export default function TableRow ({
-  className = '',
   onClick,
-  style = {}
+  style
 }, children = '') {
-  const classNames = {
-    clickable: onClick
-  }
-  if (className) {
-    classNames[className] = true
-  }
+  const styles = getStyle('table', style)
 
   return h('tr', {
-    class: classNames,
-    style,
+    class: {
+      clickable: onClick
+    },
+    style: Object.assign({}, styles.row, onClick ? styles.rowClickable : {}),
     on: {
       click: e => onClick ? onClick(e) : null
     }
