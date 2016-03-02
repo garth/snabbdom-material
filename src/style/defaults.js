@@ -7,6 +7,7 @@ import fadeInOut from './fadeInOut'
 import form from './form'
 import icon from './icon'
 import input from './input'
+import mask from './mask'
 import menu from './menu'
 import paper from './paper'
 import select from './select'
@@ -26,6 +27,7 @@ export default (variables) => {
     form: form(variables),
     icon: icon(variables),
     input: input(variables),
+    mask: mask(variables),
     menu: menu(variables),
     paper: paper(variables),
     select: select(variables),
