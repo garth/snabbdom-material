@@ -1,4 +1,5 @@
 import { Component } from 'cerebral-view-snabbdom'
+import { Paper } from '../../lib'
 import Example from './example'
 const N = '\n'
 
@@ -49,10 +50,10 @@ export default Component({
       the same as <code>type</code> (<code>xs=1, sm=2, md=3, lg=4</code>), but allows you to
       filter by range (<code>if (screen.size > 2) {}</code>).
     </p>
-    <div classNames={`paper${screen.size} padded`}>
+    <Paper elevation={screen.size}>
       As the screen gets larger this paper will rise.<br/>
       The screen is {screen.type}.
-    </div>
+    </Paper>
     <p>
       The event is only triggered when these values change and not on every window resize event, so updating
       the UI every time this event is triggered should be ok.

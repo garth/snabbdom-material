@@ -2,11 +2,13 @@ import appbar from './appbar'
 import button from './button'
 import calendar from './calendar'
 import checkbox from './checkbox'
+import divider from './divider'
 import fadeInOut from './fadeInOut'
 import form from './form'
 import icon from './icon'
 import input from './input'
 import menu from './menu'
+import paper from './paper'
 import select from './select'
 import sidenav from './sidenav'
 import spinner from './spinner'
@@ -18,11 +20,13 @@ export default (variables) => {
     button: button(variables),
     calendar: calendar(variables),
     checkbox: checkbox(variables),
+    divider: divider(variables),
     fadeInOut: fadeInOut(variables),
     form: form(variables),
     icon: icon(variables),
     input: input(variables),
     menu: menu(variables),
+    paper: paper(variables),
     select: select(variables),
     sidenav: sidenav(variables),
     spinner: spinner(variables),

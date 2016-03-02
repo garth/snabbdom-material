@@ -25,7 +25,7 @@ export default function Input ({
     h('div', {
       style: styles.container
     }, [
-      h('input.paper-divider', {
+      h('input', {
         on: {
           click: (e) => onClick ? onClick(e) : null,
           focus: (e) => onFocus ? onFocus(e) : null,

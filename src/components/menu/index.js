@@ -1,6 +1,7 @@
 import h from 'snabbdom/h'
 import { getStyle } from '../../style'
 import Mask from '../mask'
+import Paper from '../paper'
 import Item from './item'
 import Separator from './separator'
 import getScreenSize from '../../helpers/screenSize'
@@ -49,16 +50,18 @@ const Menu = function Menu ({
       isOpen,
       onClick
     }),
-    ...(isOpen
-      ? [
-        h('div.paper1', {
-          hook: {
-            insert: insert(styles)
-          },
-          style: Object.assign(menuStyle, styles.menu)
-        }, children)
-      ]
-      : [])
+    ...(isOpen ? [
+      Paper({
+        noPadding: true,
+        elevation: 1,
+        hook: {
+          insert: insert(styles)
+        },
+        style: {
+          paper: Object.assign(menuStyle, styles.menu)
+        }
+      }, children)
+    ] : [])
   ])
 }
 

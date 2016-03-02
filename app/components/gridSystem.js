@@ -1,6 +1,6 @@
 import { Component } from 'cerebral-view-snabbdom'
 import Example from './example'
-import { Col, Row } from '../../lib'
+import { Col, Row, Paper } from '../../lib'
 const N = '\n'
 
 export default Component(() => (
@@ -13,8 +13,8 @@ export default Component(() => (
     </p>
     <div style={{ padding: '16px 0' }}>
       <Row>
-        <Col type='md-5 md-offset-1'><div classNames='paper1 padded'>md-5 md-offset-1</div></Col>
-        <Col type='md-5'><div classNames='paper1 padded'>md-5</div></Col>
+        <Col type='md-5 md-offset-1'><Paper>md-5 md-offset-1</Paper></Col>
+        <Col type='md-5'><Paper>md-5</Paper></Col>
       </Row>
     </div>
     <Example code={`${

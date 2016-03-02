@@ -6,6 +6,8 @@ export default function MenuSeparator ({
 }) {
   const styles = getStyle('menu', style)
   return Divider({
-    style: styles.separator
+    style: {
+      divider: styles.separator
+    }
   })
 }

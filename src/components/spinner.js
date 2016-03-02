@@ -1,5 +1,6 @@
 import h from 'snabbdom/h'
 import { getStyle } from '../style'
+import Paper from './paper'
 
 export default function Spinner ({
   inline = false,
@@ -37,7 +38,7 @@ export default function Spinner ({
           cx: 50,
           cy: 50,
           r: 48,
-          'stroke-width': 4,
+          'stroke-width': styles.strokeWidth,
           'stroke-miterlimit': 10
         },
         style: {
@@ -52,12 +53,17 @@ export default function Spinner ({
   ])
 
   return inline ? spinner : isOpen ? (
-    h('div.paper1', {
-      style: Object.assign({
-        marginLeft: `-${(size / 2) + 6}px`,
-        width: `${size + 12}px`,
-        height: `${size + 12}px`
-      }, styles.overlay)
+    Paper({
+      noPadding: true,
+      elevation: 1,
+      style: {
+        paper: Object.assign({
+          marginLeft: `-${(size / 2) + styles.padding}px`,
+          width: `${size + (styles.padding * 2)}px`,
+          height: `${size + (styles.padding * 2)}px`,
+          padding: `${styles.padding}px`
+        }, styles.overlay)
+      }
     }, [ spinner ])
   ) : h('span')
 }

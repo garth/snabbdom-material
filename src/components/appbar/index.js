@@ -2,6 +2,7 @@ import h from 'snabbdom/h'
 import { getStyle } from '../../style'
 import Button from './button'
 import Title from './title'
+import Paper from '../paper'
 
 const Appbar = function Appbar ({
   fixed = false,
@@ -12,10 +13,14 @@ const Appbar = function Appbar ({
   return h('div', {
     style: styles.container
   }, [
-    h('div.paper1', {
-      style: Object.assign({
-        position: fixed ? 'fixed' : ''
-      }, styles.appbar)
+    Paper({
+      noPadding: true,
+      elevation: 1,
+      style: {
+        paper: Object.assign({
+          position: fixed ? 'fixed' : ''
+        }, styles.appbar)
+      }
     }, children)
   ])
 }

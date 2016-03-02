@@ -1,6 +1,6 @@
 import { Component } from 'cerebral-view-snabbdom'
 import Example from './example'
-import { Checkbox, Col, Row, Spinner } from '../../lib'
+import { Checkbox, Col, Row, Spinner, Paper } from '../../lib'
 const N = '\n'
 
 const style = { container: { margin: '10px auto' } }
@@ -15,7 +15,7 @@ export default Component({
 }) => (
   <div>
     <Example code="import { Spinner } from 'snabbdom-material';"/>
-    <div style={{ margin: '24px 0' }} classNames='paper1 padded'>
+    <Paper style={{ paper: { margin: '24px 0' } }}>
       <Row>
         <Col type='sm-4'><Spinner style={style} size={25} inline/></Col>
         <Col type='sm-4'><Spinner style={style} size={25} inline primary/></Col>
@@ -31,7 +31,7 @@ export default Component({
         <Col type='sm-4'><Spinner style={style} size={75} inline primary/></Col>
         <Col type='sm-4'><Spinner style={style} size={75} inline secondary/></Col>
       </Row>
-    </div>
+    </Paper>
     <Example code={`${
     N}// inline spinners${
     N}<Spinner size={25} inline/>${

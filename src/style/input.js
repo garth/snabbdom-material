@@ -11,7 +11,9 @@ export default (variables) => {
       display: 'block',
       width: '100%',
       border: 'none',
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      boxSizing: 'border-box',
+      boxShadow: '0 0.5px 0 0 rgba(0, 0, 0, 0.156), 0 1.5px 0 0 rgba(0, 0, 0, 0.055)'
     },
     label: {
       color: '#aaa',

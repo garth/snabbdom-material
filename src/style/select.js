@@ -1,6 +1,6 @@
 export default (variables) => {
   return {
-    menuTopOffset: variables.menuTopPadding,
+    menuTopOffset: variables.menuTopOffset,
     menuItemHeight: variables.menuItemHeight,
     container: {
       position: 'relative'

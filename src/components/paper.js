@@ -1,22 +1,16 @@
-/* eslint-disable react/no-unknown-property */
-import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import { getStyle } from '../style'
 
 export default function Paper ({
-  className = '',
   elevation = 1,
+  hook = {},
   noPadding = false,
-  style = {}
+  style
 }, children = '') {
-  return (
-    <div
-      classNames={`${className} paper${elevation}`}
-      class={{
-        padded: !noPadding
-      }}
-      style={Object.assign({
-        lineHeight: 'inherit'
-      }, style)}>
-      {children}
-    </div>
-  )
+  const styles = getStyle('paper', style)
+
+  return h('div', {
+    hook,
+    style: Object.assign({}, styles.paper, styles.elevation[elevation], noPadding ? {} : styles.padded)
+  }, children)
 }

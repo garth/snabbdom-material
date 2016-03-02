@@ -2,6 +2,8 @@ import fadeInOut from './fadeInOut'
 
 export default (variables) => {
   return {
+    padding: 6,
+    strokeWidth: 4,
     primaryColor: variables.primaryColor,
     secondaryColor: variables.secondaryColor,
     container: {
@@ -13,8 +15,7 @@ export default (variables) => {
       position: 'fixed',
       top: '100px',
       left: '50%',
-      borderRadius: '50%',
-      padding: '6px'
+      borderRadius: '50%'
     }, fadeInOut(variables))
   }
 }

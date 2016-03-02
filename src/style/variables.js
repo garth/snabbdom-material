@@ -12,6 +12,7 @@ export default {
   typographyColor: '#212121',
   transitionTime: '.3s',
   sidenavWidth: 280,
+  menuTopOffset: 10,
   menuTopPadding: 10,
   menuItemHeight: 32
 }
