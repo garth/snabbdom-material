@@ -3,7 +3,7 @@ import insert from 'insert-css'
 import easyStyle from 'easy-style'
 import getChild from '../helpers/getChild'
 
-import variables from './variables'
+import { baseVariables, getComponentVariables } from './variables'
 import defaults from './defaults'
 
 // inject the css in to the page
@@ -19,11 +19,11 @@ export function init (variables, overrides = {}) {
 
 export function getStyle (name, overrides) {
   if (!baseStyle) {
-    init(variables)
+    init(getComponentVariables(baseVariables))
   }
   return overrides
     ? merge(getChild(baseStyle, name), overrides)
     : getChild(baseStyle, name)
 }
 
-export { variables }
+export { baseVariables, getComponentVariables }
