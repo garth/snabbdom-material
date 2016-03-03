@@ -1,8 +1,8 @@
 export default (variables) => {
   return {
-    lightWaves: variables.primaryLightWaves,
-    primaryLightWaves: variables.primaryLightWaves,
-    secondarylightWaves: variables.secondaryLightWaves,
+    lightWaves: variables.buttonLightWaves,
+    primaryLightWaves: variables.buttonPrimaryLightWaves,
+    secondarylightWaves: variables.buttonSecondarylightWaves,
     button: {
       fontSize: '16px',
       lineHeight: '36px',
@@ -11,20 +11,21 @@ export default (variables) => {
       textAlign: 'center',
       minWidth: '64px',
       textTransform: 'uppercase',
-      color: variables.primaryFontColor
+      color: variables.buttonFontColor,
+      backgroundColor: variables.buttonBackgroundColor
     },
     flat: {
       enabled: {
         cursor: 'pointer'
       },
       disabled: {
-        color: 'rgba(0, 0, 0, 0.35)'
+        color: variables.buttonFlatDisabledFontColor
       },
       primary: {
-        color: variables.primaryColor
+        color: variables.buttonFlatPrimaryFontColor
       },
       secondary: {
-        color: variables.secondaryColor
+        color: variables.buttonFlatSecondaryFontColor
       }
     },
     raised: {
@@ -32,16 +33,16 @@ export default (variables) => {
         cursor: 'pointer'
       },
       disabled: {
-        color: 'rgba(0, 0, 0, 0.35)',
-        backgroundColor: 'rgba(0, 0, 0, 0.12)'
+        color: variables.buttonDisabledFontColor,
+        backgroundColor: variables.buttonDisabledBackgroundColor
       },
       primary: {
-        color: variables.primaryFontColor,
-        backgroundColor: variables.primaryColor
+        color: variables.buttonPrimaryFontColor,
+        backgroundColor: variables.buttonPrimaryBackgroundColor
       },
       secondary: {
-        color: variables.secondaryFontColor,
-        backgroundColor: variables.secondaryColor
+        color: variables.buttonSecondaryFontColor,
+        backgroundColor: variables.buttonSecondaryBackgroundColor
       }
     }
   }

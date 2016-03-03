@@ -13,8 +13,8 @@ export default (variables) => {
     menu: Object.assign({
       zIndex: '1001',
       padding: `${variables.menuTopPadding}px 0`,
-      backgroundColor: '#fff',
-      color: '#000',
+      backgroundColor: variables.menuBackgroundColor,
+      color: variables.menuFontColor,
       position: 'absolute',
       overflowY: 'auto',
       scrollbar: 'width: 4px',

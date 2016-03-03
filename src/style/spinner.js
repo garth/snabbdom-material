@@ -4,8 +4,8 @@ export default (variables) => {
   return {
     padding: 6,
     strokeWidth: 4,
-    primaryColor: variables.primaryColor,
-    secondaryColor: variables.secondaryColor,
+    primaryColor: variables.spinnerPrimaryColor,
+    secondaryColor: variables.spinnerSecodaryColor,
     container: {
       position: 'relative',
       margin: '0 auto'

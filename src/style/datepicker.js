@@ -10,8 +10,8 @@ export default (variables) => {
       }
     },
     title: {
-      backgroundColor: variables.secondaryColor,
-      color: variables.secondaryFontColor,
+      backgroundColor: variables.datepickerTitleBackgroundColor,
+      color: variables.datepickerTitleColor,
       position: 'absolute'
     },
     titlePortrait: {

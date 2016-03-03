@@ -1,10 +1,10 @@
 export default (variables) => {
   return {
     primary: {
-      color: variables.primaryColor
+      color: variables.typographyPrimaryColor
     },
     secondary: {
-      color: variables.secondaryColor
+      color: variables.typographySecodaryColor
     },
     display3: {
       margin: '0',

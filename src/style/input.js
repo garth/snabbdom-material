@@ -13,10 +13,10 @@ export default (variables) => {
       display: 'block',
       width: '100%',
       border: 'none',
-      backgroundColor: 'transparent'
+      backgroundColor: variables.inputBackgroundColor
     }, paper(variables).divider),
     label: {
-      color: '#aaa',
+      color: variables.inputLabelColor,
       fontSize: '18px',
       fontweight: 'normal',
       position: 'absolute',
@@ -46,8 +46,8 @@ export default (variables) => {
       left: '0',
       width: '100%'
     },
-    errorColor: variables.errorColor,
-    successColor: variables.successColor,
-    labelColor: variables.secondaryColor
+    errorColor: variables.inputErrorColor,
+    successColor: variables.inputSuccessColor,
+    labelColor: variables.inputLabelFocusedColor
   }
 }

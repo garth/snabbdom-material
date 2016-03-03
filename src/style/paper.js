@@ -3,7 +3,7 @@ export default (variables) => {
     paper: {
       lineHeight: 'inherit',
       boxSizing: 'border-box',
-      backgroundColor: '#fdfdfd'
+      backgroundColor: variables.paperBackgroundColor
     },
     elevation: [
       { boxShadow: '0 0 0 0.5px rgba(0, 0, 0, 0.156), 0 0 0 1.5px rgba(0, 0, 0, 0.055)' },

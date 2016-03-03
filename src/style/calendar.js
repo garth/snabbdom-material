@@ -1,6 +1,6 @@
 export default (variables) => {
   return {
-    lightWaves: variables.primaryLightWaves,
+    lightWaves: variables.calendarLightWaves,
     container: {
       lineHeight: '30px',
       fontSize: '12px',
@@ -14,13 +14,13 @@ export default (variables) => {
       cursor: 'pointer'
     },
     dayContainerSelected: {
-      color: variables.secondaryFontColor
+      color: variables.calendarSelectedDayFontColor
     },
     dayContainerInvalid: {
       color: '#3e3e3e'
     },
     dayContainerToday: {
-      color: variables.secondaryColor
+      color: variables.calendarTodayFontColor
     },
     day: {
       width: '30px',
@@ -28,7 +28,7 @@ export default (variables) => {
       borderRadius: '50%'
     },
     daySelected: {
-      backgroundColor: variables.secondaryColor
+      backgroundColor: variables.calendarSelectedDayBackgroundColor
     },
     previous: {
       float: 'left',
@@ -45,17 +45,17 @@ export default (variables) => {
       marginRight: '-5px'
     },
     navIcon: {
-      color: variables.typographyColor,
+      color: variables.calendarNavIconColor,
       margin: '12px 9px 6px 9px'
     },
     title: {
-      color: '#3e3e3e',
+      color: variables.calendarTitleFontColor,
       textAlign: 'center',
       fontSize: '14px',
       lineHeight: '48px'
     },
     colHeadings: {
-      color: '#9e9e9e',
+      color: variables.calendarHeadingFontColor,
       fontWeight: 'bold',
       textAlign: 'center'
     },

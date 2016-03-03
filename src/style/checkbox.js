@@ -1,6 +1,6 @@
 export default (variables) => {
   return {
-    lightWaves: false,
+    lightWaves: variables.checkboxLightWaves,
     label: {
       display: 'inline-block',
       cursor: 'pointer',
@@ -8,7 +8,7 @@ export default (variables) => {
       fontSize: '18px'
     },
     icon: {
-      color: 'rgba(0, 0, 0, 0.54)',
+      color: variables.checkboxIconColor,
       position: 'relative',
       top: '3px',
       display: 'inline-block',
@@ -18,7 +18,7 @@ export default (variables) => {
       height: '48px'
     },
     iconSelected: {
-      color: variables.secondaryColor
+      color: variables.checkboxIconSelectedColor
     }
   }
 }

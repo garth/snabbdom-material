@@ -23,7 +23,7 @@ export default (variables) => {
     },
     mini: {
       position: 'absolute',
-      top: '64px',
+      top: `${variables.appbarHeight}px`,
       left: '0',
       bottom: '0',
       width: '62px',
@@ -31,7 +31,7 @@ export default (variables) => {
       overflow: 'hidden'
     },
     title: Object.assign({
-      height: '64px',
+      height: `${variables.appbarHeight}px`,
       lineHeight: '32px',
       padding: '16px 8px 0 16px',
       fontSize: '20px',
@@ -41,19 +41,19 @@ export default (variables) => {
       container: {
         float: 'right'
       },
-      lightWaves: false
+      lightWaves: variables.sidenavCloseLightWaves
     },
     closeIcon: {
-      color: variables.typographyColor,
+      color: variables.sidenavCloseIconColor,
       position: 'relative',
       top: '4px'
     },
     item: {
       padding: '8px 40px 8px 24px',
-      color: variables.typographyColor
+      color: variables.sidenavItemColor
     },
     itemSelected: {
-      color: variables.primaryColor
+      color: variables.sidenavItemSelectedColor
     }
   }
 }

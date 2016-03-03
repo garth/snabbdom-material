@@ -2,16 +2,16 @@ export default (variables) => {
   return {
     appbar: {
       container: {
-        height: '64px'
+        height: `${variables.appbarHeight}px`
       },
       appbar: {
         width: '100%',
         zIndex: '1',
-        height: '64px',
+        height: `${variables.appbarHeight}px`,
         lineHeight: '32px',
         padding: '16px 8px',
-        backgroundColor: variables.primaryColor,
-        color: variables.primaryFontColor
+        backgroundColor: variables.appbarBackgroundColor,
+        color: variables.appbarFontColor
       }
     },
     button: {
@@ -23,7 +23,7 @@ export default (variables) => {
         margin: '-8px 0',
         backgroundColor: 'transparent'
       },
-      lightWaves: variables.primaryLightWaves,
+      lightWaves: variables.appbarButtonLightWaves,
       button: {
         fontSize: '24px',
         height: '48px',
@@ -34,11 +34,11 @@ export default (variables) => {
         textDecoration: 'none'
       },
       enabled: {
-        color: variables.primaryFontColor,
+        color: variables.appbarButtonFontColor,
         cursor: 'pointer'
       },
       disabled: {
-        color: variables.primaryFontColorDisabled
+        color: variables.appbarButtonFontColorDisabled
       }
     },
     title: {

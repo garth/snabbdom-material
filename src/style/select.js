@@ -13,14 +13,14 @@ export default (variables) => {
     },
     selected: {
       item: {
-        backgroundColor: '#dcdcdc'
+        backgroundColor: variables.selectSelectedItemBackgroundColor
       }
     },
     dropDownIcon: {
       position: 'absolute',
       right: '0px',
       top: '28px',
-      color: '#aaa'
+      color: variables.selectDropDownIconColor
     },
     input: {
       input: {
