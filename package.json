@@ -1,6 +1,6 @@
 {
   "name": "snabbdom-material",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Stateless UI components for snabbdom that follow material design",
   "main": "lib/index.js",
   "files": [
@@ -55,6 +55,8 @@
   },
   "homepage": "https://github.com/garth/snabbdom-material#readme",
   "dependencies": {
+    "deepmerge": "^0.2.10",
+    "easy-style": "^1.0.0",
     "exenv": "^1.2.0",
     "insert-css": "^0.2.0",
     "moment": "^2.11.2",
@@ -78,8 +80,6 @@
     "cerebral-view-snabbdom": "^0.4.1",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
-    "deepmerge": "^0.2.10",
-    "easy-style": "^1.0.0",
     "eslint": "^2.2.0",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
