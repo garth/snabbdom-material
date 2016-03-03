@@ -2,8 +2,9 @@ import appbar from './appbar'
 import button from './button'
 import calendar from './calendar'
 import checkbox from './checkbox'
+import datepicker from './datepicker'
+import dialog from './dialog'
 import divider from './divider'
-import fadeInOut from './fadeInOut'
 import form from './form'
 import icon from './icon'
 import input from './input'
@@ -22,8 +23,9 @@ export default (variables) => {
     button: button(variables),
     calendar: calendar(variables),
     checkbox: checkbox(variables),
+    datepicker: datepicker(variables),
+    dialog: dialog(variables),
     divider: divider(variables),
-    fadeInOut: fadeInOut(variables),
     form: form(variables),
     icon: icon(variables),
     input: input(variables),

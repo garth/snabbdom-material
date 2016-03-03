@@ -1,14 +1,17 @@
+import { getStyle } from '../../style'
 import Button from '../button'
 
 export default function DialogButton (props, children = '') {
+  const styles = getStyle('dialog')
+
   if (!props.style) {
     props.style = {}
   }
-  if (!props.style.margin) {
-    props.style.margin = '8px 8px 8px 0'
+  if (!props.style.button) {
+    props.style.button = styles.button
+  } else {
+    props.style.button = Object.assign({}, styles.button, props.style.button)
   }
-  if (!props.style.padding) {
-    props.style.padding = '0 8px'
-  }
+
   return Button(props, children)
 }
