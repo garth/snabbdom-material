@@ -75,7 +75,7 @@
     "cerebral-addons": "^0.5.2",
     "cerebral-model-baobab": "^0.4.7",
     "cerebral-module-router": "^0.13.1",
-    "cerebral-view-snabbdom": "^0.3.1",
+    "cerebral-view-snabbdom": "^0.4.1",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "deepmerge": "^0.2.10",

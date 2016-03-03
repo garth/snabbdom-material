@@ -28,4 +28,4 @@ import './router'
 import { Component, render } from 'cerebral-view-snabbdom' // eslint-disable-line
 import Application from './components/application'
 const root = document.body.appendChild(document.createElement('div'))
-render(() => <Application/>, root, controller)
+render(() => Application(), root, controller)
