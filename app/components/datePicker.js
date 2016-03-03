@@ -16,7 +16,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { DatePicker } from 'snabbdom-material';"/>
+    <Example code="import { DatePicker } from 'snabbdom-material'"/>
     <Button
       primary
       onClick={() => signals.datePickerOpened({ value: datePicker.pickedDate })}>

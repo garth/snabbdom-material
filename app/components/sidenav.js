@@ -5,7 +5,7 @@ const N = '\n'
 
 export default Component(() => (
   <div>
-    <Example code="import { Sidenav } from 'snabbdom-material';"/>
+    <Example code="import { Sidenav } from 'snabbdom-material'"/>
     <Typ headline>Sidenav</Typ>
     <p>See the sidenav above.</p>
     <Example code={`${

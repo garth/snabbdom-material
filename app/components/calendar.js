@@ -14,7 +14,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Calendar } from 'snabbdom-material';"/>
+    <Example code="import { Calendar } from 'snabbdom-material'"/>
     <p>
       The locale will default to <code>en</code>, to use any other locale you must ensure that you have
       first <a href='http://momentjs.com/docs/#/i18n/loading-into-browser/'>loaded the locale</a> into

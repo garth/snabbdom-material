@@ -11,7 +11,7 @@ export default Component({
   }
 }) => (
   <div>
-    <Example code="import { events } from 'snabbdom-material';"/>
+    <Example code="import { events } from 'snabbdom-material'"/>
     <p>
       Responsive Events are emitted whenever the screen type or orientation changes. This can be used to
       modify the UI to suite the device. Unlike CSS media queries which change the style of always present
@@ -30,8 +30,8 @@ export default Component({
     N}// example cerebral setup${
     N}controller.signal('screenChanged', [${
     N}  inputToState(['screenInfo'], ['screenInfo'])${
-    N}]);${
-    N}events.responsive.addListener(screenInfo => controller.signals.screenInfoChanged({ screenInfo }));
+    N}])${
+    N}events.responsive.addListener(screenInfo => controller.signals.screenInfoChanged({ screenInfo }))
     `}/>
     <p>
       Event listeners receive a screen object which looks like:

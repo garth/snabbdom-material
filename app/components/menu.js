@@ -14,7 +14,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Menu } from 'snabbdom-material';"/>
+    <Example code="import { Menu } from 'snabbdom-material'"/>
 
     <div style={{ margin: '24px 0' }}>
       <Menu isOpen={menu.showSimpleMenu} onClose={() => signals.simpleMenuClosed()} screenInfo={screenInfo} >

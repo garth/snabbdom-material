@@ -4,7 +4,7 @@ import { Col, Row, Typ } from '../../lib'
 
 export default Component(() => (
   <div>
-    <Example code="import { Typ } from 'snabbdom-material';"/>
+    <Example code="import { Typ } from 'snabbdom-material'"/>
     <Row>
       <Col type='sm-7'>
         <Example code='<Typ display3>Display 3</Typ>'/>

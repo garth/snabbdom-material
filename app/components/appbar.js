@@ -4,7 +4,7 @@ const N = '\n'
 
 export default Component(() => (
   <div>
-    <Example code="import { Appbar } from 'snabbdom-material';"/>
+    <Example code="import { Appbar } from 'snabbdom-material'"/>
     <Example code={`${
     N}<Appbar fixed>${
     N}  <Appbar.Button style={{ float: 'left' }}><Icon name="menu"/></Appbar.Button>${

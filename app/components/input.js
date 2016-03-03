@@ -12,7 +12,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Input } from 'snabbdom-material';"/>
+    <Example code="import { Input } from 'snabbdom-material'"/>
     <div style={{ margin: '16px 0' }}>
       <Row>
         <Col type='md-6'>

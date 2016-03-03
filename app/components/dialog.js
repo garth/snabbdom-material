@@ -14,7 +14,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Dialog } from 'snabbdom-material';"/>
+    <Example code="import { Dialog } from 'snabbdom-material'"/>
     <Button
       style={{ margin: '24px 0' }}
       primary

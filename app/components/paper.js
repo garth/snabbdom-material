@@ -5,7 +5,7 @@ const N = '\n'
 
 export default Component(() => (
   <div>
-    <Example code="import { Paper, Divider } from 'snabbdom-material';"/>
+    <Example code="import { Paper, Divider } from 'snabbdom-material'"/>
     <p>
       Add a paper class to an element to lift it from the page. The <code>noPadding</code> option
       removes default padding. A divider component provides seperation.

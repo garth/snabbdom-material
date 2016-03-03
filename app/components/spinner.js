@@ -14,7 +14,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Spinner } from 'snabbdom-material';"/>
+    <Example code="import { Spinner } from 'snabbdom-material'"/>
     <Paper style={{ paper: { margin: '24px 0' } }}>
       <Row>
         <Col type='sm-4'><Spinner style={style} size={25} inline/></Col>

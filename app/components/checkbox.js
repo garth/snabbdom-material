@@ -11,7 +11,7 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Checkbox } from 'snabbdom-material';"/>
+    <Example code="import { Checkbox } from 'snabbdom-material'"/>
     <div>
       <Checkbox
         label='Checkbox'

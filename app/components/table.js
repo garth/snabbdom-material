@@ -5,7 +5,7 @@ const N = '\n'
 
 export default Component(() => (
   <div>
-    <Example code="import { Table } from 'snabbdom-material';"/>
+    <Example code="import { Table } from 'snabbdom-material'"/>
     <p>
       Only <code>Table</code>, <code>Table.Toolbar</code> and <code>Table.Row</code> are necessary, for other
       element types use the default html

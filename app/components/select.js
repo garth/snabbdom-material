@@ -22,7 +22,7 @@ export default Component({
 
   return (
     <div>
-      <Example code="import { Select } from 'snabbdom-material';"/>
+      <Example code="import { Select } from 'snabbdom-material'"/>
       <div style={{ margin: '16px 0' }}>
         <Row>
           <Col type='md-4'>
@@ -87,7 +87,7 @@ export default Component({
       N}  { value: 0, label: 'Option 1' },${
       N}  { value: 1, label: 'Option 2' },${
       N}  { value: 2, label: 'Option 3' }${
-      N}];${
+      N}]${
       N}${
       N}<Select${
       N}  label="option"${

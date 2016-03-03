@@ -5,7 +5,7 @@ const N = '\n'
 
 export default Component(() => (
   <div>
-    <Example code="import { Col, Row } from 'snabbdom-material';"/>
+    <Example code="import { Col, Row } from 'snabbdom-material'"/>
     <p>
       snabbdom-material borrows the reponsive <a href='http://getbootstrap.com/css/#grid'>grid
       system from bootstrap</a>. Simply omit the <code>col-</code> class name prefix and pass all

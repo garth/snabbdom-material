@@ -5,7 +5,7 @@ const N = '\n'
 
 export default Component(() => (
   <div>
-    <Example code="import { Button } from 'snabbdom-material';"/>
+    <Example code="import { Button } from 'snabbdom-material'"/>
     <p>
       <Button onClick={() => {}}>Normal</Button>
       <Button onClick={() => {}} primary>Primary</Button>
