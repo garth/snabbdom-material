@@ -1,13 +1,9 @@
 import { Component } from 'cerebral-view-snabbdom'
 import { Typ } from '../../lib'
 
-export default Component(({
-  props: {
-    material
-  }
-}) => (
+export default Component(() => (
   <div>
-    <Typ headline material={material}>snabbdom-material</Typ>
+    <Typ headline>snabbdom-material</Typ>
     <p>
       snabbdom-material is a library of <a href='https://github.com/paldepind/snabbdom'>snabbdom</a> user
       interface components based on <a href='https://www.google.com/design/spec/'>material design</a>.
