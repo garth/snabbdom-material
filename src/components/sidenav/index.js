@@ -1,51 +1,41 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
+import { getStyle } from '../../style'
 import Mask from '../mask'
 import Item from './item'
 import Title from './title'
+import Paper from '../paper'
 import Separator from '../menu/separator'
-import defaultMaterial from '../defaultMaterial'
 
 const Sidenav = function Sidenav ({
-  className = '',
   isOpen = false,
   mini = false,
   onClose,
-  style = {},
-  material = defaultMaterial
+  style
 }, children = '') {
-  return mini ? (
-    <div
-      classNames={className ? ['paper', className] : 'paper'}
-      style={Object.assign({
-        position: 'absolute',
-        top: '64px',
-        left: '0',
-        bottom: '0',
-        width: '62px',
-        marginLeft: '-2px',
-        overflow: 'hidden'
-      }, style)}>
-      {h('span', children)}
-    </div>
-  ) : (
-    <div style={{ zIndex: '1000' }}>
-      <Mask onClick={onClose} isOpen={isOpen} material={material}/>
-      {isOpen ? (
-        <div
-          classNames={className ? ['sidenav', 'paper2', className] : ['sidenav', 'paper2']}
-          style={Object.assign({
-            zIndex: '1001',
-            position: 'fixed',
-            top: '0',
-            bottom: '0',
-            overflow: 'auto'
-          }, style, material.sidenav || defaultMaterial.sidenav)}>
-          {h('span', children)}
-        </div>
-      ) : <span/>}
-    </div>
-  )
+  const styles = getStyle('sidenav', style)
+
+  return mini ? Paper({
+    noPadding: true,
+    style: {
+      paper: styles.mini
+    }
+  }, children) : h('div', {
+    style: styles.container
+  }, [
+    Mask({
+      onClick: onClose,
+      isOpen
+    }),
+    ...(isOpen ? [
+      Paper({
+        noPadding: true,
+        elevation: 2,
+        style: {
+          paper: styles.sidenav
+        }
+      }, children)
+    ] : [])
+  ])
 }
 
 Sidenav.Item = Item

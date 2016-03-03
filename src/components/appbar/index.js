@@ -1,36 +1,28 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
+import { getStyle } from '../../style'
 import Button from './button'
 import Title from './title'
-import defaultMaterial from '../defaultMaterial'
+import Paper from '../paper'
 
 const Appbar = function Appbar ({
-  className = '',
   fixed = false,
-  style = {},
-  material = defaultMaterial
+  style
 }, children = '') {
-  const primaryColor = material.primaryColor || defaultMaterial.primaryColor
-  const primaryFontColor = material.primaryFontColor || defaultMaterial.primaryFontColor
+  const styles = getStyle('appbar.appbar', style)
 
-  return (
-    <div style={{ height: '64px' }}>
-      <div
-        classNames={`${className} paper1`}
-        style={Object.assign({
-          position: fixed ? 'fixed' : '',
-          width: '100%',
-          zIndex: '1',
-          height: '64px',
-          lineHeight: '32px',
-          padding: '16px 8px',
-          backgroundColor: primaryColor,
-          color: primaryFontColor
-        }, style)}>
-        {h('span', children)}
-      </div>
-    </div>
-  )
+  return h('div', {
+    style: styles.container
+  }, [
+    Paper({
+      noPadding: true,
+      elevation: 1,
+      style: {
+        paper: Object.assign({
+          position: fixed ? 'fixed' : ''
+        }, styles.appbar)
+      }
+    }, children)
+  ])
 }
 
 Appbar.Button = Button

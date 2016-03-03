@@ -20,20 +20,6 @@ export default Component({
   sidenavOpen,
   title
 }, signals }) => {
-  const material = {
-    primaryColor: '#FFC107',
-    primaryFontColor: 'rgba(0, 0, 0, 0.7)',
-    primaryFontColorDisabled: 'rgba(0, 0, 0, 0.45)',
-    primaryLightWaves: false,
-    secondaryColor: '#009688',
-    secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
-    secondaryFontColorDisabled: 'rgba(255, 255, 255, 0.6)',
-    secondaryLightWaves: true,
-    errorColor: '#C00',
-    successColor: '#090',
-    typographyColor: '#212121'
-  }
-
   if (previousPage !== currentPage) {
     previousPage = currentPage
     window.scrollTo(0, 0)
@@ -43,11 +29,10 @@ export default Component({
 
   return (
     <div>
-      <Sidenav isOpen={sidenavOpen} onClose={() => signals.sidenavClosed()} material={material}>
+      <Sidenav isOpen={sidenavOpen} onClose={() => signals.sidenavClosed()}>
         <Sidenav.Title
           showCloseButton
-          onClose={() => signals.sidenavClosed()}
-          material={material}>
+          onClose={() => signals.sidenavClosed()}>
           Material Components
         </Sidenav.Title>
         <div>
@@ -76,56 +61,50 @@ export default Component({
             { page: 'responsiveEvents', icon: 'devices', title: 'Responsive Events', signal: signals.responsiveEventsPageOpened }
           ].map((menu) => {
             return menu.separator ? (
-              <Sidenav.Separator material={material}/>
+              <Sidenav.Separator/>
             ) : (
               <Sidenav.Item
                 showIcon
                 icon={<Icon name={menu.icon}/>}
                 selected={menu.page === currentPage}
                 onClick={() => menu.signal()}
-                onClose={() => signals.sidenavClosed()}
-                material={material}>{menu.title}</Sidenav.Item>
+                onClose={() => signals.sidenavClosed()}>{menu.title}</Sidenav.Item>
             )
           })}
         </div>
       </Sidenav>
-      <Appbar fixed material={material}>
-        <Appbar.Button style={{ float: 'left' }} onClick={() => signals.sidenavOpened()} material={material}>
+      <Appbar>
+        <Appbar.Button style={{ float: 'left' }} onClick={() => signals.sidenavOpened()}>
           <Icon name='menu'/>
         </Appbar.Button>
-        <Appbar.Title material={material}>{title}</Appbar.Title>
+        <Appbar.Title>{title}</Appbar.Title>
         <div style={{ float: 'right' }}>
           <Appbar.Button
-            href='https://github.com/garth/snabbdom-material'
-            material={material}>
+            href='https://github.com/garth/snabbdom-material'>
             <Icon name='github'/>
           </Appbar.Button>
           <div style={{ display: 'inline-block' }}>
             <Menu rightAlign
               isOpen={showLocaleMenu}
               onClose={() => signals.localeMenuClosed()}
-              screenInfo={screenInfo}
-              material={material}>
+              screenInfo={screenInfo}>
               <Menu.Item
                 showIcon
                 onClick={() => signals.localeSelected({ locale: 'de' })}
                 onClose={() => signals.localeMenuClosed()}
-                selected={locale === 'de'}
-                material={material}>
+                selected={locale === 'de'}>
                 Deutsch
               </Menu.Item>
               <Menu.Item
                 showIcon
                 onClick={() => signals.localeSelected({ locale: 'en' })}
                 onClose={() => signals.localeMenuClosed()}
-                selected={locale === 'en'}
-                material={material}>
+                selected={locale === 'en'}>
                 English
               </Menu.Item>
             </Menu>
             <Appbar.Button
-              onClick={() => signals.localeMenuOpened()}
-              material={material}>
+              onClick={() => signals.localeMenuOpened()}>
               <Icon name='globe'/>
             </Appbar.Button>
           </div>
@@ -138,7 +117,7 @@ export default Component({
           maxWidth: '950px',
           margin: '0 auto'
         }}>
-        <RouteComponent material={material}/>
+        <RouteComponent/>
       </div>
     </div>
   )

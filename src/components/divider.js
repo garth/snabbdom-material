@@ -1,16 +1,12 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
+import h from 'snabbdom/h'
+import { getStyle } from '../style'
 
 export default function Divider ({
-  className = '',
-  style = {}
+  style
 }) {
-  return (
-    <hr
-      classNames={`${className} paper-divider`}
-      style={Object.assign({
-        border: '0',
-        height: '1px',
-        margin: '16px 0'
-      }, style)}/>
-  )
+  const styles = getStyle('divider', style)
+
+  return h('hr', {
+    style: styles.divider
+  })
 }

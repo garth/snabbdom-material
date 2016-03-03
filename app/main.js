@@ -1,6 +1,4 @@
 // load the css
-import '!style!css!normalize.css/normalize.css'
-import '!style!css!../lib/index.css'
 import '!style!css!./vendor/icomoon/style.css'
 
 // load signals

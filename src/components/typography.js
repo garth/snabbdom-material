@@ -1,10 +1,7 @@
-/* eslint-disable react/no-unknown-property */
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
-import defaultMaterial from './defaultMaterial'
+import { getStyle } from '../style'
 
 export default function Typography ({
-  className = '',
   display3 = false,
   display2 = false,
   display1 = false,
@@ -14,29 +11,39 @@ export default function Typography ({
   caption = false,
   primary = false,
   secondary = false,
-  style = {},
-  material = defaultMaterial
+  style
 }, children = '') {
+  const options = []
+  if (display3) {
+    options.push('typ.display3')
+  }
+  if (display2) {
+    options.push('typ.display2')
+  }
+  if (display1) {
+    options.push('typ.display1')
+  }
+  if (headline) {
+    options.push('typ.headline')
+  }
+  if (title) {
+    options.push('typ.title')
+  }
+  if (subheading) {
+    options.push('typ.subheading')
+  }
+  if (caption) {
+    options.push('typ.caption')
+  }
+  if (primary) {
+    options.push('typ.primary')
+  }
+  if (secondary) {
+    options.push('typ.secondary')
+  }
   return (
-    <div
-      classNames={className}
-      class={{
-        'text-display-3': display3,
-        'text-display-2': display2,
-        'text-display-1': display1,
-        'text-headline': headline,
-        'text-title': title,
-        'text-subheading': subheading,
-        'text-caption': caption
-      }}
-      style={Object.assign({
-        color: primary
-          ? material.primaryColor || defaultMaterial.primaryColor
-          : secondary
-            ? material.secondaryColor || defaultMaterial.secondaryColor
-            : material.typographyColor || defaultMaterial.typographyColor
-      }, style)}>
-      {h('span', children)}
-    </div>
+    h('div.typography', {
+      style: Object.assign({}, ...options.map((name) => getStyle(name, style)))
+    }, children)
   )
 }

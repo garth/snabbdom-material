@@ -1,66 +1,48 @@
-/* eslint-disable react/no-unknown-property */
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
+import { getStyle } from '../style'
 import Waves from './helpers/waves'
-import defaultMaterial from './defaultMaterial'
 
 export default function Button ({
-  className = '',
   flat = false,
   onClick,
   primary = false,
-  style: styleOverrides = {},
-  type = 'button',
-  material = defaultMaterial
+  secondary = false,
+  style,
+  type = 'button'
 }, children = '') {
-  const primaryFontColor = material.primaryFontColor || defaultMaterial.primaryFontColor
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
-  const secondaryFontColor = material.secondaryFontColor || defaultMaterial.secondaryFontColor
-  const disabled = !onClick && type !== 'submit'
+  const styles = getStyle('button', style)
+  const enabled = onClick || type === 'submit'
 
-  const style = {
-    fontSize: '16px',
-    lineHeight: '36px',
-    padding: '0 24px',
-    margin: '8px',
-    textAlign: 'center',
-    minWidth: '64px',
-    textTransform: 'uppercase',
-    cursor: !disabled ? 'pointer' : '',
-    backgroundColor: ''
+  const key = flat ? 'flat' : 'raised'
+  const allStyles = [
+    styles.button,
+    enabled ? styles[key].enabled : styles[key].disabled
+  ]
+  if (enabled && primary) {
+    allStyles.push(styles[key].primary)
+  } else if (enabled && secondary) {
+    allStyles.push(styles[key].secondary)
   }
 
-  if (disabled) {
-    if (flat) {
-      style.color = 'rgba(0, 0, 0, 0.35)'
-    } else {
-      style.color = 'rgba(0, 0, 0, 0.35)'
-      style.backgroundColor = 'rgba(0, 0, 0, 0.12)'
+  return h('button.waves-button', {
+    hook: {
+      insert: (vnode) => Waves.attach(vnode.elm)
+    },
+    on: {
+      click: (e) => onClick ? onClick(e) : null
+    },
+    style: Object.assign({}, ...allStyles),
+    class: {
+      'waves-float': !flat && enabled,
+      'waves-light': !flat && (
+        (!primary && !secondary && styles.lightWaves) ||
+        (primary && styles.primaryLightWaves) ||
+        (secondary && styles.secondaryLightWaves)
+      )
+    },
+    props: {
+      type,
+      disabled: !enabled
     }
-  } else if (primary) {
-    if (flat) {
-      style.color = secondaryColor
-    } else {
-      style.color = secondaryFontColor
-      style.backgroundColor = secondaryColor
-    }
-  } else {
-    style.color = primaryFontColor
-  }
-
-  return (
-    <button
-      hook-insert={(vnode) => Waves.attach(vnode.elm)}
-      type={type}
-      on-click={(e) => onClick ? onClick(e) : null}
-      style={Object.assign(style, styleOverrides)}
-      classNames={`${className} waves-button`}
-      class={{
-        'waves-float': !flat && onClick,
-        'waves-light': primary && !flat
-      }}
-      disabled={disabled}>
-      {h('span', children)}
-    </button>
-  )
+  }, children)
 }

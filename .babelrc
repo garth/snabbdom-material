@@ -3,6 +3,17 @@
     "es2015"
   ],
   "plugins": [
-    [ "transform-react-jsx", { "pragma": "html" } ]
+    [
+      "transform-react-jsx",
+      {
+        "pragma": "html"
+      }
+    ], [
+      "babel-plugin-webpack-loaders",
+      {
+        "config": "./webpack.build.config.js",
+        "verbose": false
+      }
+    ]
   ]
 }

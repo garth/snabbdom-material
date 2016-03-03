@@ -1,23 +1,20 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
-import defaultMaterial from './defaultMaterial'
+import { getStyle } from '../style'
 import Waves from './helpers/waves'
 
 export default function Checkbox ({
-  className = '',
   label = '',
   onChange,
   readOnly = false,
-  style = {},
-  value = false,
-  material = defaultMaterial
+  style,
+  value = false
 }) {
-  const secondaryColor = material.secondaryColor || defaultMaterial.secondaryColor
+  const styles = getStyle('checkbox', style)
 
   const icon = value ? (
     h('svg', {
       attrs: {
-        fill: secondaryColor,
+        fill: styles.iconSelected.color,
         height: 24,
         viewBox: '0 0 24 24',
         width: 24
@@ -29,7 +26,7 @@ export default function Checkbox ({
   ) : (
     h('svg', {
       attrs: {
-        fill: 'rgba(0, 0, 0, 0.54)',
+        fill: styles.icon.color,
         height: 24,
         viewBox: '0 0 24 24',
         width: 24
@@ -40,37 +37,31 @@ export default function Checkbox ({
     ])
   )
 
-  return (
-    <label
-      classNames={className}
-      style={Object.assign({
-        display: 'inline-block',
-        cursor: 'pointer',
-        margin: '14px 0',
-        fontSize: '18px'
-      }, style)}>
-      <input
-        style={{ display: 'none' }}
-        type='checkbox'
-        value='on'
-        on-change={(e) => onChange({ target: { value: e.target.checked } })}
-        readOnly={readOnly}
-        checked={!!value}/>
-      <div
-        hook-insert={(vnode) => Waves.attach(vnode.elm)}
-        classNames='waves-circle'
-        style={{
-          position: 'relative',
-          top: '3px',
-          display: 'inline-block',
-          margin: '-14px -4px -14px -14px',
-          paddingTop: '7px',
-          width: '48px',
-          height: '48px'
-        }}>
-        {icon}
-      </div>
-      {label}
-    </label>
-  )
+  return h('label', {
+    style: styles.label
+  }, [
+    h('input', {
+      style: {
+        display: 'none'
+      },
+      on: {
+        change: (e) => onChange({ target: { value: e.target.checked } })
+      },
+      props: {
+        type: 'checkbox',
+        readOnly,
+        checked: !!value
+      }
+    }),
+    h('div.waves-circle', {
+      hook: {
+        insert: (vnode) => Waves.attach(vnode.elm)
+      },
+      class: {
+        'waves-light': styles.lightWaves
+      },
+      style: Object.assign({}, styles.icon, value ? styles.iconSelected : {})
+    }, [ icon ]),
+    label
+  ])
 }

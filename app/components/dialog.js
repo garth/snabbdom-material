@@ -7,9 +7,6 @@ export default Component({
   dialog: ['demos', 'dialog'],
   screenInfo: ['screen']
 }, ({
-  props: {
-    material
-  },
   state: {
     dialog,
     screenInfo
@@ -17,12 +14,11 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { Dialog } from 'snabbdom-material';"/>
+    <Example code="import { Dialog } from 'snabbdom-material'"/>
     <Button
       style={{ margin: '24px 0' }}
       primary
-      onClick={() => signals.dialogOpened()}
-      material={material}>
+      onClick={() => signals.dialogOpened()}>
       Show Dialog
     </Button>
     <Example code={`${
@@ -36,7 +32,6 @@ export default Component({
     N}    <Dialog.Button onClick={onCancel} flat>Deny</Dialog.Button>${
     N}    <Dialog.Button onClick={onOk} flat primary>Confirm</Dialog.Button>${
     N}  </span>}${
-    N}  material={material}>${
     N}</Dialog>
     `}/>
     <Dialog
@@ -48,8 +43,7 @@ export default Component({
       footer={<span>
         <Dialog.Button onClick={() => signals.dialogClosed()} flat>Deny</Dialog.Button>
         <Dialog.Button onClick={() => signals.dialogClosed()} flat primary>Confirm</Dialog.Button>
-      </span>}
-      material={material}>
+      </span>}>
       the details of allogation
     </Dialog>
   </div>

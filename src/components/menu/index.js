@@ -1,19 +1,23 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
+import { getStyle } from '../../style'
 import Mask from '../mask'
+import Paper from '../paper'
 import Item from './item'
 import Separator from './separator'
 import getScreenSize from '../../helpers/screenSize'
-import defaultMaterial from '../defaultMaterial'
 
-const inserted = function (vnode) {
+const insert = (styles) => (vnode) => {
   const { height: screenHeight } = getScreenSize()
   const { top, bottom } = vnode.elm.getBoundingClientRect()
   const originalHeight = bottom - top
-  const minHeight = (32 * 8) + 20
+  const minHeight = (styles.menuItemHeight * 8) + (styles.menuTopPadding * 2)
 
-  let offsetTop = top < 6 ? Math.ceil((top - 16) / -32) * 32 : 0
-  const offsetBottom = bottom > screenHeight - 6 ? Math.ceil((bottom - screenHeight + 16) / 32) * 32 : 0
+  let offsetTop = top < 6
+    ? Math.ceil((top - 16) / (styles.menuItemHeight * -1)) * styles.menuItemHeight
+    : 0
+  const offsetBottom = bottom > screenHeight - 6
+    ? Math.ceil((bottom - screenHeight + 16) / styles.menuItemHeight) * styles.menuItemHeight
+    : 0
   let height = bottom - top - offsetTop - offsetBottom
   if (height < minHeight) {
     height = minHeight > originalHeight ? originalHeight : minHeight
@@ -27,47 +31,38 @@ const inserted = function (vnode) {
 }
 
 const Menu = function Menu ({
-  className = '',
   isOpen = false,
-  onClose,
+  onClose: onClick,
   rightAlign = false,
   screenInfo,
-  style = {},
-  material = defaultMaterial
+  style
 }, children = '') {
-  const menuStyle = {
-    zIndex: '1001',
-    padding: '10px 0',
-    backgroundColor: '#fff',
-    color: '#000',
-    position: 'absolute',
-    overflowY: 'auto',
-    scrollbar: 'width: 4px',
-    top: '-8px'
-  }
-  if (rightAlign) {
-    menuStyle.right = '0'
-  }
+  const styles = getStyle('menu', style)
+  const menuStyle = rightAlign ? {
+    right: '0'
+  } : {}
 
-  return (
-    <div
-      style={{
-        zIndex: '1000',
-        position: 'relative',
-        height: '0',
-        overflow: 'visible'
-      }}>
-      <Mask dark={false} isOpen={isOpen} onClick={onClose} material={material}/>
-      {
-        isOpen
-          ? h(`div.${(className + ' paper1').trim().replace(/ /g, '.')}`, {
-            hook: { insert: inserted },
-            style: Object.assign(menuStyle, style, material.fadeInOut || defaultMaterial.fadeInOut)
-          }, children)
-          : ''
-      }
-    </div>
-  )
+  return h('div', {
+    style: styles.container
+  }, [
+    Mask({
+      dark: false,
+      isOpen,
+      onClick
+    }),
+    ...(isOpen ? [
+      Paper({
+        noPadding: true,
+        elevation: 1,
+        hook: {
+          insert: insert(styles)
+        },
+        style: {
+          paper: Object.assign(menuStyle, styles.menu)
+        }
+      }, children)
+    ] : [])
+  ])
 }
 
 Menu.Item = Item

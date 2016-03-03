@@ -1,21 +1,15 @@
 import h from 'snabbdom/h'
+import { getStyle } from '../../style'
 import Toolbar from './toolbar'
 import Row from './row'
 
 const Table = function Table ({
-  className = '',
-  style = {}
+  style
 }, children = '') {
-  const classNames = {}
-  if (className) {
-    classNames[className] = true
-  }
+  const styles = getStyle('table', style)
 
-  return h('table.m-c', {
-    style: Object.assign({
-      width: '100%'
-    }, style),
-    class: classNames
+  return h('table.material-table', {
+    style: styles.table
   }, children)
 }
 

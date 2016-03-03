@@ -1,5 +1,4 @@
-/** @jsx html */
-import { html } from 'snabbdom-jsx'
+import h from 'snabbdom/h'
 import '!style!css!../vendor/prism.css'
 import '../vendor/prism'
 
@@ -9,10 +8,12 @@ function render (element, code) {
 }
 
 export default ({ code = '' }) => (
-  <pre>
-    <code
-      hook-insert={(vnode) => render(vnode.elm, code)}
-      hook-postpatch={(oldvnode, vnode) => render(vnode.elm, code)}
-      classNames='language-jsx'/>
-  </pre>
+  h('pre', {}, [
+    h('code.language-jsx', {
+      hook: {
+        insert: (vnode) => render(vnode.elm, code),
+        postpatch: (oldvnode, vnode) => render(vnode.elm, code)
+      }
+    })
+  ])
 )

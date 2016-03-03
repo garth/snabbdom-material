@@ -1,23 +1,23 @@
-import { html } from 'snabbdom-jsx' // eslint-disable-line
 import h from 'snabbdom/h'
+import { getStyle } from '../style'
 
 export default function Form ({
-  className = '',
   onSubmit,
-  style = {}
+  style
 }, children = '') {
-  return (
-    <form
-      style={style}
-      classNames={className}
-      on-submit={(e) => {
+  const styles = getStyle('form', style)
+  return h('form', {
+    style: styles,
+    on: {
+      submit: (e) => {
         e.preventDefault()
         if (typeof onSubmit === 'function') {
           onSubmit(e)
         }
-      }}
-      noValidate>
-      {h('span', children)}
-    </form>
-  )
+      }
+    },
+    props: {
+      noValidate: true
+    }
+  }, children)
 }

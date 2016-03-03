@@ -3,25 +3,9 @@ import { Typ } from '../../lib'
 import Example from './example'
 const N = '\n'
 
-export default Component(({
-  props: {
-    material
-  }
-}) => (
+export default Component(() => (
   <div>
-    <Typ headline material={material}>Import Require CSS</Typ>
-    <p>
-      snabbdom-material depends on normalize.css, also some styles and transitions are defined in css and
-      must be included in your project. With webpack simply use the <code>css-loader</code> plugin and
-      include the following line in your main.js:
-    </p>
-
-    <Example code={`${
-    N}import '!style!css!normalize.css/normalize.css';${
-    N}import '!style!css!snabbdom-material/lib/index.css';
-    `}/>
-
-    <Typ headline material={material}>Screen Info</Typ>
+    <Typ headline>Screen Info</Typ>
     <p>
       Many components require a <code>screenInfo</code> object to be passed in via props.
       A <code>getScreenInfo()</code> helper has been provided that will get the required object. However
@@ -30,22 +14,35 @@ export default Component(({
       device is rotated).
     </p>
     <Example code={`${
-    N}import { getScreenInfo } from 'snabbdom-material';${
-    N}const screenInfo = getScreenInfo();
+    N}import { getScreenInfo } from 'snabbdom-material'${
+    N}const screenInfo = getScreenInfo()
     `}/>
 
-    <Typ headline material={material}>Custom Styling</Typ>
+    <Typ headline>Custom Styling</Typ>
     <p>
-      All snabbdom-material components accept a <code>material</code> prop which can be used to cutomise
-      the style of the components. Below you can see the default style, which you can copy and modify to
-      customise the look of your components. For color choices please
-      see <a href='https://www.google.com/design/spec/style/color.html#color-color-palette'>
-        https://www.google.com/design/spec/style/color.html#color-color-palette
-      </a>.
+      All snabbdom-material components accept a <code>style</code> prop which can be used to cutomise
+      the style of individual components.
+    </p>
+    <p>
+      To change the global styles add the following to your app init logic:
     </p>
 
     <Example code={`${
-    N}const material = {${
+    N}import { style } from 'snabbdom-material'${
+    N}${
+    N}// optionally modify the style.variables here${
+    N}${
+    N}style.init(style.variables, {${
+    N}${
+    N}  // optionally set style overrides here${
+    N}${
+    N}})
+    `}/>
+
+    <Typ headline>Default Variables</Typ>
+
+    <Example code={`${
+    N}const variables = {${
     N}  primaryColor: '#FFC107',${
     N}  primaryFontColor: 'rgba(0, 0, 0, 0.7)',${
     N}  primaryFontColorDisabled: 'rgba(0, 0, 0, 0.45)',${
@@ -54,33 +51,96 @@ export default Component(({
     N}  secondaryFontColor: 'rgba(255, 255, 255, 0.9)',${
     N}  secondaryFontColorDisabled: 'rgba(255, 255, 255, 0.6)',${
     N}  secondaryLightWaves: true,${
+    N}  disabledFontColor: 'rgba(0, 0, 0, 0.35)',${
+    N}  labelColor: '#AAA',${
     N}  errorColor: '#C00',${
     N}  successColor: '#090',${
     N}  typographyColor: '#212121',${
+    N}  transitionTime: '.3s'${
+    N}}${
     N}${
-    N}  sidenav: {${
-    N}    width: '280px',${
-    N}    left: '-290px',${
-    N}    transition: 'left .3s ease-out',${
-    N}    delayed: {${
-    N}      left: '0'${
-    N}    },${
-    N}    remove: {${
-    N}      left: '-290px'${
-    N}    }${
-    N}  },${
+    N}export default Object.assign({${
+    N}  // appbar${
+    N}  appbarHeight: 64,${
+    N}  appbarBackgroundColor: variables.primaryColor,${
+    N}  appbarFontColor: variables.primaryFontColor,${
+    N}  appbarButtonLightWaves: variables.primaryLightWaves,${
+    N}  appbarButtonFontColor: variables.primaryFontColor,${
+    N}  appbarButtonFontColorDisabled: variables.primaryFontColorDisabled,${
     N}${
-    N}  fadeInOut: {${
-    N}    opacity: '0',${
-    N}    transition: 'opacity .3s',${
-    N}    delayed: {${
-    N}      opacity: '1'${
-    N}    },${
-    N}    remove: {${
-    N}      opacity: '0'${
-    N}    }${
-    N}  }${
-    N}};
+    N}  // button${
+    N}  buttonLightWaves: variables.primaryLightWaves,${
+    N}  buttonPrimaryLightWaves: variables.primaryLightWaves,${
+    N}  buttonSecondarylightWaves: variables.secondaryLightWaves,${
+    N}  buttonFontColor: variables.primaryFontColor,${
+    N}  buttonPrimaryFontColor: variables.primaryFontColor,${
+    N}  buttonSecondaryFontColor: variables.secondaryFontColor,${
+    N}  buttonDisabledFontColor: variables.disabledFontColor,${
+    N}  buttonFlatPrimaryFontColor: variables.primaryColor,${
+    N}  buttonFlatSecondaryFontColor: variables.secondaryColor,${
+    N}  buttonFlatDisabledFontColor: variables.disabledFontColor,${
+    N}  buttonBackgroundColor: 'transparent',${
+    N}  buttonPrimaryBackgroundColor: variables.primaryColor,${
+    N}  buttonSecondaryBackgroundColor: variables.secondaryColor,${
+    N}  buttonDisabledBackgroundColor: 'rgba(0, 0, 0, 0.12)',${
+    N}${
+    N}  // calendar${
+    N}  calendarLightWaves: variables.primaryLightWaves,${
+    N}  calendarSelectedDayFontColor: variables.secondaryFontColor,${
+    N}  calendarSelectedDayBackgroundColor: variables.secondaryColor,${
+    N}  calendarTodayFontColor: variables.secondaryColor,${
+    N}  calendarNavIconColor: variables.typographyColor,${
+    N}  calendarTitleFontColor: '#3e3e3e',${
+    N}  calendarHeadingFontColor: '#9e9e9e',${
+    N}${
+    N}  // checkbox${
+    N}  checkboxLightWaves: false,${
+    N}  checkboxIconColor: 'rgba(0, 0, 0, 0.54)',${
+    N}  checkboxIconSelectedColor: variables.secondaryColor,${
+    N}${
+    N}  // datepicker${
+    N}  datepickerTitleBackgroundColor: variables.secondaryColor,${
+    N}  datepickerTitleColor: variables.secondaryFontColor,${
+    N}${
+    N}  // input${
+    N}  inputBackgroundColor: 'transparent',${
+    N}  inputLabelColor: variables.labelColor,${
+    N}  inputLabelFocusedColor: variables.secondaryColor,${
+    N}  inputErrorColor: variables.errorColor,${
+    N}  inputSuccessColor: variables.successColor,${
+    N}${
+    N}  // mask${
+    N}  maskBackgroundColor: 'rgba(0, 0, 0, 0.15)',${
+    N}${
+    N}  // menu${
+    N}  menuTopOffset: 10,${
+    N}  menuTopPadding: 10,${
+    N}  menuItemHeight: 32,${
+    N}  menuBackgroundColor: '#fff',${
+    N}  menuFontColor: variables.typographyColor,${
+    N}${
+    N}  // paper${
+    N}  paperBackgroundColor: '#fdfdfd',${
+    N}${
+    N}  // select${
+    N}  selectSelectedItemBackgroundColor: '#dcdcdc',${
+    N}  selectDropDownIconColor: variables.labelColor,${
+    N}${
+    N}  // sidenav${
+    N}  sidenavWidth: 280,${
+    N}  sidenavCloseLightWaves: false,${
+    N}  sidenavCloseIconColor: variables.typographyColor,${
+    N}  sidenavItemColor: variables.typographyColor,${
+    N}  sidenavItemSelectedColor: variables.primaryColor,${
+    N}${
+    N}  // typography${
+    N}  spinnerPrimaryColor: variables.primaryColor,${
+    N}  spinnerSecodaryColor: variables.secondaryColor,${
+    N}${
+    N}  // typography${
+    N}  typographyPrimaryColor: variables.primaryColor,${
+    N}  typographySecodaryColor: variables.secondaryColor${
+    N}}, variables)
     `}/>
 
   </div>

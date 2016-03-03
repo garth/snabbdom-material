@@ -8,9 +8,6 @@ export default Component({
   datePicker: ['demos', 'datePicker'],
   screenInfo: ['screen']
 }, ({
-  props: {
-    material
-  },
   state: {
     locale,
     datePicker,
@@ -19,11 +16,10 @@ export default Component({
   signals
 }) => (
   <div>
-    <Example code="import { DatePicker } from 'snabbdom-material';"/>
+    <Example code="import { DatePicker } from 'snabbdom-material'"/>
     <Button
       primary
-      onClick={() => signals.datePickerOpened({ value: datePicker.pickedDate })}
-      material={material}>
+      onClick={() => signals.datePickerOpened({ value: datePicker.pickedDate })}>
       Pick Date
     </Button>
     Picked Date: {datePicker.pickedDate ? datePicker.pickedDate.toDateString() : 'none'}
@@ -38,8 +34,7 @@ export default Component({
     N}  onChange={onChange}${
     N}  onNavigate={onNavigate}${
     N}  onOk={onOk}${
-    N}  onCancel={onCancel}${
-    N}  material={material}/>
+    N}  onCancel={onCancel}/>
     `}/>
     <p>
       The locale will default to <code>en</code>, to use any other locale you must ensure that you have
@@ -56,7 +51,6 @@ export default Component({
       onChange={(e) => signals.datePickerChanged({ value: e.target.value })}
       onNavigate={(e) => signals.datePickerNavigate({ value: e.target.value })}
       onOk={(e) => signals.datePickerSelected({ value: e.target.value })}
-      onCancel={() => signals.datePickerCanceled()}
-      material={material}/>
+      onCancel={() => signals.datePickerCanceled()}/>
   </div>
 ))

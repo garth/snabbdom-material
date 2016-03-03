@@ -1,4 +1,5 @@
 import { Component } from 'cerebral-view-snabbdom'
+import { Paper } from '../../lib'
 import Example from './example'
 const N = '\n'
 
@@ -10,7 +11,7 @@ export default Component({
   }
 }) => (
   <div>
-    <Example code="import { events } from 'snabbdom-material';"/>
+    <Example code="import { events } from 'snabbdom-material'"/>
     <p>
       Responsive Events are emitted whenever the screen type or orientation changes. This can be used to
       modify the UI to suite the device. Unlike CSS media queries which change the style of always present
@@ -29,8 +30,8 @@ export default Component({
     N}// example cerebral setup${
     N}controller.signal('screenChanged', [${
     N}  inputToState(['screenInfo'], ['screenInfo'])${
-    N}]);${
-    N}events.responsive.addListener(screenInfo => controller.signals.screenInfoChanged({ screenInfo }));
+    N}])${
+    N}events.responsive.addListener(screenInfo => controller.signals.screenInfoChanged({ screenInfo }))
     `}/>
     <p>
       Event listeners receive a screen object which looks like:
@@ -49,10 +50,10 @@ export default Component({
       the same as <code>type</code> (<code>xs=1, sm=2, md=3, lg=4</code>), but allows you to
       filter by range (<code>if (screen.size > 2) {}</code>).
     </p>
-    <div classNames={`paper${screen.size} padded`}>
+    <Paper elevation={screen.size}>
       As the screen gets larger this paper will rise.<br/>
       The screen is {screen.type}.
-    </div>
+    </Paper>
     <p>
       The event is only triggered when these values change and not on every window resize event, so updating
       the UI every time this event is triggered should be ok.

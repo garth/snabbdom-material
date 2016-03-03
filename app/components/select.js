@@ -7,9 +7,6 @@ export default Component({
   screenInfo: ['screen'],
   select: ['demos', 'select']
 }, ({
-  props: {
-    material
-  },
   state: {
     screenInfo,
     select
@@ -25,7 +22,7 @@ export default Component({
 
   return (
     <div>
-      <Example code="import { Select } from 'snabbdom-material';"/>
+      <Example code="import { Select } from 'snabbdom-material'"/>
       <div style={{ margin: '16px 0' }}>
         <Row>
           <Col type='md-4'>
@@ -37,8 +34,7 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectOpened()}
               onChange={(e) => signals.selectChanged({ value: e.target })}
-              onClose={() => signals.selectClosed()}
-              material={material}/>
+              onClose={() => signals.selectClosed()}/>
           </Col>
           <Col type='md-4'>
             <Select
@@ -50,8 +46,7 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectSuccessOpened()}
               onChange={(e) => signals.selectChanged({ value: e.target })}
-              onClose={() => signals.selectSuccessClosed()}
-              material={material}/>
+              onClose={() => signals.selectSuccessClosed()}/>
           </Col>
           <Col type='md-4'>
             <Select
@@ -64,8 +59,7 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectErrorOpened()}
               onChange={(e) => signals.selectChanged({ value: e.target })}
-              onClose={() => signals.selectErrorClosed()}
-              material={material}/>
+              onClose={() => signals.selectErrorClosed()}/>
           </Col>
         </Row>
         <Row>
@@ -84,8 +78,7 @@ export default Component({
               screenInfo={screenInfo}
               onOpen={() => signals.selectLargeOpened()}
               onChange={(e) => signals.selectLargeChanged({ value: e.target.value })}
-              onClose={() => signals.selectLargeClosed()}
-              material={material}/>
+              onClose={() => signals.selectLargeClosed()}/>
           </Col>
         </Row>
       </div>
@@ -94,7 +87,7 @@ export default Component({
       N}  { value: 0, label: 'Option 1' },${
       N}  { value: 1, label: 'Option 2' },${
       N}  { value: 2, label: 'Option 3' }${
-      N}];${
+      N}]${
       N}${
       N}<Select${
       N}  label="option"${
@@ -104,8 +97,7 @@ export default Component({
       N}  screenInfo={screenInfo}${
       N}  onOpen={setOpenState}${
       N}  onChange={optionSelected}${
-      N}  onClose={setClosedState}${
-      N}  material={material}/>${
+      N}  onClose={setClosedState}/>${
       N}${
       N}<Select${
       N}  label="Success option"${
@@ -116,8 +108,7 @@ export default Component({
       N}  screenInfo={screenInfo}${
       N}  onOpen={setOpenState}${
       N}  onChange={optionSelected}${
-      N}  onClose={setClosedState}${
-      N}  material={material}/>${
+      N}  onClose={setClosedState}/>${
       N}${
       N}// note that this version uses value instead of a selected object${
       N}<Select${
@@ -130,8 +121,7 @@ export default Component({
       N}  screenInfo={screenInfo}${
       N}  onOpen={setOpenState}${
       N}  onChange={optionSelected}${
-      N}  onClose={setClosedState}${
-      N}  material={material}/>
+      N}  onClose={setClosedState}/>
       `}/>
     </div>
   )
