@@ -20,8 +20,14 @@ export default function Button ({
   ]
   if (enabled && primary) {
     allStyles.push(styles[key].primary)
+    if (style && style.button) {
+      allStyles.push(style.button)
+    }
   } else if (enabled && secondary) {
     allStyles.push(styles[key].secondary)
+    if (style && style.button) {
+      allStyles.push(style.button)
+    }
   }
 
   return h('button.waves-button', {
