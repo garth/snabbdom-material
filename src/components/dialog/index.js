@@ -50,7 +50,7 @@ const Dialog = function ({
   if (title) {
     titleContainer = h('div', {
       style: Object.assign({}, styles.titleContainer, children ? {} : styles.titleContainerNoContent)
-    }, title)
+    }, typeof title === 'string' ? title : [ title ])
     maxContentHeight -= 49
   } else {
     titleContainer = h('span')
