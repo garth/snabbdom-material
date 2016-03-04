@@ -37,12 +37,12 @@ export default (variables) => {
     },
     calendarPortrait: {
       container: {
-        margin: '104px 24px 0'
+        padding: '104px 24px 0'
       }
     },
     calendarLandscape: {
       container: {
-        margin: '8px 24px 0 192px'
+        padding: '8px 24px 0 192px'
       }
     }
   }

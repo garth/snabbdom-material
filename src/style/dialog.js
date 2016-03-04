@@ -23,7 +23,6 @@ export default (variables) => {
     },
     bodyContainer: {
       // overflow: 'auto',
-      display: 'inline-flex',
       margin: '0 -24px',
       padding: '0 24px'
     },

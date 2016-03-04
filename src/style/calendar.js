@@ -3,8 +3,7 @@ export default (variables) => {
     lightWaves: variables.calendarLightWaves,
     container: {
       lineHeight: '30px',
-      fontSize: '12px',
-      width: '280px'
+      fontSize: '12px'
     },
     dayContainer: {
       display: 'inline-block',

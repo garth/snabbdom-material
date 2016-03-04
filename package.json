@@ -1,6 +1,6 @@
 {
   "name": "snabbdom-material",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Stateless UI components for snabbdom that follow material design",
   "main": "lib/index.js",
   "files": [
@@ -16,9 +16,6 @@
     "prepublish": "npm run build"
   },
   "standard": {
-    "global": [
-      "React"
-    ],
     "ignore": [
       "/app/vendor/"
     ]

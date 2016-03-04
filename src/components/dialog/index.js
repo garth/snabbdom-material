@@ -46,14 +46,16 @@ const Dialog = function ({
     footerContainer = h('span')
   }
 
-  let titleContainer = null
+  let titleContainer
   if (title) {
-    titleContainer = h('div', {
-      style: Object.assign({}, styles.titleContainer, children ? {} : styles.titleContainerNoContent)
-    }, typeof title === 'string' ? title : [ title ])
+    titleContainer = [
+      h('div', {
+        style: Object.assign({}, styles.titleContainer, children ? {} : styles.titleContainerNoContent)
+      }, typeof title === 'string' ? title : [ title ])
+    ]
     maxContentHeight -= 49
   } else {
-    titleContainer = h('span')
+    titleContainer = []
   }
 
   return h('div', {
@@ -76,7 +78,7 @@ const Dialog = function ({
         h('div', {
           style: { padding: noPadding ? '0' : '24px' }
         }, [
-          titleContainer,
+          ...titleContainer,
           h('div', {
             style: Object.assign({
               maxHeight: `${maxContentHeight}px`
