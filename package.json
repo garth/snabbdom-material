@@ -73,6 +73,7 @@
     "cerebral": "^0.33.27",
     "cerebral-addons": "^0.5.2",
     "cerebral-model-baobab": "^0.4.7",
+    "cerebral-module-devtools": "^0.5.4",
     "cerebral-module-router": "^0.13.1",
     "cerebral-view-snabbdom": "^0.4.2",
     "chai": "^3.5.0",
