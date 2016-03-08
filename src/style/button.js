@@ -2,7 +2,7 @@ export default (variables) => {
   return {
     lightWaves: variables.buttonLightWaves,
     primaryLightWaves: variables.buttonPrimaryLightWaves,
-    secondarylightWaves: variables.buttonSecondarylightWaves,
+    secondaryLightWaves: variables.buttonSecondaryLightWaves,
     button: {
       fontSize: '16px',
       lineHeight: '36px',

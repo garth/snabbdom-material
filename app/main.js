@@ -1,6 +1,15 @@
 // load the css
 import '!style!css!./vendor/icomoon/style.css'
 
+// load the controller
+import controller from './controller'
+
+// load the dev tools
+import devtools from 'cerebral-module-devtools'
+controller.addModules({
+  devtools: devtools()
+})
+
 // load signals
 import './signals/calendar'
 import './signals/checkbox'
@@ -16,7 +25,6 @@ import './signals/sidenav'
 import './signals/spinner'
 
 // hookup the screen event to the signal
-import controller from './controller'
 import responsive from '../lib/events/responsive'
 const screenChanged = controller.getSignals().screenChanged
 responsive.addListener(screen => screenChanged({ screen }))

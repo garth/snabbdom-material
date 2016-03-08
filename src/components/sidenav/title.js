@@ -31,6 +31,6 @@ export default function SidenavTitle ({
         ])
       ])
     ] : []),
-    ...children
+    ...(Array.isArray(children) ? children : [ children ])
   ])
 }

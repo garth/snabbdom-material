@@ -28,10 +28,10 @@ export const getComponentVariables = (customBaseVariable) => {
     appbarButtonFontColorDisabled: variables.primaryFontColorDisabled,
 
     // button
-    buttonLightWaves: variables.primaryLightWaves,
+    buttonLightWaves: false,
     buttonPrimaryLightWaves: variables.primaryLightWaves,
-    buttonSecondarylightWaves: variables.secondaryLightWaves,
-    buttonFontColor: variables.primaryFontColor,
+    buttonSecondaryLightWaves: variables.secondaryLightWaves,
+    buttonFontColor: variables.typographyColor,
     buttonPrimaryFontColor: variables.primaryFontColor,
     buttonSecondaryFontColor: variables.secondaryFontColor,
     buttonDisabledFontColor: variables.disabledFontColor,
